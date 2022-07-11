@@ -1,18 +1,127 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
+using Controllers;
+using Data.UnityObject;
+using Data.ValueObject;
+using Keys;
+using Signals;
 using UnityEngine;
 
-public class PlayerManager : MonoBehaviour
+namespace Managers
 {
-    // Start is called before the first frame update
-    void Start()
+    public class PlayerManager : MonoBehaviour
     {
-        
-    }
+        #region Self Variables
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        #region Public Variables
+
+        [Header("Data")] public PlayerData Data;
+
+        #endregion
+
+        #region Serialized Variables
+
+        [Space][SerializeField] private PlayerMovementController movementController;
+
+        #endregion
+
+        #endregion
+
+
+        private void Awake()
+        {
+            Data = GetPlayerData();
+            SendPlayerDataToControllers();
+        }
+
+
+
+        private PlayerData GetPlayerData() => Resources.Load<CD_Player>("Data/CD_Player").Data;
+
+        private void SendPlayerDataToControllers()
+        {
+            movementController.SetMovementData(Data.MovementData);
+        }
+
+        #region Event Subscription
+
+        private void OnEnable()
+        {
+            SubscribeEvents();
+        }
+
+        private void SubscribeEvents()
+        {
+            InputSignals.Instance.onInputTaken += OnActivateMovement;
+            InputSignals.Instance.onInputReleased += OnDeactiveMovement;
+            InputSignals.Instance.onInputDragged += OnGetInputValues;
+            CoreGameSignals.Instance.onPlay += OnPlay;
+            CoreGameSignals.Instance.onReset += OnReset;
+            CoreGameSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
+            CoreGameSignals.Instance.onLevelFailed += OnLevelFailed;
+        }
+
+        private void UnsubscribeEvents()
+        {
+            InputSignals.Instance.onInputTaken -= OnActivateMovement;
+            InputSignals.Instance.onInputReleased -= OnDeactiveMovement;
+            InputSignals.Instance.onInputDragged -= OnGetInputValues;
+            CoreGameSignals.Instance.onPlay -= OnPlay;
+            CoreGameSignals.Instance.onReset -= OnReset;
+            CoreGameSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
+            CoreGameSignals.Instance.onLevelFailed -= OnLevelFailed;
+        }
+
+        private void OnDisable()
+        {
+            UnsubscribeEvents();
+        }
+
+        #endregion
+
+        #region Movement Controller
+
+        private void OnActivateMovement()
+        {
+            movementController.EnableMovement();
+        }
+
+        private void OnDeactiveMovement()
+        {
+            movementController.DeactiveMovement();
+        }
+
+        private void OnGetInputValues(HorizontalInputParams inputParams)
+        {
+            movementController.UpdateInputValue(inputParams);
+        }
+
+        #endregion
+
+        private void OnObstacleCollision()
+        {
+            
+        }
+
+        private void OnPlay()
+        {
+            movementController.IsReadyToPlay(true);
+        }
+
+        private void OnLevelSuccessful()
+        {
+            movementController.IsReadyToPlay(false);
+        }
+
+        private void OnLevelFailed()
+        {
+            movementController.IsReadyToPlay(false);
+        }
+
+
+
+        private void OnReset()
+        {
+            movementController.OnReset();
+        }
     }
 }

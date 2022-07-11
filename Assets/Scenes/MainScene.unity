@@ -445,7 +445,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c024c61ac247cbaf8c5017a0eafcdc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panels: []
+  panels:
+  - {fileID: 5412494675964948559}
+  - {fileID: 5412494676407455368}
+  - {fileID: 5412494676938857459}
+  - {fileID: 5412494676070982481}
+  - {fileID: 5412494675624903206}
 --- !u!114 &954736987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,8 +463,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 808b7ad34880478aa443be6bb1a69815, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  levelTextLeft: {fileID: 0}
-  levelTextRight: {fileID: 0}
+  levelTextLeft: {fileID: 5412494677275820154}
+  levelTextRight: {fileID: 5412494676316948026}
   stageImages: []
 --- !u!114 &954736988
 MonoBehaviour:
@@ -473,8 +478,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b75f8facb24205a6e066952a13d877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiPanelController: {fileID: 0}
-  levelPanelController: {fileID: 0}
+  uiPanelController: {fileID: 954736986}
+  levelPanelController: {fileID: 954736987}
 --- !u!1 &1488681146
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,8 +558,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1488681146}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.28978413, y: 0.000000016468093, z: -0.0000000049861373, w: 0.95709205}
+  m_LocalPosition: {x: 0, y: 7.86, z: -11.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -650,8 +655,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1524142318}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: 0.28978413, y: 0.000000016468093, z: -0.0000000049861373, w: 0.95709205}
+  m_LocalPosition: {x: 0, y: 7.86, z: -11.22}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2079429463}
@@ -703,6 +708,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1623889790}
   - component: {fileID: 1623889791}
+  - component: {fileID: 1623889793}
+  - component: {fileID: 1623889792}
   m_Layer: 0
   m_Name: LevelManager
   m_TagString: Untagged
@@ -739,8 +746,32 @@ MonoBehaviour:
   Data:
     StageList: []
   levelHolder: {fileID: 1939349186}
-  levelLoader: {fileID: 0}
-  levelClearer: {fileID: 0}
+  levelLoader: {fileID: 1623889793}
+  levelClearer: {fileID: 1623889792}
+--- !u!114 &1623889792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623889789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f16e64cc26b4caa875b8d8d93811a04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1623889793
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1623889789}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e29acb3e746d4ac3877537285b7ec821, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1716410729
 GameObject:
   m_ObjectHideFlags: 0
@@ -945,7 +976,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BindingMode: 1
-  m_FollowOffset: {x: 0, y: -0.34, z: -10}
+  m_FollowOffset: {x: 0, y: 8, z: -12}
   m_XDamping: 1
   m_YDamping: 1
   m_ZDamping: 1
@@ -1580,7 +1611,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 954736988}
         m_TargetAssemblyTypeName: Managers.UIManager, Assembly-CSharp
         m_MethodName: RestartLevel
         m_Mode: 1
@@ -2056,7 +2087,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 954736988}
         m_TargetAssemblyTypeName: Managers.UIManager, Assembly-CSharp
         m_MethodName: NextLevel
         m_Mode: 1
@@ -3086,7 +3117,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 954736988}
         m_TargetAssemblyTypeName: Managers.UIManager, Assembly-CSharp
         m_MethodName: Play
         m_Mode: 1
