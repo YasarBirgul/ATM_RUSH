@@ -1041,7 +1041,7 @@ MonoBehaviour:
       ForwardSpeed: 5
       SidewaysSpeed: 2
       ForwardForceSpeed: 10
-  movementController: {fileID: 0}
+  movementController: {fileID: 7412399309161339759}
 --- !u!114 &7412399309161339759
 MonoBehaviour:
   m_ObjectHideFlags: 0
