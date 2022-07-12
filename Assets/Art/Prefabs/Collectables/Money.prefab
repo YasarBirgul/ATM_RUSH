@@ -10,7 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4071712763256284225}
   - component: {fileID: 4450483193192328923}
+  - component: {fileID: 6763654787223505273}
   - component: {fileID: 4912988553562601319}
+  - component: {fileID: -2203380167342835631}
+  - component: {fileID: -4824240758310267860}
   m_Layer: 0
   m_Name: Money
   m_TagString: Untagged
@@ -40,6 +43,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8945854437992374254}
   m_Mesh: {fileID: -2929563531361107545, guid: 7a8954663a89d464aae6668943b4ed3b, type: 3}
+--- !u!114 &6763654787223505273
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8945854437992374254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d3f73e1b8141ad98dda5dd48cb2d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollectableValue: 0
 --- !u!23 &4912988553562601319
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -81,3 +97,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-2203380167342835631
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8945854437992374254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d3f73e1b8141ad98dda5dd48cb2d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollectableValue: 0
+--- !u!114 &-4824240758310267860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8945854437992374254}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11d3f73e1b8141ad98dda5dd48cb2d62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CollectableValue: 0
