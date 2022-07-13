@@ -1,4 +1,5 @@
-﻿using System;
+﻿using System.Linq;
+using Managers;
 using UnityEngine;
 
 namespace Controllers
@@ -6,24 +7,12 @@ namespace Controllers
     public class CollectableMovementController: MonoBehaviour 
     {
         #region Public Variables
-
-        public Transform ConnectedNode;
+        
 
         #region Serialized Variables
-        
+        [SerializeField] private StackManager stackManager;
         #endregion
         #endregion
-        private void LerpMove() 
-        {
-            transform.position = new Vector3(
-                Mathf.Lerp(transform.position.x, ConnectedNode.position.x, Time.deltaTime * 20),
-                ConnectedNode.position.y,
-                ConnectedNode.position.z + 1);
-        }
-
-        private void Update()
-        {
-            LerpMove();
-        }
+      
     }
 }
