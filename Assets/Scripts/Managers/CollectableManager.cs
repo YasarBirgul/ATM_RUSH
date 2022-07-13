@@ -9,8 +9,9 @@ namespace Managers
 {
     public class CollectableManager : MonoBehaviour
     {
-        public CD_Collectable CD_Collectable;
-        public CollectablePhysicsController CollectablePhysicsController;
+
+        public CollectableData CollectableData;
+      //  public CollectablePhysicsController CollectablePhysicsController;
 
         
         #region Event Subscription
