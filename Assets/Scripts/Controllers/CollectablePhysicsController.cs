@@ -12,17 +12,18 @@ namespace Controllers
         #endregion
         #region Serialized Variables
         [SerializeField] private CollectableManager collectableManager;
-        [SerializeField] private new Rigidbody rigidbody;
-        [SerializeField] private new Collider Collider;
+        [SerializeField] private StackManager stackManager;
         #endregion
         #endregion
         private void OnTriggerEnter(Collider other)
         { 
             if(other.gameObject.CompareTag("Collectable"))
             {
-                CollectableSignals.Instance.onMoneyCollection?.Invoke();
-                other.gameObject.transform.position = transform.position + Vector3.forward;
-                other.gameObject.tag = "Collected";
+                other.transform.parent=stackManager.transform;
+                other.gameObject.AddComponent<Rigidbody>().isKinematic = true;
+                other.gameObject.GetComponent<Collider>().isTrigger = true;
+                other.tag ="Collected";
+                stackManager.Colleted.Add(other.gameObject);
             }
         }
     }
