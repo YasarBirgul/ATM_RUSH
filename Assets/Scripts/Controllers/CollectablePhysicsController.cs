@@ -29,8 +29,8 @@ namespace Controllers
         private void OnTriggerEnter(Collider other)
         { 
             if(other.gameObject.CompareTag("Collectable"))
-            {
-
+            { 
+                CollectableSignals.Instance.onMoneyCollection?.Invoke();
                 //other.transform.parent=stackManager.transform;
                 other.gameObject.AddComponent<Rigidbody>().isKinematic = true;
                 other.gameObject.GetComponent<Collider>().isTrigger = true;
