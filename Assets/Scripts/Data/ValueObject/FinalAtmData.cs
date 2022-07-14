@@ -3,8 +3,8 @@ using System;
 namespace Data.ValueObject
 {
     [Serializable]
-    public class StageData
+    public class FinalAtmData
     {
-        public int RequiredObjectCount = 10;
+        public int RequiredEarningCount = 1;
     }
 }

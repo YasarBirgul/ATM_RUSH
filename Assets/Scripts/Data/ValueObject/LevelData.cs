@@ -6,6 +6,6 @@ namespace Data.ValueObject
     [Serializable]
     public class LevelData
     {
-        public List<StageData> StageList = new List<StageData>(3);
+        public List<FinalAtmData> AtmList = new List<FinalAtmData>(3);
     }
 }
