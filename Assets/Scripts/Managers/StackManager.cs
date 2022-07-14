@@ -8,7 +8,7 @@ namespace Managers
 { 
     public class StackManager : MonoSingleton<StackManager>
     {
-        public List<GameObject> Colleted;
+        public List<GameObject> Colleted = new List<GameObject>();
         private void Update()
         { 
             StackMove();
