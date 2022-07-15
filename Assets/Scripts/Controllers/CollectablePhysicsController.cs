@@ -21,34 +21,36 @@ namespace Controllers
         #endregion
         #region Private Variables
         private float waitTime = 0.3f;
-        
         #endregion
         #endregion
         
         
         private void OnTriggerEnter(Collider other)
         { 
-            if(other.gameObject.CompareTag("Collectable"))
+            if(other.CompareTag("Collectable"))
             { 
                 CollectableSignals.Instance.onMoneyCollection?.Invoke();
                 //other.transform.parent=stackManager.transform;
                 other.gameObject.AddComponent<Rigidbody>().isKinematic = true;
                 other.gameObject.GetComponent<Collider>().isTrigger = true;
                 other.tag ="Collected";
-                stackManager.Colleted.Add(other.gameObject); 
+                stackManager.Collected.Add(other.gameObject); 
                 SetMoney();
-            }                                                
+            }        
+            if (other.CompareTag("Obstacle"))
+            {
+                CollectableSignals.Instance.onObstacleCollision?.Invoke();
+                Destroy(gameObject);
+            }
         }
         
         public void SetMoney()
         {
-            for (int i = stackManager.Colleted.Count - 1; i >= 0; i--)
-            {
-                
+            for (int i = stackManager.Collected.Count - 1; i >= 0; i--)
+            { 
                 int index = i;
                 Vector3 scale = Vector3.one * 2;
-                stackManager.Colleted[index].transform.DOScale(scale, 0.2f).OnComplete(() => { stackManager.Colleted[index].transform.DOScale(Vector3.one, 0.2f); });
-                //yield return new WaitForSeconds(0.05f);
+                stackManager.Collected[index].transform.DOScale(scale, 0.2f).OnComplete(() => { stackManager.Collected[index].transform.DOScale(Vector3.one, 0.2f); });
                 return;
             }
         }
