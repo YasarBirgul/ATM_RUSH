@@ -6,9 +6,7 @@ namespace Controllers
 {
     public class CollectableMovementController: MonoBehaviour 
     {
-        #region Public Variables
-        
-
+        #region Self Variables
         #region Serialized Variables
         [SerializeField] private StackManager stackManager;
         #endregion

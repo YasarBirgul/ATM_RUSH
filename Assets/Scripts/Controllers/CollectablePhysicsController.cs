@@ -17,10 +17,11 @@ namespace Controllers
         #region Serialized Variables
         [SerializeField] private CollectableManager collectableManager;
         [SerializeField] private StackManager stackManager;
+        [SerializeField] private ScoreManager scoreManager;
         
         #endregion
         #region Private Variables
-        private float waitTime = 0.3f;
+        
         #endregion
         #endregion
         
@@ -38,12 +39,18 @@ namespace Controllers
                 SetMoney();
             }        
             if (other.CompareTag("Obstacle"))
-            {
+            {             
                 CollectableSignals.Instance.onObstacleCollision?.Invoke();
+                //scoreManager.OnScoreDown();
                 Destroy(gameObject);
+                //if (StackManager.Instance.Collected.Count - 1 == StackManager.Instance.Collected.IndexOf(other.gameObject))
+                //{
+                //    CollectableSignals.Instance.onObstacleCollision?.Invoke();
+                //    StackManager.Instance.Collected.Remove(other.gameObject);
+                //    Destroy(other.gameObject);
+                //}
             }
-        }
-        
+        }     
         public void SetMoney()
         {
             for (int i = stackManager.Collected.Count - 1; i >= 0; i--)
@@ -53,7 +60,6 @@ namespace Controllers
                 stackManager.Collected[index].transform.DOScale(scale, 0.2f).OnComplete(() => { stackManager.Collected[index].transform.DOScale(Vector3.one, 0.2f); });
                 return;
             }
-        }
-       
+        }      
     }
 }

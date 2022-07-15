@@ -45,13 +45,14 @@ namespace Managers
         private void OnObstacleCollision()
         {
             // for loop remove index tut
+            
         }
         
         private void Update()
         { 
             StackMove();
         }
-        void StackMove()
+        private void StackMove()
         {
             if(!isCollected) return;
             else
@@ -62,7 +63,7 @@ namespace Managers
                      {
                          var FirstBall = Collected.ElementAt(i - 1);
                          var SectBall = Collected.ElementAt(i);
-                         
+                     
                          SectBall.transform.position = new Vector3(Mathf.Lerp(SectBall.transform.position.x,FirstBall.transform.position.x,15 * Time.deltaTime)
                              ,SectBall.transform.position.y,Mathf.Lerp(SectBall.transform.position.z,FirstBall.transform.position.z  +1.5f,15 * Time.deltaTime));
                      }
