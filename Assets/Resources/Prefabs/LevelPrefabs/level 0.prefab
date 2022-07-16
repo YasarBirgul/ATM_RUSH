@@ -323,7 +323,7 @@ GameObject:
   - component: {fileID: 4511119751227750141}
   m_Layer: 0
   m_Name: StackManager
-  m_TagString: Untagged
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -357,6 +357,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Collected:
   - {fileID: 6712731278499560879}
+  SCALE_MULTIPLIER: 0.5
+  SCALE_DURATION: 0.5
 --- !u!1 &1335653798374692270
 GameObject:
   m_ObjectHideFlags: 0

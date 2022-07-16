@@ -12,8 +12,9 @@ namespace Managers
 
         public CollectableData CollectableData;
       //  public CollectablePhysicsController CollectablePhysicsController;
-
-        
+      public int index;
+      
+      
         #region Event Subscription
 
                 private void OnEnable()
@@ -45,11 +46,11 @@ namespace Managers
 
         #endregion
        
-        private void OnMoneyCollection()
+        private void OnMoneyCollection(GameObject self)
         {
-           // CollectablePhysicsController.
+           // İndex ataması
         }
-        private void OnObstacleCollision()
+        private void OnObstacleCollision(GameObject self)
         {
             // Fizik controlden Para yok olacak 
         }

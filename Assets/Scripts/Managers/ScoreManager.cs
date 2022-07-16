@@ -46,12 +46,12 @@ namespace Managers
             scoreText.text = _score.ToString();
         }
 
-        private void OnScoreUp()
+        private void OnScoreUp(GameObject self)
         {
             _score += 1;
             Debug.Log("Up"+ " " +_score);
         }
-        public void OnScoreDown()
+        public void OnScoreDown(GameObject self)
         {
             _score -= 1;
             Debug.Log("Down"+ " " +_score);

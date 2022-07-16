@@ -30,7 +30,7 @@ namespace Controllers
         {
             if(other.CompareTag("Collectable"))
             {
-                CollectableSignals.Instance.onMoneyCollection?.Invoke();
+                CollectableSignals.Instance.onMoneyCollection?.Invoke(other.gameObject);
                 other.transform.parent=stackManager.transform;
                 other.gameObject.AddComponent<Rigidbody>().isKinematic = true;
                 other.gameObject.GetComponent<Collider>().isTrigger = true;
@@ -39,7 +39,7 @@ namespace Controllers
             }        
             if (other.CompareTag("Obstacle"))
             {             
-                CollectableSignals.Instance.onObstacleCollision?.Invoke();
+                CollectableSignals.Instance.onObstacleCollision?.Invoke(gameObject);
             }
         }
     }
