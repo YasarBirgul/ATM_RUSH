@@ -10,12 +10,13 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Managers
-{ 
+{
     public class StackManager : MonoSingleton<StackManager>
     {
         public List<GameObject> Collected = new List<GameObject>();
         private bool isCollected;
         private bool isPickedUp;
+
         private void OnEnable()
         {
             SubscribeEvents();
@@ -41,12 +42,12 @@ namespace Managers
 
         private void OnMoneyCollection()
         {
-            StartCoroutine(StackScaleUp());
+             CollectableScaleUp();
         }
-        
+
         private void OnObstacleCollision()
         {
-            
+
         }
 
         private void Update()
@@ -54,25 +55,28 @@ namespace Managers
             StackLerpMove();
         }
 
-        public IEnumerator StackScaleUp()
-        {
-            yield return new WaitForSeconds(0.1f);
-            for (int i = Collected.Count - 1; i >= 0; i--)
-            {
-                Collected[i].transform.DOScale(1.2f, 0.2f).SetLoops(2, LoopType.Yoyo);
-                yield return new WaitForSeconds(0.2f);
-            }
-            isPickedUp = true;
-
-        }
         void StackLerpMove()
         {
-            if (Collected!=null)
+            if (Collected.Count > 1)
             {
-                for (int i = Collected.Count-1; i >= 1; i--)
+                for (int i = 1; i < Collected.Count; i++)
                 {
-                    Collected[i].transform.DOMoveX(Collected[i - 1].transform.position.x, 0.1f);
-                }   
+                    var FirstBall = Collected.ElementAt(i - 1);
+                    var SectBall = Collected.ElementAt(i);
+
+                    SectBall.transform.DOMoveX(FirstBall.transform.position.x, 15 * Time.deltaTime);
+                    SectBall.transform.DOMoveZ(FirstBall.transform.position.z + 1.5f, 15 * Time.deltaTime);
+                }
+            }
+        }
+        public void CollectableScaleUp()
+        {
+            for (int i = Collected.Count - 1; i >= 0; i--)
+            {
+                int index = i;
+                Vector3 scale = Vector3.one * 2;
+                Collected[index].transform.DOScale(scale, 0.2f).OnComplete(() => {Collected[index].transform.DOScale(Vector3.one, 0.2f);});
+                return;
             }
         }
     }

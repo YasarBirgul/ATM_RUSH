@@ -43,6 +43,7 @@ namespace Controllers
             if (other.CompareTag("Obstacle"))
             {             
                 CollectableSignals.Instance.onObstacleCollision?.Invoke();
+                stackManager.Collected.Remove(gameObject);
                 Destroy(gameObject);
             }
         }     
