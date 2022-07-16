@@ -19,6 +19,7 @@ namespace Managers
         #endregion
 
 
+
         private void OnEnable()
         {
             SubscribeEvents();
@@ -39,15 +40,21 @@ namespace Managers
         {
             UnsubscribeEvents(); 
         }
+
+        private void Update()
+        { 
+            scoreText.text = _score.ToString();
+        }
+
         private void OnScoreUp()
-        {               
-            scoreText.text = _score.ToString();  
-            _score += 1;          
+        {
+            _score += 1;
+            Debug.Log("Up"+ " " +_score);
         }
         public void OnScoreDown()
-        {           
-            scoreText.text = _score.ToString();          
+        {
             _score -= 1;
+            Debug.Log("Down"+ " " +_score);
         }
     }
 }

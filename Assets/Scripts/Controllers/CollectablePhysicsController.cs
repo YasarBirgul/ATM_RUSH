@@ -46,7 +46,6 @@ namespace Controllers
                 stackManager.Collected.Remove(gameObject);
                 Destroy(gameObject);
             }
-        }     
-          
+        }
     }
 }

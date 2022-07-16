@@ -47,7 +47,7 @@ namespace Managers
 
         private void OnObstacleCollision()
         {
-
+           
         }
 
         private void Update()
