@@ -1,8 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using Extentions;
+using Keys;
 using Signals;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -13,7 +15,7 @@ namespace Managers
     {
         public List<GameObject> Collected = new List<GameObject>();
         private bool isCollected;
-        
+        private bool isPickedUp;
         private void OnEnable()
         {
             SubscribeEvents();
@@ -39,35 +41,38 @@ namespace Managers
 
         private void OnMoneyCollection()
         {
-            isCollected = true;
+            StartCoroutine(StackScaleUp());
         }
         
         private void OnObstacleCollision()
         {
-            // for loop remove index tut
             
         }
-        
+
         private void Update()
-        { 
-            StackMove();
-        }
-        private void StackMove()
         {
-            if(!isCollected) return;
-            else
+            StackLerpMove();
+        }
+
+        public IEnumerator StackScaleUp()
+        {
+            yield return new WaitForSeconds(0.1f);
+            for (int i = Collected.Count - 1; i >= 0; i--)
             {
-                 if (Collected.Count > 1)
-                 {
-                     for (int i = 1; i < Collected.Count; i++)
-                     {
-                         var FirstBall = Collected.ElementAt(i - 1);
-                         var SectBall = Collected.ElementAt(i);
-                     
-                         SectBall.transform.position = new Vector3(Mathf.Lerp(SectBall.transform.position.x,FirstBall.transform.position.x,15 * Time.deltaTime)
-                             ,SectBall.transform.position.y,Mathf.Lerp(SectBall.transform.position.z,FirstBall.transform.position.z  +1.5f,15 * Time.deltaTime));
-                     }
-                 }
+                Collected[i].transform.DOScale(1.2f, 0.2f).SetLoops(2, LoopType.Yoyo);
+                yield return new WaitForSeconds(0.2f);
+            }
+            isPickedUp = true;
+
+        }
+        void StackLerpMove()
+        {
+            if (Collected!=null)
+            {
+                for (int i = Collected.Count-1; i >= 1; i--)
+                {
+                    Collected[i].transform.DOMoveX(Collected[i - 1].transform.position.x, 0.1f);
+                }   
             }
         }
     }
