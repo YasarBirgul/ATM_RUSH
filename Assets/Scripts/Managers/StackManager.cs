@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using Extentions;
@@ -18,16 +16,9 @@ namespace Managers
         #region Public Variables
         public List<GameObject> Collected = new List<GameObject>();
         #endregion
-
         #region Serialized Variables
         #endregion
         #endregion
-        public float SCALE_MULTIPLIER = .5f;
-        public float SCALE_DURATION = .5f;
-        private Tween scaleTween;
-        private bool isCollected;
-        private bool isPickedUp;
-
         #region Event Subscription 
         
         private void OnEnable()
@@ -46,14 +37,15 @@ namespace Managers
             CollectableSignals.Instance.onMoneyCollection -= OnMoneyCollection;
             CollectableSignals.Instance.onObstacleCollision -= OnObstacleCollision;
         }
-
-        
         private void OnDisable()
         {
             UnsubscribeEvents();
         }
         #endregion
-        
+        private void Update() 
+        {
+            StackLerpMove();
+        }
         private void OnMoneyCollection(GameObject other)
         {
             AddOnStack(other);
@@ -61,98 +53,81 @@ namespace Managers
 
         private void OnObstacleCollision(GameObject self)
         {
-            int nextIndex = transform.GetSiblingIndex();
-            int currentindex = nextIndex - 1;
             RemoveFromStack(self);
         }
 
-        private void Update()
-        {
-            StackLerpMove();
-        }
-
-        void StackLerpMove()
-        {
-            if (Collected.Count > 1)
-            {
-                for (int i = 1; i < Collected.Count; i++)
+        
+        #region LerpMove
+        private void StackLerpMove()
                 {
-                    var FirstBall = Collected.ElementAt(i - 1);
-                    var SectBall = Collected.ElementAt(i);
-
-                    SectBall.transform.DOMoveX(FirstBall.transform.position.x, 15 * Time.deltaTime);
-                    SectBall.transform.DOMoveZ(FirstBall.transform.position.z + 1.5f, 15 * Time.deltaTime);
+                    if (Collected.Count > 1)
+                    {
+                        for (int i = 1; i < Collected.Count; i++)
+                        {
+                            var FirstBall = Collected.ElementAt(i - 1);
+                            var SectBall = Collected.ElementAt(i);
+        
+                            SectBall.transform.DOMoveX(FirstBall.transform.position.x, 20 * Time.deltaTime);
+                            SectBall.transform.DOMoveZ(FirstBall.transform.position.z + 1.5f, 15 * Time.deltaTime);
+                        }
+                    }
                 }
+        private void CollectableScaleUp(GameObject other)
+        {
+            for (int i = other.transform.GetSiblingIndex()-1; i >= 0; i--)
+            {
+                int index = i;
+                Vector3 scale = Vector3.one * 2;
+                Collected[index].transform.DOScale(scale, 0.2f).OnComplete(() => {Collected[index].transform.DOScale(Vector3.one, 0.2f);});
+                return;
             }
         }
-       // public void CollectableScaleUp()
-       // {
-       //     for (int i = Collected.Count - 1; i >= 0; i--)
-       //     {
-       //         int index = i;
-       //         Vector3 scale = Vector3.one * 2;
-       //         Collected[index].transform.DOScale(scale, 0.2f).OnComplete(() => {Collected[index].transform.DOScale(Vector3.one, 0.2f);});
-       //         return;
-       //     }
-       // }
         
+        #endregion
+        #region Stack Adding and Removing
         private void AddOnStack(GameObject other)
-        {   
-            
-            foreach(GameObject i in Collected)
-            {
-                i.transform.parent = transform;
-            }
-            other.tag = "Collected"; 
-            other.transform.parent = transform;
-           // other.transform.localPosition = Vector3.forward;
-            Collected.Add(other.gameObject);
-            StartCoroutine(CollectableScaleUp());
-
-        }
-        public void RemoveFromStack(GameObject self) 
-        {
-            if (self.CompareTag("Collected"))
-            {
-               if (Collected.Count-1 == Collected.IndexOf(self.gameObject))
-               {
-                   Collected.Remove(self);
-                   Destroy(self);
-               }
-
-               else
-               {
-                   int crashedObject = Collected.IndexOf(self);
-                   int lastIndex = Collected.Count - 1;
-
-                   for (int i = crashedObject; i <= lastIndex; i++)
-                   {
-                       Collected.RemoveAt(i);
-                       Destroy(self);
-                   }
-               }
-            }
-        }
+                {   
+                    
+                    foreach(GameObject i in Collected)
+                    {
+                        i.transform.parent = transform;
+                    }
+                    other.tag = "Collected"; 
+                    other.transform.parent = transform;
+                    Collected.Add(other.gameObject);
+                    CollectableScaleUp(other);
         
-        IEnumerator CollectableScaleUp()
-        {
-            for (int i = 0; i < Collected.Count; i++)
-            { 
-                ShakeScaleOfStack(Collected[i].transform);
-                yield return new WaitForSeconds(0.5f);
-            }
-     
-        }
-        private void ShakeScaleOfStack(Transform transform)
-        {
-            if (scaleTween != null)
-                scaleTween.Kill(true);
-             
-            scaleTween = transform.DOPunchScale(Vector3.one * SCALE_MULTIPLIER, SCALE_DURATION, 2);
-        }
-        private void throwOthers(GameObject trow)
-        {
-            trow.transform.Translate(0,10,0);
-        }
+                }
+                private void RemoveFromStack(GameObject self) 
+                {
+                    if (self.CompareTag("Collected"))
+                    {
+                        var ChildCheck = self.transform.GetSiblingIndex();
+                        Debug.Log("HEY : "+ChildCheck);
+                        Debug.Log("lEY : " + transform.childCount);
+                       if ( transform.childCount == ChildCheck+1)
+                       {
+                           Debug.Log("inside");
+                           Collected.Remove(self);
+                           Destroy(self);
+                       }
+        
+                       else
+                       {
+                           int crashedObject = self.transform.GetSiblingIndex();
+                           int lastIndex = self.transform.childCount - 1;
+        
+                           for (int i = crashedObject; i <= lastIndex; i++)
+                           {
+                               Collected.RemoveAt(i);
+                           }
+                       }
+                    }
+                }
+        
+        
+        
+        #endregion
+       
     }
 }

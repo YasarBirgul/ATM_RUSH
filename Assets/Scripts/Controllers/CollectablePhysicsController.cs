@@ -1,10 +1,5 @@
-﻿using System;
-using Managers;
-using Signals;
+﻿using Signals;
 using UnityEngine;
-using DG.Tweening;
-using System.Collections.Generic;
-using System.Collections;
 
 namespace Controllers
 {
