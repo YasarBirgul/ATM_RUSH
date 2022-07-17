@@ -27,7 +27,7 @@ namespace Managers
                     CollectableSignals.Instance.onObstacleCollision += OnObstacleCollision;
                     CollectableSignals.Instance.onUpgradeMOney += OnUpgradeMoney;
                     CollectableSignals.Instance.onChangeState += OnChangeState;
-                    CollectableSignals.Instance.onDeposit += OnDeposit;
+                  //  CollectableSignals.Instance.onDeposit += OnDeposit;
                 }
         
                 private void UnsubscribeEvents()
@@ -36,7 +36,7 @@ namespace Managers
                     CollectableSignals.Instance.onObstacleCollision -= OnObstacleCollision;
                     CollectableSignals.Instance.onUpgradeMOney -= OnUpgradeMoney;
                     CollectableSignals.Instance.onChangeState -= OnChangeState;
-                    CollectableSignals.Instance.onDeposit -= OnDeposit;
+                   // CollectableSignals.Instance.onDeposit -= OnDeposit;
                 }
         
                 private void OnDisable()

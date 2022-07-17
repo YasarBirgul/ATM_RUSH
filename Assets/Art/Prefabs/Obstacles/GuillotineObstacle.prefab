@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 6278630675510614361}
   - component: {fileID: 1354517053859304287}
   - component: {fileID: 3396883554345524433}
+  - component: {fileID: 2790357414155603066}
   m_Layer: 0
   m_Name: GuillotineObstacle
   m_TagString: Untagged
@@ -155,7 +156,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -241577541216730158, guid: 7a8954663a89d464aae6668943b4ed3b, type: 3}
+  - {fileID: 2100000, guid: 74e67482559529c479881afa0bef233c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -177,3 +178,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2790357414155603066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8949054980787853289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2d467020c6afd14cbd995eadcf44bf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObstacleType: 3
+  DoTweenAnimations: []

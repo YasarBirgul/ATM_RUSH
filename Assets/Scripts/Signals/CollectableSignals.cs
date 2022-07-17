@@ -10,6 +10,6 @@ namespace Signals
         public UnityAction<GameObject> onObstacleCollision=delegate {  };
         public UnityAction onUpgradeMOney=delegate {  };
         public UnityAction onChangeState=delegate {  };
-        public UnityAction onDeposit=delegate {  };
+        public UnityAction<GameObject> onDeposit=delegate {  };
     }
 }

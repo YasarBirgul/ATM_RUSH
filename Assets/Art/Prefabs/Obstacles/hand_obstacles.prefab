@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 21074392318328557}
   - component: {fileID: 2937799561069770528}
   - component: {fileID: 5302000974235519271}
+  - component: {fileID: 5192966437517969215}
+  - component: {fileID: 5127817973832850348}
   m_Layer: 0
   m_Name: hand_obstacles
   m_TagString: Obstacle
@@ -26,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7768832125306924397}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 7.4217515, y: 0.50603026, z: -17.656948}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -95,3 +97,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 10.342411, y: 0.70346963, z: 1.6542538}
   m_Center: {x: 0, y: -0.009681642, z: 0}
+--- !u!114 &5192966437517969215
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7768832125306924397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2d467020c6afd14cbd995eadcf44bf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObstacleType: 5
+  obstacleAnimationsController: {fileID: 5127817973832850348}
+--- !u!114 &5127817973832850348
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7768832125306924397}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d8868342b39944eace07b6e19a3057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -36,6 +36,10 @@ namespace Controllers
             {             
                 CollectableSignals.Instance.onObstacleCollision?.Invoke(gameObject);
             }
+            if (other.CompareTag("Atm"))
+            {             
+                CollectableSignals.Instance.onDeposit?.Invoke(gameObject);
+            }
         }
     }
 }

@@ -27,12 +27,14 @@ namespace Managers
         {
             CollectableSignals.Instance.onMoneyCollection += OnMoneyCollection;
             CollectableSignals.Instance.onObstacleCollision += OnObstacleCollision;
+            CollectableSignals.Instance.onDeposit += OnDeposit;
         }
 
         private void UnsubscribeEvents()
         {
             CollectableSignals.Instance.onMoneyCollection -= OnMoneyCollection;
             CollectableSignals.Instance.onObstacleCollision -= OnObstacleCollision;
+            CollectableSignals.Instance.onDeposit -= OnDeposit;
         }
         private void OnDisable()
         {
@@ -51,6 +53,11 @@ namespace Managers
         private void OnObstacleCollision(GameObject self)
         {
             RemoveFromStack(self);
+        }
+
+        private void OnDeposit(GameObject gameObject)
+        {
+            RemoveFromStack(gameObject);
         }
 
         

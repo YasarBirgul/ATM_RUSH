@@ -18,7 +18,8 @@ public class ObstacleManager : MonoBehaviour
 
     #region Serialized Variables
 
-    [SerializeField] private List<DOTweenAnimation> DoTweenAnimations;
+    public ObstacleAnimationsController obstacleAnimationsController;
+    
     #region Event Subscription 
         
     private void OnEnable()
@@ -31,11 +32,6 @@ public class ObstacleManager : MonoBehaviour
         CoreGameSignals.Instance.onPlay += OnPlay;
        // CollectableSignals.Instance.onDeposit += OnDeposit;
     }
-
-
-
-
-
     private void UnsubscribeEvents()
     {
         CoreGameSignals.Instance.onPlay -= OnPlay;
@@ -50,18 +46,28 @@ public class ObstacleManager : MonoBehaviour
     #endregion
 
     #endregion
-    
-    
-    
+
     private void OnPlay()
     {
-        throw new NotImplementedException();
+        ObstacleAnimationsOnPlay();
     }
-    
-    //bu hep çalışssın.
-
-    private void Start()
+    private void ObstacleAnimationsOnPlay()
     {
-       
+        if (ObstacleType == ObstacleType.Guillotine)
+        {
+            obstacleAnimationsController.GuillotineMover();
+        }
+        if (ObstacleType == ObstacleType.Card)
+        {
+            obstacleAnimationsController.CardMover();
+        }
+        if (ObstacleType == ObstacleType.Hand)
+        {
+            obstacleAnimationsController.HandMover();
+        }
+        if (ObstacleType == ObstacleType.Wall)
+        {
+            obstacleAnimationsController.WallMover();
+        }
     }
 }
