@@ -2,10 +2,8 @@
 using System.Linq;
 using DG.Tweening;
 using Extentions;
-using Keys;
 using Signals;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Managers
 {
@@ -107,6 +105,7 @@ namespace Managers
         
                        else
                        {
+                           
                            int crashedObject = self.transform.GetSiblingIndex();
                            int lastIndex = self.transform.childCount - 1;
         

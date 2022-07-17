@@ -108,7 +108,7 @@ namespace Controllers
             if (self.CompareTag("Player"))
             {
                 IsReadyToPlay(false);
-                transform.DOMoveZ(transform.position.z - 7f, 1.5f).OnComplete(() => { _isReadyToPlay = true; });
+                transform.DOMoveZ(transform.position.z - 10f, 1.5f).OnComplete(() => { _isReadyToPlay = true; });
             }
         }
     }

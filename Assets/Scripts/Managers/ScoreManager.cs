@@ -60,6 +60,11 @@ namespace Managers
             if (self.CompareTag("Collected"))
             {
                 _score -= 1;
+                
+                if (_score <= 0)
+                {
+                    _score = 0;
+                }
             }
         }
     }
