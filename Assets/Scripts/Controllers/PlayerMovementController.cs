@@ -1,8 +1,10 @@
 using System;
 using Data.ValueObject;
+using DG.Tweening;
 using Keys;
 using Managers;
 using Sirenix.OdinInspector;
+using UnityEditor.UI;
 using UnityEngine;
 
 namespace Controllers
@@ -100,6 +102,14 @@ namespace Controllers
             Stop();
             _isReadyToPlay = false;
             _isReadyToMove = false;
+        }
+        public void PlayerPushBack(GameObject self)
+        { 
+            if (self.CompareTag("Player"))
+            {
+                IsReadyToPlay(false);
+                transform.DOMoveZ(transform.position.z - 7f, 1.5f).OnComplete(() => { _isReadyToPlay = true; });
+            }
         }
     }
 }

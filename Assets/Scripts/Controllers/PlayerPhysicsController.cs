@@ -31,11 +31,6 @@ namespace Controllers
             if(other.CompareTag("Collectable"))
             {
                 CollectableSignals.Instance.onMoneyCollection?.Invoke(other.gameObject);
-                other.transform.parent=stackManager.transform;
-                other.gameObject.AddComponent<Rigidbody>().isKinematic = true;
-                other.gameObject.GetComponent<Collider>().isTrigger = true;
-                other.tag ="Collected";
-                stackManager.Collected.Add(other.gameObject);
             }        
             if (other.CompareTag("Obstacle"))
             {             

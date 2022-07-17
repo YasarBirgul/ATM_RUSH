@@ -1,4 +1,5 @@
 using System;
+using Cinemachine;
 using UnityEngine;
 using Signals;
 using TMPro;
@@ -48,11 +49,18 @@ namespace Managers
 
         private void OnScoreUp(GameObject self)
         {
-            _score += 1;
+            if (self.CompareTag("Collected"))
+            {
+                 _score += 1;
+            }
+           
         }
-        public void OnScoreDown(GameObject self)
+        private void OnScoreDown(GameObject self)
         {
-            _score -= 1;
+            if (self.CompareTag("Collected"))
+            {
+                _score -= 1;
+            }
         }
     }
 }

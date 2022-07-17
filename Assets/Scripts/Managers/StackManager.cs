@@ -12,7 +12,6 @@ namespace Managers
     public class StackManager : MonoSingleton<StackManager>
     {
         #region Self Variables
-
         #region Public Variables
         public List<GameObject> Collected = new List<GameObject>();
         #endregion
@@ -86,30 +85,24 @@ namespace Managers
         #endregion
         #region Stack Adding and Removing
         private void AddOnStack(GameObject other)
-                {   
-                    
-                    foreach(GameObject i in Collected)
-                    {
-                        i.transform.parent = transform;
-                    }
+                {
                     other.tag = "Collected"; 
                     other.transform.parent = transform;
+                    other.transform.localPosition = new Vector3(0, 0, 5f);
                     Collected.Add(other.gameObject);
+                    StackLerpMove();
                     CollectableScaleUp(other);
-        
                 }
                 private void RemoveFromStack(GameObject self) 
                 {
                     if (self.CompareTag("Collected"))
                     {
-                        var ChildCheck = self.transform.GetSiblingIndex();
-                        Debug.Log("HEY : "+ChildCheck);
-                        Debug.Log("lEY : " + transform.childCount);
-                       if ( transform.childCount == ChildCheck+1)
-                       {
-                           Debug.Log("inside");
-                           Collected.Remove(self);
-                           Destroy(self);
+                        var ChildCheck = Collected.Count; 
+                        
+                        if ( transform.childCount == ChildCheck)
+                        {
+                            Collected.Remove(self);
+                            Destroy(self);
                        }
         
                        else
@@ -119,15 +112,12 @@ namespace Managers
         
                            for (int i = crashedObject; i <= lastIndex; i++)
                            {
-                               Collected.RemoveAt(i);
+                               self.tag = "Collectable";
+                               Collected[i].SetActive(false);
                            }
                        }
                     }
-                }
-        
-        
-        
-        #endregion
-       
+                } 
+                #endregion
     }
 }

@@ -2,6 +2,7 @@ using System;
 using Controllers;
 using Data.UnityObject;
 using Data.ValueObject;
+using DG.Tweening;
 using Keys;
 using Signals;
 using UnityEngine;
@@ -58,6 +59,7 @@ namespace Managers
             CoreGameSignals.Instance.onReset += OnReset;
             CoreGameSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
             CoreGameSignals.Instance.onLevelFailed += OnLevelFailed;
+            CollectableSignals.Instance.onObstacleCollision += OnObstacleCollision;
         }
 
         private void UnsubscribeEvents()
@@ -69,6 +71,7 @@ namespace Managers
             CoreGameSignals.Instance.onReset -= OnReset;
             CoreGameSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
             CoreGameSignals.Instance.onLevelFailed -= OnLevelFailed;
+            CollectableSignals.Instance.onObstacleCollision -= OnObstacleCollision;
         }
 
         private void OnDisable()
@@ -97,9 +100,9 @@ namespace Managers
 
         #endregion
 
-        private void OnObstacleCollision()
+        private void OnObstacleCollision(GameObject self)
         {
-            
+            movementController.PlayerPushBack(self);
         }
 
         private void OnPlay()
@@ -116,9 +119,7 @@ namespace Managers
         {
             movementController.IsReadyToPlay(false);
         }
-
-
-
+        
         private void OnReset()
         {
             movementController.OnReset();
