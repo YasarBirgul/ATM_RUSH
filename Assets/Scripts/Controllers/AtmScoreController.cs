@@ -8,6 +8,11 @@ namespace Controllers
         [SerializeField] private TextMeshPro scoreText;
         private float score;
 
+        #region SelfVariables
+
+        
+
+        #endregion
         
         private void Update()
         { 
