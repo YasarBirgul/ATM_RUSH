@@ -8,7 +8,7 @@ namespace Signals
     { 
         public UnityAction<GameObject> onMoneyCollection=delegate {  };
         public UnityAction<GameObject> onObstacleCollision=delegate {  };
-        public UnityAction onUpgradeMOney=delegate {  };
+        public UnityAction<GameObject> onUpgradeMOney=delegate {  };
         public UnityAction onChangeState=delegate {  };
         public UnityAction<GameObject> onDeposit=delegate {  };
     }

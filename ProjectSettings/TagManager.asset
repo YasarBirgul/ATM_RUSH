@@ -7,6 +7,8 @@ TagManager:
   - Collectable
   - Collected
   - Obstacle
+  - Atm
+  - UpgradeGate
   layers:
   - Default
   - TransparentFX

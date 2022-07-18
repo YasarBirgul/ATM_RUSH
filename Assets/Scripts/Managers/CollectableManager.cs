@@ -1,4 +1,6 @@
-﻿using Controllers;
+﻿using System;
+using System.Net.NetworkInformation;
+using Controllers;
 using Data.UnityObject;
 using Data.ValueObject;
 using Enums;
@@ -9,12 +11,27 @@ namespace Managers
 {
     public class CollectableManager : MonoBehaviour
     {
+        #region Self Variables
+        #region Public Variables
+        public CollectableType StateData;
+        public GameObject money;
+        public GameObject gold;
+        public GameObject diamond;
 
-        public CollectableData CollectableData;
-      //  public CollectablePhysicsController CollectablePhysicsController;
-      public int index;
-      
-      
+        public GameObject go;
+
+
+        #endregion
+        #region Serialized Variables
+        [SerializeField] private CollectablePhysicsController collectablePhysicsController;
+
+        #endregion
+        #region Private Variables
+
+        #endregion
+
+
+        #endregion
         #region Event Subscription
 
                 private void OnEnable()
@@ -25,18 +42,13 @@ namespace Managers
                 {
                     CollectableSignals.Instance.onMoneyCollection += OnMoneyCollection;
                     CollectableSignals.Instance.onObstacleCollision += OnObstacleCollision;
-                    CollectableSignals.Instance.onUpgradeMOney += OnUpgradeMoney;
-                    CollectableSignals.Instance.onChangeState += OnChangeState;
-                  //  CollectableSignals.Instance.onDeposit += OnDeposit;
+
                 }
         
                 private void UnsubscribeEvents()
                 { 
                     CollectableSignals.Instance.onMoneyCollection -= OnMoneyCollection;
                     CollectableSignals.Instance.onObstacleCollision -= OnObstacleCollision;
-                    CollectableSignals.Instance.onUpgradeMOney -= OnUpgradeMoney;
-                    CollectableSignals.Instance.onChangeState -= OnChangeState;
-                   // CollectableSignals.Instance.onDeposit -= OnDeposit;
                 }
         
                 private void OnDisable()
@@ -45,7 +57,17 @@ namespace Managers
                 } 
 
         #endregion
-       
+
+
+        private void Awake()
+        {
+            StateData = GetCollectableStateData();
+        }
+
+        private CollectableType GetCollectableStateData() =>
+            Resources.Load<CD_Collectable>("Data/CD_Collectable").CollectableData.CollectableType;
+        
+
         private void OnMoneyCollection(GameObject self)
         {
            // İndex ataması
@@ -54,18 +76,26 @@ namespace Managers
         {
             // Fizik controlden Para yok olacak 
         }
-        private void OnUpgradeMoney()
+        public void OnUpgradeMoney()
         {
-            // Fizk controlden Paralar dönüşecek
+            OnChangeCollectableState(StateData);
         }
-
-        private void OnChangeState()
+        public void OnChangeCollectableState(CollectableType _collectableTypes)
         {
-            // Listeden dağıtılacak kısım.
+            if (_collectableTypes == CollectableType.Money)
+            {
+                StateData = CollectableType.Gold;
+                money.SetActive(false);
+                gold.SetActive(true);
+            }
+        
+            else if(_collectableTypes == CollectableType.Gold)
+            {
+                StateData = CollectableType.Diamond;
+                gold.SetActive(false);
+                diamond.SetActive(true);
+            }
         }
-        private void OnDeposit()
-        {
-            // Para yok olacak, atmye yatacak
-        }
+        
     }
 }

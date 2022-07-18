@@ -56,8 +56,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11d3f73e1b8141ad98dda5dd48cb2d62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CollectableData:
-    CollectableType: 0
+  StateData: 0
+  MeshData:
+    meshType: 0
+  go: {fileID: 0}
+  collectablePhysicsController: {fileID: 0}
 --- !u!23 &4912988553562601319
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -124,8 +127,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c942c10c4b44ac0b3916b5678f94aa4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectableManager: {fileID: 6763654787223505273}
-  stackManager: {fileID: 0}
+  CollectableManager: {fileID: 6763654787223505273}
+  index: 0
 --- !u!114 &264125574411432377
 MonoBehaviour:
   m_ObjectHideFlags: 0

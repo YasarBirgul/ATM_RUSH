@@ -5,9 +5,9 @@ namespace Enums
     [Serializable] 
     public enum CollectableType
     {
-        Money,
-        Gold,
-        Diamond
+        Money=1,
+        Gold=2,
+        Diamond=3
     }
 }
 

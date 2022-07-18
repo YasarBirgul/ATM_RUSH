@@ -1,4 +1,5 @@
-﻿using Signals;
+﻿using Managers;
+using Signals;
 using UnityEngine;
 
 namespace Controllers
@@ -7,6 +8,8 @@ namespace Controllers
     {
         #region Self Variables
         #region Public Variables
+
+        public CollectableManager CollectableManager;
         public int index;
         #endregion
         #region Serialized Variables
@@ -30,6 +33,11 @@ namespace Controllers
             {             
                 CollectableSignals.Instance.onDeposit?.Invoke(gameObject);
             }
+            if (other.CompareTag("UpgradeGate"))
+            {        
+               CollectableManager.OnUpgradeMoney();
+            }
+            
         }
     }
 }

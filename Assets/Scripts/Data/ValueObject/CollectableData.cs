@@ -6,6 +6,6 @@ namespace Data.ValueObject
     [Serializable]
     public class CollectableData
     {
-        public CollectableType CollectableType;
+        public CollectableType CollectableType = CollectableType.Money;
     }
 }
