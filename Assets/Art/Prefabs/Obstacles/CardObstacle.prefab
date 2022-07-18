@@ -11,8 +11,6 @@ GameObject:
   - component: {fileID: 3275608775977759792}
   - component: {fileID: 5671063057061233561}
   - component: {fileID: 8935930877026933580}
-  - component: {fileID: 1011916632605055761}
-  - component: {fileID: 2637157191550585804}
   m_Layer: 0
   m_Name: CardObstacle
   m_TagString: Untagged
@@ -84,32 +82,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1011916632605055761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6417677088957793837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2d467020c6afd14cbd995eadcf44bf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObstacleType: 4
-  obstacleAnimationsController: {fileID: 2637157191550585804}
---- !u!114 &2637157191550585804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6417677088957793837}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74d8868342b39944eace07b6e19a3057, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &8097980630765325894
 GameObject:
   m_ObjectHideFlags: 0
@@ -122,6 +94,8 @@ GameObject:
   - component: {fileID: 5708785353456643063}
   - component: {fileID: 9137438029194520563}
   - component: {fileID: 2483709121336503431}
+  - component: {fileID: 4466761743082877729}
+  - component: {fileID: 6772352662559443164}
   m_Layer: 0
   m_Name: Card
   m_TagString: Obstacle
@@ -205,3 +179,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 3, y: 2, z: 0.07999992}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4466761743082877729
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8097980630765325894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2d467020c6afd14cbd995eadcf44bf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObstacleType: 4
+  obstacleAnimationsController: {fileID: 6772352662559443164}
+--- !u!114 &6772352662559443164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8097980630765325894}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d8868342b39944eace07b6e19a3057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
