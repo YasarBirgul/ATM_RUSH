@@ -109,6 +109,7 @@ namespace Controllers
             {
                 IsReadyToPlay(false);
                 transform.DOMoveZ(transform.position.z - 10f, 1.5f).OnComplete(() => { _isReadyToPlay = true; });
+                //TODO: eğer listede eleman varsa bütün elemanları sil.
             }
         }
     }

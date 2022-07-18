@@ -1,9 +1,11 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using Extentions;
 using Signals;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Managers
 {
@@ -44,6 +46,7 @@ namespace Managers
         private void Update() 
         {
             StackLerpMove();
+
         }
         private void OnMoneyCollection(GameObject other)
         {
@@ -86,42 +89,60 @@ namespace Managers
                 return;
             }
         }
-        
+
+    
+
         #endregion
         #region Stack Adding and Removing
+        
+        public void RemoveList(GameObject crashObj)
+        {
+            Collected.Remove(crashObj);
+            crashObj.tag = "Collectable";
+            GameObject bounceMoney = Instantiate(crashObj,RandomPos(transform),Quaternion.identity);
+          //  Destroy(bounceMoney.GetComponent<Rigidbody>());
+            bounceMoney.transform.DOMove(bounceMoney.transform.position - new Vector3(0, 2, 0), 1).SetEase(Ease.OutBounce);
+            Destroy(crashObj);      
+        }
+
+        public Vector3 RandomPos(Transform obstacle)
+        {
+            float x = Random.Range(-4, 4);
+            float z = Random.Range(20, 30);
+            Vector3 position = new Vector3(x, 2, obstacle.position.z + z);
+            return position;
+        }
+        
         private void AddOnStack(GameObject other)
-                {
-                    other.tag = "Collected"; 
-                    other.transform.parent = transform;
-                    other.transform.localPosition = new Vector3(0, 0, 5f);
-                    Collected.Add(other.gameObject);
-                    StackLerpMove();
-                    CollectableScaleUp(other);
-                }
+        {
+            other.tag = "Collected";
+            other.transform.parent = transform;
+            other.transform.localPosition = new Vector3(0, 0, 5f);
+            Collected.Add(other.gameObject);
+            StackLerpMove();
+            CollectableScaleUp(other);
+        }
                 private void RemoveFromStack(GameObject self) 
                 {
                     if (self.CompareTag("Collected"))
                     {
-                        var ChildCheck = Collected.Count; 
+                        var ChildCheck = self.transform.GetSiblingIndex(); 
+                        Debug.Log("  Child Check" + ChildCheck);
                         
-                        if ( transform.childCount == ChildCheck)
+                        if ( transform.childCount-1  == ChildCheck)
                         {
                             Collected.Remove(self);
-                            Destroy(self);
-                       }
-        
-                       else
-                       {
-                           
-                           int crashedObject = self.transform.GetSiblingIndex();
-                           int lastIndex = self.transform.childCount - 1;
-        
-                           for (int i = crashedObject; i <= lastIndex; i++)
-                           {
-                               self.tag = "Collectable";
-                               Collected[i].SetActive(false);
-                           }
-                       }
+                            Destroy(self); 
+                        }
+                        else {
+                           // int lastIndex = self.transform.childCount - 1;
+                            int lastIndex = Collected.Count - 1;
+                            Debug.Log("last index" + lastIndex);
+                            for (int i = ChildCheck; i <= lastIndex; i++) 
+                            {
+                               RemoveList(self);
+                            }
+                        }
                     }
                 } 
                 #endregion
