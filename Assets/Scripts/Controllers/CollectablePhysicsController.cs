@@ -26,7 +26,7 @@ namespace Controllers
                 CollectableSignals.Instance.onMoneyCollection?.Invoke(other.gameObject);
             }        
             if (other.CompareTag("Obstacle"))
-            {             
+            {
                 CollectableSignals.Instance.onObstacleCollision?.Invoke(gameObject);
             }
             if (other.CompareTag("Atm"))

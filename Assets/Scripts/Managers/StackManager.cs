@@ -100,6 +100,22 @@ namespace Managers
                 }
                 private void RemoveFromStack(GameObject self) 
                 {
+                    int crashedObject = transform.GetSiblingIndex();
+                    int lastIndex = transform.childCount - 1;
+                   
+                    if (self.CompareTag("Player"))
+                    {
+                       
+                        for (int i = 0; i <= lastIndex; i++)
+                        {
+                            Debug.Log("Çalıştı");
+                            Collected.Remove(Collected[i]);
+                            Destroy(Collected[i]);
+                            Collected.TrimExcess();
+                        }
+                    }
+
+
                     if (self.CompareTag("Collected"))
                     {
                         var ChildCheck = Collected.Count; 
@@ -107,21 +123,19 @@ namespace Managers
                         if ( transform.childCount == ChildCheck)
                         {
                             Collected.Remove(self);
-                            Destroy(self);
-                       }
-        
-                       else
-                       {
+                            Destroy(self); 
+                        }
+                        else 
+                        {
                            
-                           int crashedObject = self.transform.GetSiblingIndex();
-                           int lastIndex = self.transform.childCount - 1;
+                          
         
                            for (int i = crashedObject; i <= lastIndex; i++)
                            {
                                self.tag = "Collectable";
                                Collected[i].SetActive(false);
-                           }
-                       }
+                           } 
+                        }
                     }
                 } 
                 #endregion
