@@ -55,7 +55,7 @@ namespace Managers
             RemoveFromStack(self);
         }
 
-        private void OnDeposit(GameObject gameObject)
+        private void OnDeposit(GameObject gameObject,int id)
         {
             RemoveFromStack(gameObject);
         }

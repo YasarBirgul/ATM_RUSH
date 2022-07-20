@@ -1,3 +1,4 @@
+using System;
 using Controllers;
 using DG.Tweening;
 using Signals;
@@ -8,6 +9,14 @@ namespace Managers
     public class AtmManager : MonoBehaviour
     {
         public AtmScoreController atmScoreController;
+
+        private int instanceid;
+        
+        private void Awake()
+        {
+            instanceid = gameObject.GetComponent<AtmManager>().GetInstanceID();
+        }
+
         private void OnEnable()
         {
             SubscribeEvents();
@@ -27,13 +36,15 @@ namespace Managers
         {
             UnsubscribeEvents();
         } 
-        void OnDeposit(GameObject gameObject)
+        void OnDeposit(GameObject gameObject,int id)
         {
-            Debug.Log("Yes");
             atmScoreController.OnDeposit(gameObject);
-            if (gameObject.CompareTag("Player"))
+            if (id == instanceid)
             {
-                transform.DOMoveY(transform.position.z+10f, 0.3f);
+                if (gameObject.CompareTag("Player"))
+                {
+                    transform.DOMoveY(-5f, 0.3f).SetEase(Ease.OutBounce);
+                }
             }
         }
     }
