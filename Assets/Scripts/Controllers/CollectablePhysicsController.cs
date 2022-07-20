@@ -2,6 +2,7 @@
 using Signals;
 using UnityEngine;
 
+
 namespace Controllers
 {
     public class CollectablePhysicsController : MonoBehaviour
@@ -25,17 +26,21 @@ namespace Controllers
             { 
                 CollectableSignals.Instance.onMoneyCollection?.Invoke(other.gameObject);
             }        
-            if (other.CompareTag("Obstacle"))
+            else if (other.CompareTag("Obstacle"))
             {
                 CollectableSignals.Instance.onObstacleCollision?.Invoke(gameObject);
             }
-            if (other.CompareTag("Atm"))
+            else if (other.CompareTag("Atm"))
             {             
                 CollectableSignals.Instance.onDeposit?.Invoke(gameObject,other.GetComponent<AtmManager>().GetInstanceID());
             }
-            if (other.CompareTag("UpgradeGate"))
+            else if (other.CompareTag("UpgradeGate"))
             {        
                CollectableManager.OnUpgradeMoney();
+            }
+            else if (other.CompareTag("Conveyor"))
+            {
+                CollectableManager.OnMoveMoney();
             }
             
         }
