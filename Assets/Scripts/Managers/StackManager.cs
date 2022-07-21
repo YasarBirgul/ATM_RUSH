@@ -28,6 +28,7 @@ namespace Managers
             CollectableSignals.Instance.onMoneyCollection += OnMoneyCollection;
             CollectableSignals.Instance.onObstacleCollision += OnObstacleCollision;
             CollectableSignals.Instance.onDeposit += OnDeposit;
+            CollectableSignals.Instance.onFinalAtmCollision += OnFinalAtmCollision;
         }
 
         private void UnsubscribeEvents()
@@ -35,6 +36,7 @@ namespace Managers
             CollectableSignals.Instance.onMoneyCollection -= OnMoneyCollection;
             CollectableSignals.Instance.onObstacleCollision -= OnObstacleCollision;
             CollectableSignals.Instance.onDeposit -= OnDeposit;
+            CollectableSignals.Instance.onFinalAtmCollision -= OnFinalAtmCollision;
         }
         private void OnDisable()
         {
@@ -53,14 +55,13 @@ namespace Managers
         private void OnObstacleCollision(GameObject self)
         {
             RemoveFromStack(self);
+     
         }
-
+        
         private void OnDeposit(GameObject gameObject,int id)
         {
             RemoveFromStack(gameObject);
         }
-
-        
         #region LerpMove
         private void StackLerpMove()
                 {
@@ -76,6 +77,15 @@ namespace Managers
                         }
                     }
                 }
+
+        void OnFinalAtmCollision(GameObject Collectable)
+        { 
+            Collected.Remove(Collectable);
+            Collectable.transform.DOMoveX(Collectable.transform.position.x - 10, 1);
+            Collectable.transform.DOMoveZ(Collectable.transform.position.z , 1);
+        }
+        
+        
         private void CollectableScaleUp(GameObject other)
         {
             for (int i = other.transform.GetSiblingIndex()-1; i >= 0; i--)

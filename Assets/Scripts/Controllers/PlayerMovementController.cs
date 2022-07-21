@@ -21,8 +21,6 @@ namespace Controllers
 
         [SerializeField] private PlayerManager manager;
         [SerializeField] private new Rigidbody rigidbody;
-        
-
         #endregion
 
         [Header("Data")][ShowInInspector] private PlayerMovementData _movementData;

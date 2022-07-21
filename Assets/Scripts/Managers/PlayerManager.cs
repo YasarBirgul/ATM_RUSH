@@ -61,6 +61,7 @@ namespace Managers
             CoreGameSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
             CoreGameSignals.Instance.onLevelFailed += OnLevelFailed;
             CollectableSignals.Instance.onObstacleCollision += OnObstacleCollision;
+            CollectableSignals.Instance.onFinalAtmCollision += OnFinalAtmCollision;
         }
 
         private void UnsubscribeEvents()
@@ -73,6 +74,7 @@ namespace Managers
             CoreGameSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
             CoreGameSignals.Instance.onLevelFailed -= OnLevelFailed;
             CollectableSignals.Instance.onObstacleCollision -= OnObstacleCollision;
+            CollectableSignals.Instance.onFinalAtmCollision -= OnFinalAtmCollision;
         }
 
         private void OnDisable()
@@ -83,6 +85,16 @@ namespace Managers
         #endregion
 
         #region Movement Controller
+
+
+        private void OnFinalAtmCollision(GameObject Player)
+        {
+            if (Player.CompareTag("Player"))
+            {
+                movementController.IsReadyToPlay(false);
+                playerAnimationController.IdlePlayerMovementAnimation();
+            }
+        }
 
         private void OnActivateMovement()
         {

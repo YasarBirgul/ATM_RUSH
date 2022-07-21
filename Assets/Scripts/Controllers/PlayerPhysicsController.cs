@@ -40,6 +40,10 @@ namespace Controllers
             {             
                 CollectableSignals.Instance.onDeposit?.Invoke(gameObject,other.GetComponent<AtmManager>().GetInstanceID());
             }
+            else if (other.CompareTag("Conveyor"))
+            {
+                CollectableSignals.Instance.onFinalAtmCollision?.Invoke(gameObject);
+            }
         }
     }
 }

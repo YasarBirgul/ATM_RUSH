@@ -40,7 +40,7 @@ namespace Controllers
             }
             else if (other.CompareTag("Conveyor"))
             {
-                CollectableManager.OnMoveMoney();
+                CollectableSignals.Instance.onFinalAtmCollision?.Invoke(gameObject);
             }
             
         }

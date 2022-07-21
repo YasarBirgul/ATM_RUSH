@@ -15,9 +15,10 @@ namespace Controllers
       #endregion
 
       #endregion
-   
+      
       public void RunPlayerMovementAnimation()
       {
+         Debug.Log("yes");
          animator.SetBool("Run",true);
       }
    

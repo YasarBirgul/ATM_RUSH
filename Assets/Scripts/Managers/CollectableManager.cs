@@ -81,11 +81,6 @@ namespace Managers
         {
             OnChangeCollectableState(StateData);
         }
-
-        public void OnMoveMoney()
-        {
-            OnMoveMoneyFinalState();
-        }
         public void OnChangeCollectableState(CollectableType _collectableTypes)
         {
             if (_collectableTypes == CollectableType.Money)
@@ -102,13 +97,5 @@ namespace Managers
                 diamond.SetActive(true);
             }
         }
-
-        public void OnMoveMoneyFinalState()
-        {
-            StackManager.Instance.Collected.Remove(gameObject);
-            transform.DOMoveX(transform.position.x - 10, 1);
-            transform.DOMoveZ(transform.position.z , 1);
-        }
-        
     }
 }
