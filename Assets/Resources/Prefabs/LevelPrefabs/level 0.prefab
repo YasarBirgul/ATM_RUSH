@@ -1476,9 +1476,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8915157581541322678}
   - component: {fileID: 9211117506673573419}
-  - component: {fileID: 3435956629683972939}
+  - component: {fileID: 6876912874187108642}
   m_Layer: 0
-  m_Name: Atm_Rush_Character_Animation
+  m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1513,7 +1513,7 @@ Animator:
   m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: b233836aba848fa429e2499121bfabf9, type: 2}
-  m_CullingMode: 0
+  m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
@@ -1521,7 +1521,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &3435956629683972939
+--- !u!114 &6876912874187108642
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1530,9 +1530,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 2853185973335455041}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fc43c0f07e930941958ab237ab6f010, type: 3}
+  m_Script: {fileID: 11500000, guid: 97ce68089d4736045a1598b91e3091a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerManager: {fileID: 7827849015843195549}
+  animator: {fileID: 9211117506673573419}
 --- !u!114 &6805676157968164603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1631,6 +1633,7 @@ MonoBehaviour:
       SidewaysSpeed: 2
       ForwardForceSpeed: 10
   movementController: {fileID: 7412399309161339759}
+  playerAnimationController: {fileID: 6876912874187108642}
 --- !u!114 &7412399309161339759
 MonoBehaviour:
   m_ObjectHideFlags: 0

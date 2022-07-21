@@ -21,6 +21,7 @@ namespace Controllers
 
         [SerializeField] private PlayerManager manager;
         [SerializeField] private new Rigidbody rigidbody;
+        
 
         #endregion
 
@@ -28,6 +29,7 @@ namespace Controllers
         [ShowInInspector] private bool _isReadyToMove, _isReadyToPlay;
         [ShowInInspector] private float _inputValue;
         [ShowInInspector] private Vector2 _clampValues;
+        
         
 
         #endregion
@@ -40,6 +42,7 @@ namespace Controllers
         public void EnableMovement()
         {
             _isReadyToMove = true;
+            
         }
 
         public void DeactiveMovement()
