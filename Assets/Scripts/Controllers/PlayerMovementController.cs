@@ -28,6 +28,7 @@ namespace Controllers
         [ShowInInspector] private bool _isReadyToMove, _isReadyToPlay;
         [ShowInInspector] private float _inputValue;
         [ShowInInspector] private Vector2 _clampValues;
+        
 
         #endregion
 
@@ -64,6 +65,7 @@ namespace Controllers
                 if (_isReadyToMove)
                 {
                     Move();
+                    
                 }
                 else
                 {
