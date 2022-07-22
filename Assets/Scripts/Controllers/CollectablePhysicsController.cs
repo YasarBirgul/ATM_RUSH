@@ -31,7 +31,7 @@ namespace Controllers
             }
             else if (other.CompareTag("Atm"))
             {
-                CollectableSignals.Instance.onDeposit?.Invoke(gameObject,gameObject.GetComponent<CollectableManager>().GetInstanceID());
+                CollectableSignals.Instance.onDeposit?.Invoke(gameObject,transform.GetSiblingIndex());
             }
             else if (other.CompareTag("UpgradeGate"))
             {        

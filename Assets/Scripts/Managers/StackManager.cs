@@ -54,15 +54,15 @@ namespace Managers
             AddOnStack(other);
         }
 
-        private void OnObstacleCollision(GameObject self,int index)
+        private void OnObstacleCollision(GameObject CollidedActiveObject,int stackedCollectablesIndex)
         {
-            RemoveFromStack(self,index);
+            RemoveFromStack(CollidedActiveObject,stackedCollectablesIndex);
      
         }
         
-        private void OnDeposit(GameObject gameObject,int index)
+        private void OnDeposit(GameObject CollidedActiveObject,int stackedCollectablesIndex)
         {
-          //  RemoveFromStack(gameObject,index);
+            RemoveFromStack(CollidedActiveObject,stackedCollectablesIndex);
         }
         #region LerpMove
         private void StackLerpMove()
@@ -110,11 +110,11 @@ namespace Managers
             StackLerpMove();
             CollectableScaleUp(other);
         }
-                private void RemoveFromStack(GameObject self,int index) 
+                private void RemoveFromStack(GameObject CollidedActiveObject,int stackedCollectablesIndex) 
                 {
-                    Debug.Log(self);
+                    Debug.Log(CollidedActiveObject);
                     
-                    if (self.CompareTag("Player"))
+                    if (CollidedActiveObject.CompareTag("Player"))
                     {
                         for (int i = Collected.Count-1; i >= 0; i--)
                         {
@@ -130,19 +130,19 @@ namespace Managers
                         }
                         Collected.TrimExcess();
                     }
-                    if (self.CompareTag("Collected"))
+                    if (CollidedActiveObject.CompareTag("Collected"))
                     {
                         var ChildCheck = Collected.Count-1;
                         
-                        if (index == ChildCheck)
+                        if (stackedCollectablesIndex == ChildCheck)
                         {
-                             Collected.Remove(self);
-                             Destroy(self); 
+                             Collected.Remove(CollidedActiveObject);
+                             Destroy(CollidedActiveObject); 
                              Collected.TrimExcess();
                         }
                         else
                         {
-                           for (int i = ChildCheck; i > index; i--)
+                           for (int i = ChildCheck; i > stackedCollectablesIndex; i--)
                            {
                                if (i > ChildCheck)
                                {
@@ -163,5 +163,6 @@ namespace Managers
                     }
                 } 
                 #endregion
+        
     }
 }
