@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+using System.Security.Cryptography;
 using Managers;
 using Signals;
 using UnityEngine;
@@ -12,20 +9,16 @@ namespace Controllers
     {
         #region Self Variables
 
-        [SerializeField] private StackManager stackManager;
+      
         #region Public Variables
         
         #endregion
 
         #region Serialized Variables
         
-        [SerializeField] private PlayerManager playerManager;
-        private new Collider Collider;
-
         #endregion
 
         #endregion
-
         private void OnTriggerEnter(Collider other)
         {
             if(other.CompareTag("Collectable"))

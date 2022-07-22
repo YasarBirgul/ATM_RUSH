@@ -30,8 +30,8 @@ namespace Controllers
                 CollectableSignals.Instance.onObstacleCollision?.Invoke(gameObject,transform.GetSiblingIndex());
             }
             else if (other.CompareTag("Atm"))
-            {             
-                CollectableSignals.Instance.onDeposit?.Invoke(gameObject,other.GetComponent<AtmManager>().GetInstanceID());
+            {
+                CollectableSignals.Instance.onDeposit?.Invoke(gameObject,gameObject.GetComponent<CollectableManager>().GetInstanceID());
             }
             else if (other.CompareTag("UpgradeGate"))
             {        

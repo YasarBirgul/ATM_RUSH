@@ -13,6 +13,7 @@ namespace Managers
         #region Public Variables
         public List<GameObject> Collected = new List<GameObject>();
         public GameObject TempHolder;
+        private TweenCallback tweenCallback;
         #endregion
         #region Serialized Variables
         #endregion
@@ -61,7 +62,7 @@ namespace Managers
         
         private void OnDeposit(GameObject gameObject,int index)
         {
-            RemoveFromStack(gameObject,index);
+          //  RemoveFromStack(gameObject,index);
         }
         #region LerpMove
         private void StackLerpMove()
@@ -101,54 +102,67 @@ namespace Managers
         #endregion
         #region Stack Adding and Removing
         private void AddOnStack(GameObject other)
-                {
-                    other.tag = "Collected"; 
-                    other.transform.parent = transform;
-                    other.transform.localPosition = new Vector3(0, 0, 5f);
-                    Collected.Add(other.gameObject);
-                    StackLerpMove();
-                    CollectableScaleUp(other);
-                }
+        {
+            other.tag = "Collected"; 
+            other.transform.parent = transform;
+            other.transform.localPosition = new Vector3(0, 0, 5f);
+            Collected.Add(other.gameObject);
+            StackLerpMove();
+            CollectableScaleUp(other);
+        }
                 private void RemoveFromStack(GameObject self,int index) 
                 {
+                    Debug.Log(self);
                     
                     if (self.CompareTag("Player"))
                     {
-                        var ChildCheck = Collected.Count-1;
-                        for (int i = 0; i <= ChildCheck; i++)
+                        for (int i = Collected.Count-1; i >= 0; i--)
                         {
-                            Collected[i].transform.DOJump(Collected[i].transform.position + new Vector3(Random.Range(-3, 3), 0, (Random.Range(14, 15))), 4.0f, 2, 1f);
+                            if (i < 0 )
+                            {
+                                return;
+                            }
+
+                            Collected[i].transform
+                                .DOJump(Collected[i].transform.position + new Vector3(Random.Range(-3, 3), 0, (Random.Range(9, 15))), 4.0f, 2, 1f);
                             Collected[i].transform.tag = "Collectable";
                             Collected[i].transform.SetParent(TempHolder.transform);
-                            Collected.Remove(Collected[i]); 
+                            Collected.Remove(Collected[i]);
                             Collected.TrimExcess();
+                           // Debug.Log(i);
                         }
                        
                     }
                     if (self.CompareTag("Collected"))
                     {
-                        var ChildCheck = Collected.Count;
+                        var ChildCheck = Collected.Count-1;
                         
-                        if (index == ChildCheck-1)
+                        if (index == ChildCheck)
                         {
                              Collected.Remove(self);
                              Destroy(self); 
+                             Collected.TrimExcess();
                         }
                         else
                         {
-                           for (int i = index; i < ChildCheck; i++)
+                           for (int i = ChildCheck; i > index; i--)
                            {
+                               if (i > ChildCheck)
+                               {
+                                   return;
+                               }
                                Collected[i].transform.SetParent(TempHolder.transform);
                                Collected[i].transform.DOJump(Collected[i].transform.position + new Vector3(Random.Range(-3, 3), 0, (Random.Range(9, 15))), 4.0f, 2, 1f);
                                Collected[i].transform.tag = "Collectable";
                                Collected.Remove(Collected[i]);
+                               Debug.Log(i);
+                               
                            }
                            if (ChildCheck == 0)
                            {
                                return;
                            }
                         }
-                       
                         Collected.TrimExcess();
                     }
                 } 

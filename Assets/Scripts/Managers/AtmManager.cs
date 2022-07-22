@@ -1,4 +1,3 @@
-using System;
 using Controllers;
 using DG.Tweening;
 using Signals;
@@ -14,7 +13,8 @@ namespace Managers
         
         private void Awake()
         {
-            instanceid = gameObject.GetComponent<AtmManager>().GetInstanceID();
+            instanceid = GetComponent<AtmManager>().GetInstanceID();
+            Debug.Log(instanceid);
         }
 
         private void OnEnable()
@@ -36,8 +36,9 @@ namespace Managers
         {
             UnsubscribeEvents();
         } 
-        void OnDeposit(GameObject gameObject,int id)
-        {
+        private void OnDeposit(GameObject gameObject,int id)
+        { 
+            Debug.Log(id + " : "+ instanceid);
             atmScoreController.OnDeposit(gameObject);
             if (id == instanceid)
             {
