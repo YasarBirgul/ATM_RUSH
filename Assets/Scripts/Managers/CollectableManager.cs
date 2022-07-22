@@ -42,14 +42,12 @@ namespace Managers
                 private void SubscribeEvents()
                 {
                     CollectableSignals.Instance.onMoneyCollection += OnMoneyCollection;
-                    CollectableSignals.Instance.onObstacleCollision += OnObstacleCollision;
 
                 }
         
                 private void UnsubscribeEvents()
                 { 
                     CollectableSignals.Instance.onMoneyCollection -= OnMoneyCollection;
-                    CollectableSignals.Instance.onObstacleCollision -= OnObstacleCollision;
                 }
         
                 private void OnDisable()
@@ -72,10 +70,6 @@ namespace Managers
         private void OnMoneyCollection(GameObject self)
         {
            // İndex ataması
-        }
-        private void OnObstacleCollision(GameObject self)
-        {
-            // Fizik controlden Para yok olacak 
         }
         public void OnUpgradeMoney()
         {

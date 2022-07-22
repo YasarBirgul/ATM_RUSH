@@ -32,9 +32,9 @@ MonoBehaviour:
     - Assembly-CSharp-firstpass
     - Cinemachine
     - Assembly-CSharp
-    - Sirenix.OdinInspector.CompatibilityLayer
-    - sc.stylizedwater2.editor
     - sc.stylizedwater2.runtime
+    - sc.stylizedwater2.editor
+    - Sirenix.OdinInspector.CompatibilityLayer
     - Sirenix.OdinInspector.CompatibilityLayer.Editor
     - Sirenix.OdinInspector.Modules.UnityMathematics
     showAdvancedSettings: 0

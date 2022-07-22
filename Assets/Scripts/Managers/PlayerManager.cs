@@ -113,7 +113,7 @@ namespace Managers
 
         #endregion
 
-        private void OnObstacleCollision(GameObject self)
+        private void OnObstacleCollision(GameObject self,int index)
         {
             movementController.PlayerPushBack(self);
         }

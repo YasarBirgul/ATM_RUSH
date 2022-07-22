@@ -11,7 +11,6 @@ namespace Controllers
         #region Public Variables
 
         public CollectableManager CollectableManager;
-        public int index;
         #endregion
         #region Serialized Variables
         #endregion
@@ -28,7 +27,7 @@ namespace Controllers
             }        
             else if (other.CompareTag("Obstacle"))
             {
-                CollectableSignals.Instance.onObstacleCollision?.Invoke(gameObject);
+                CollectableSignals.Instance.onObstacleCollision?.Invoke(gameObject,transform.GetSiblingIndex());
             }
             else if (other.CompareTag("Atm"))
             {             

@@ -55,7 +55,7 @@ namespace Managers
             }
            
         }
-        private void OnScoreDown(GameObject self)
+        private void OnScoreDown(GameObject self,int index)
         {
             if (self.CompareTag("Collected"))
             {
