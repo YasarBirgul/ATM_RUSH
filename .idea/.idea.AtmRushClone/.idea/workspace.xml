@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="01c7924d-320e-4a8c-a339-30539f82d49c" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/FinalStateController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/FinalStateController.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AtmRushClone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AtmRushClone/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/Armature_Speedy_Run.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/Armature_Speedy_Run.anim.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/Armature_ıdle.anim" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Animations/Armature_ıdle.anim.meta" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelPrefabs/level 0.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelPrefabs/level 0.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/AnimationController.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/AnimationController.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/PlayerMovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/PlayerMovementController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/CollectableManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/CollectableManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/ScoreManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/ScoreManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,6 +76,7 @@
       <workItem from="1658159655764" duration="664000" />
       <workItem from="1658331191370" duration="731000" />
       <workItem from="1658416088708" duration="624000" />
+      <workItem from="1658565128762" duration="2752000" />
     </task>
     <servers />
   </component>
@@ -89,6 +86,17 @@
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>

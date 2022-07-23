@@ -12,12 +12,17 @@ namespace Managers
     {
         #region Self Variables
         #region Public Variables
+
+        public CollectableType _CollectableType;
+        
         #endregion
         #region Serialized Variables
-        [SerializeField] private TextMeshPro scoreText;
+        public TextMeshPro scoreText;
         #endregion
         #region Private Variables
-        private float _score = 0;
+
+        [HideInInspector]
+        public float _score = 0;
         #endregion
         #endregion
 
@@ -62,6 +67,8 @@ namespace Managers
                 _score += 1;
                 scoreText.text = _score.ToString();
             }
+
+           
         }
         private void ScoreDown(GameObject self)
         {

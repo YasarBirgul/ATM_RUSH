@@ -18,6 +18,7 @@ namespace Managers
         public GameObject money;
         public GameObject gold;
         public GameObject diamond;
+        public ScoreManager ScoreManager;
 
         public GameObject go;
 
@@ -82,6 +83,8 @@ namespace Managers
                 StateData = CollectableType.Gold;
                 money.SetActive(false);
                 gold.SetActive(true);
+                ScoreManager._score += 1;
+                ScoreManager.scoreText.text = ScoreManager._score.ToString();
             }
         
             else if(_collectableTypes == CollectableType.Gold)
@@ -89,6 +92,8 @@ namespace Managers
                 StateData = CollectableType.Diamond;
                 gold.SetActive(false);
                 diamond.SetActive(true);
+                ScoreManager._score += 1;
+                ScoreManager.scoreText.text = ScoreManager._score.ToString();
             }
         }
     }
