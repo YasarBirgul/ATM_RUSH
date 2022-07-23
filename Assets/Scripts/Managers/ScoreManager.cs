@@ -58,52 +58,22 @@ namespace Managers
         {
             
             if (self.CompareTag("Collected"))
-            {
+            { 
+                _score += 1;
                 scoreText.text = _score.ToString();
-                if (self.GetComponent<CollectableData>().CollectableType == CollectableType.Money)
-                {
-                    _score += 1;
-                }
-                else if (self.GetComponent<CollectableData>().CollectableType == CollectableType.Gold)
-                {
-                    _score += 2;
-                }
-                else if (self.GetComponent<CollectableData>().CollectableType == CollectableType.Diamond)
-                {
-                    _score += 3;
-                }
-                else
-                {
-                    return;
-                }
             }
         }
         private void ScoreDown(GameObject self)
         {
             if (self.CompareTag("Collected"))
             {
-                scoreText.text = _score.ToString();
-                if (self.GetComponent<CollectableData>().CollectableType == CollectableType.Money)
+                _score -= 1;
+                    
+                if (_score <= 0)
                 {
-                    _score -= 1;
-                }
-                else if (self.GetComponent<CollectableData>().CollectableType == CollectableType.Gold)
-                {
-                    _score -= 2;
-                }
-                else if (self.GetComponent<CollectableData>().CollectableType == CollectableType.Diamond)
-                {
-                    _score -= 3;
-                }
-                else
-                {
-                    return;
-                }
-            }
-
-            if (_score <= 0)
-            {
-                _score = 0;
+                    _score = 0;
+                } 
+                scoreText.text = _score.ToString();  
             }
         }
     }

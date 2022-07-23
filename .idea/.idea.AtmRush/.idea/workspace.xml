@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="00b854ac-d46c-4614-a6fc-8d94181b4cb9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AtmRush/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AtmRush/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/ObstacleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/ObstacleManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/ScoreManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/ScoreManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,6 +73,7 @@
       <workItem from="1658418858409" duration="936000" />
       <workItem from="1658419831973" duration="1291000" />
       <workItem from="1658486870187" duration="4906000" />
+      <workItem from="1658555883583" duration="154000" />
     </task>
     <servers />
   </component>

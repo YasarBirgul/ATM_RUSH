@@ -20,22 +20,18 @@ public class ObstacleManager : MonoBehaviour
 
     public ObstacleAnimationsController obstacleAnimationsController;
     
-    #region Event Subscription 
-        
+    #region Event Subscription
     private void OnEnable()
     {
         SubscribeEvents();
     }
-
     private void SubscribeEvents()
     {
         CoreGameSignals.Instance.onPlay += OnPlay;
-       // CollectableSignals.Instance.onDeposit += OnDeposit;
     }
     private void UnsubscribeEvents()
     {
         CoreGameSignals.Instance.onPlay -= OnPlay;
-       // CollectableSignals.Instance.onDeposit -= OnDeposit;
     }
     private void OnDisable()
     {
@@ -46,7 +42,6 @@ public class ObstacleManager : MonoBehaviour
     #endregion
 
     #endregion
-
     private void OnPlay()
     {
         ObstacleAnimationsOnPlay();
