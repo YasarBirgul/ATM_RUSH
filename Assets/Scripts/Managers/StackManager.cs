@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using Extentions;
@@ -7,7 +8,7 @@ using UnityEngine;
 
 namespace Managers
 {
-    public class StackManager : MonoSingleton<StackManager>
+    public class StackManager : MonoBehaviour
     {
         #region Self Variables
         #region Public Variables
@@ -88,17 +89,29 @@ namespace Managers
         }
         
         
-        private void CollectableScaleUp(GameObject other)
+        // private void CollectableScaleUp(GameObject other)
+        // {
+        //      for (int i = Collected.Count - 1; i >= 1; i-- )
+        //     {
+        //         // for (int i = Collected.Count - 1; i >= 1; i-- )
+        //         // for (int i = other.transform.GetSiblingIndex()-1; i >= 0; i--)
+        //         int index = i;
+        //         Vector3 scale = Vector3.one * 2;
+        //         Collected[index-1].transform.DOScale(scale, 0.5f).OnComplete(() => {Collected[index-1].transform.DOScale(Vector3.one, 0.5f);}).SetEase(Ease.OutSine);
+        //         return;
+        //     }
+        // }
+        public IEnumerator CollectableScaleUp()
         {
-            for (int i = other.transform.GetSiblingIndex()-1; i >= 0; i--)
+            for (int i = Collected.Count -1; i >= 1; i--)
             {
                 int index = i;
-                Vector3 scale = Vector3.one * 2;
-                Collected[index].transform.DOScale(scale, 0.2f).OnComplete(() => {Collected[index].transform.DOScale(Vector3.one, 0.2f);});
-                return;
+                Vector3 scale = Vector3.one * 1.5f;
+                Collected[index-1].transform.DOScale(scale, 0.1f).OnComplete(() => {Collected[index-1].transform.DOScale(Vector3.one, 0.1f);}).SetEase(Ease.OutSine);
+                yield return new WaitForSeconds(0.03f);
             }
         }
-        
+
         #endregion
         #region Stack Adding and Removing
         private void AddOnStack(GameObject other)
@@ -108,7 +121,7 @@ namespace Managers
             other.transform.localPosition = new Vector3(0, 0, 5f);
             Collected.Add(other.gameObject);
             StackLerpMove();
-            CollectableScaleUp(other);
+            StartCoroutine(CollectableScaleUp());
         }
                 private void RemoveFromStack(GameObject CollidedActiveObject,int stackedCollectablesIndex) 
                 {
