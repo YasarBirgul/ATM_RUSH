@@ -23,9 +23,11 @@ namespace Managers
 
         [Space][SerializeField] private PlayerMovementController movementController;
         [SerializeField] private PlayerAnimationController playerAnimationController;
+        
 
         #endregion
 
+        
         #endregion
 
 
@@ -122,6 +124,7 @@ namespace Managers
         {
             movementController.IsReadyToPlay(true);
             playerAnimationController.RunPlayerMovementAnimation();
+            
         }
 
         private void OnLevelSuccessful()

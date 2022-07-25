@@ -15,6 +15,7 @@ namespace Managers
         [SerializeField] private LevelPanelController levelPanelController;
 
         #endregion
+        
        
 
         #endregion
@@ -66,6 +67,7 @@ namespace Managers
         {
             uiPanelController.ClosePanel(panelParam);
             
+            
         }
 
         private void OnUpdateStageData(int value)
@@ -81,6 +83,7 @@ namespace Managers
         private void OnPlay()
         {
             UISignals.Instance.onClosePanel?.Invoke(UIPanels.StartPanel);
+            
            
         }
 

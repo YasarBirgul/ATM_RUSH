@@ -1,4 +1,5 @@
 using System;
+using Controllers;
 using Enums;
 using Extentions;
 using Keys;
@@ -14,7 +15,7 @@ public class GameManager : MonoBehaviour
     public GameStates States;
 
     #endregion
-
+    
     #endregion
 
     private void Awake()
@@ -49,6 +50,7 @@ public class GameManager : MonoBehaviour
     private void OnChangeGameState(GameStates newState)
     {
         States = newState;
+        
     }
 
     private void OnSaveGame(SaveGameDataParams saveDataParams)
