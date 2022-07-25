@@ -103,13 +103,15 @@ namespace Managers
         // }
         public IEnumerator CollectableScaleUp()
         {
-            for (int i = Collected.Count -1; i >= 1; i--)
+            for (int i = Collected.Count -1; i >= 0; i--)
             {
                 int index = i;
                 Vector3 scale = Vector3.one * 1.5f;
-                Collected[index-1].transform.DOScale(scale, 0.1f).OnComplete(() => {Collected[index-1].transform.DOScale(Vector3.one, 0.1f);}).SetEase(Ease.OutSine);
-                yield return new WaitForSeconds(0.03f);
+                Collected[index].transform.DOScale(scale, 0.06f).OnComplete(() => {Collected[index].transform.DOScale(Vector3.one, 0.06f);});
+                //yield return new WaitForSeconds(0.03f);
+                yield return new WaitForSeconds(0.12f);
             }
+            
         }
 
         #endregion
