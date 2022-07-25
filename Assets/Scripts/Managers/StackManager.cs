@@ -53,6 +53,7 @@ namespace Managers
         private void OnMoneyCollection(GameObject other)
         {
             AddOnStack(other);
+            StartCoroutine(CollectableScaleUp());
         }
 
         private void OnObstacleCollision(GameObject CollidedActiveObject,int stackedCollectablesIndex)
@@ -107,9 +108,9 @@ namespace Managers
             {
                 int index = i;
                 Vector3 scale = Vector3.one * 1.5f;
-                Collected[index].transform.DOScale(scale, 0.06f).OnComplete(() => {Collected[index].transform.DOScale(Vector3.one, 0.06f);});
+                Collected[index].transform.DOScale(scale, 0.12f).OnComplete(() => {Collected[index].transform.DOScale(Vector3.one, 0.12f);});
                 //yield return new WaitForSeconds(0.03f);
-                yield return new WaitForSeconds(0.12f);
+                yield return new WaitForSeconds(0.04f);
             }
             
         }
@@ -122,8 +123,8 @@ namespace Managers
             other.transform.parent = transform;
             other.transform.localPosition = new Vector3(0, 0, 5f);
             Collected.Add(other.gameObject);
-            StackLerpMove();
-            StartCoroutine(CollectableScaleUp());
+            
+            
         }
                 private void RemoveFromStack(GameObject CollidedActiveObject,int stackedCollectablesIndex) 
                 {
