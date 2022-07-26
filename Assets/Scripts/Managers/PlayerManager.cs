@@ -95,6 +95,7 @@ namespace Managers
             {
                 movementController.IsReadyToPlay(false);
                 playerAnimationController.IdlePlayerMovementAnimation();
+                transform.position = transform.position + Vector3.forward*10f;
             }
         }
 

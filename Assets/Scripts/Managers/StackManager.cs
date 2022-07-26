@@ -89,28 +89,15 @@ namespace Managers
             Collectable.transform.DOMoveZ(Collectable.transform.position.z , 1);
         }
         
-        
-        // private void CollectableScaleUp(GameObject other)
-        // {
-        //      for (int i = Collected.Count - 1; i >= 1; i-- )
-        //     {
-        //         // for (int i = Collected.Count - 1; i >= 1; i-- )
-        //         // for (int i = other.transform.GetSiblingIndex()-1; i >= 0; i--)
-        //         int index = i;
-        //         Vector3 scale = Vector3.one * 2;
-        //         Collected[index-1].transform.DOScale(scale, 0.5f).OnComplete(() => {Collected[index-1].transform.DOScale(Vector3.one, 0.5f);}).SetEase(Ease.OutSine);
-        //         return;
-        //     }
-        // }
         public IEnumerator CollectableScaleUp()
         {
             for (int i = Collected.Count -1; i >= 0; i--)
             {
                 int index = i;
                 Vector3 scale = Vector3.one * 1.5f;
-                Collected[index].transform.DOScale(scale, 0.12f).OnComplete(() => {Collected[index].transform.DOScale(Vector3.one, 0.12f);});
-                //yield return new WaitForSeconds(0.03f);
-                yield return new WaitForSeconds(0.04f);
+                Collected[index].transform.DOScale(scale, 0.2f).SetEase(Ease.Flash);
+                Collected[index].transform.DOScale(Vector3.one, 0.2f).SetDelay(0.2f).SetEase(Ease.Flash);
+                yield return new WaitForSeconds(0.05f);
             }
             
         }
