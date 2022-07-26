@@ -31,10 +31,15 @@ namespace Controllers
             if (other.CompareTag("Atm"))
             {             
                 CollectableSignals.Instance.onDeposit?.Invoke(gameObject,other.GetComponent<AtmManager>().GetInstanceID());
-            }
-            else if (other.CompareTag("Conveyor"))
+            } 
+            if (other.CompareTag("Conveyor"))
             {
                 CollectableSignals.Instance.onFinalAtmCollision?.Invoke(gameObject);
+            }
+
+            if (other.CompareTag("RankCube"))
+            {
+                CoreGameSignals.Instance.onMiniGame?.Invoke(other.GetComponent<MiniGameManager>().GetInstanceID());
             }
         }
     }

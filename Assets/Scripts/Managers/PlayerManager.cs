@@ -25,6 +25,7 @@ namespace Managers
         [Space][SerializeField] private PlayerMovementController movementController;
         [SerializeField] private PlayerAnimationController playerAnimationController;
         [SerializeField] private PlayerMiniGamePoolController _miniGamePoolController;
+        [SerializeField] private ScoreManager _scoreManager;
 
         #endregion
 
@@ -96,8 +97,10 @@ namespace Managers
             {
                 movementController.IsReadyToPlay(false);
                 playerAnimationController.IdlePlayerMovementAnimation();
-                transform.DOMoveZ(transform.position.z+10f,0.2f).SetEase(Ease.InBounce).OnComplete(() => {
-                    playerAnimationController.MiniGameMovement();
+                transform.DOMoveZ(transform.position.z+10f,0.2f).SetEase(Ease.InBounce).OnComplete(() =>
+                {
+                    transform.DOMoveY(transform.position.y + _scoreManager._score/10f, 1f).SetEase(Ease.InOutSine).OnComplete(()
+                        => CoreGameSignals.Instance.onLevelSuccessful?.Invoke()); ;
                 });
             }
         }
