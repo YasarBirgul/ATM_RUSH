@@ -26,5 +26,10 @@ namespace Controllers
       {
          animator.SetBool("Run",false);
       }
+
+      public void MiniGameMovement()
+      {
+         animator.SetBool("MiniGame",true);
+      }
    }
 }

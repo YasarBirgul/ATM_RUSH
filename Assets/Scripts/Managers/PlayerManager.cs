@@ -6,6 +6,7 @@ using DG.Tweening;
 using Keys;
 using Signals;
 using UnityEngine;
+using UnityEngine.Jobs;
 
 namespace Managers
 {
@@ -95,7 +96,9 @@ namespace Managers
             {
                 movementController.IsReadyToPlay(false);
                 playerAnimationController.IdlePlayerMovementAnimation();
-                transform.position = transform.position + Vector3.forward*10f;
+                transform.DOMoveZ(transform.position.z+10f,0.2f).SetEase(Ease.InBounce).OnComplete(() => {
+                    playerAnimationController.MiniGameMovement();
+                });
             }
         }
 
