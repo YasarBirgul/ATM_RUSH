@@ -7,6 +7,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/PlayerMiniGamePoolController.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -68,6 +71,7 @@
       <workItem from="1657893000684" duration="3727000" />
       <workItem from="1657948474450" duration="2799000" />
       <workItem from="1658315265234" duration="1112000" />
+      <workItem from="1658852541507" duration="1738000" />
     </task>
     <servers />
   </component>

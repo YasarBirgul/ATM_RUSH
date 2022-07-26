@@ -24,7 +24,7 @@ namespace Managers
 
         [Space][SerializeField] private PlayerMovementController movementController;
         [SerializeField] private PlayerAnimationController playerAnimationController;
-        
+        [SerializeField] private PlayerMiniGamePoolController _miniGamePoolController;
 
         #endregion
 
@@ -128,6 +128,7 @@ namespace Managers
         {
             movementController.IsReadyToPlay(true);
             playerAnimationController.RunPlayerMovementAnimation();
+            _miniGamePoolController.InstantiateMoneys();
             
         }
 

@@ -17,6 +17,7 @@ namespace Managers
         private void UnsubscribeEvents()
         {
             CoreGameSignals.Instance.onLevelInitialize -= OnLevelInitialize;
+            
         }
         private void OnDisable()
         {
