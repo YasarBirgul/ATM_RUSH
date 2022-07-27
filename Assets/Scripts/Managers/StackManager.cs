@@ -117,8 +117,6 @@ namespace Managers
         }
         private void RemoveFromStack(GameObject CollidedActiveObject,int stackedCollectablesIndex) 
         {
-                  
-                    
             if (CollidedActiveObject.CompareTag("Player"))
             {
                 for (int i = Collected.Count-1; i >= 0; i--)
@@ -127,6 +125,7 @@ namespace Managers
                     {
                       return; 
                     }
+                    
                     int DescreaseScoreValue = (int)Collected[i].GetComponent<CollectableManager>().StateData;
                     ScoreSignals.Instance.onScoreDown?.Invoke(DescreaseScoreValue);
                     
