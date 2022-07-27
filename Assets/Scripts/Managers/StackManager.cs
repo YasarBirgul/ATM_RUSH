@@ -165,6 +165,5 @@ namespace Managers
                     }
                 } 
                 #endregion
-        
     }
 }
