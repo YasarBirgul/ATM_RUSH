@@ -99,8 +99,10 @@ namespace Managers
             {
                 movementController.IsReadyToPlay(false);
                 playerAnimationController.IdlePlayerMovementAnimation();
-                transform.DOMoveZ(transform.position.z + 10f, 0.2f).SetEase(Ease.InOutExpo);
-                
+                transform.DOMoveZ(transform.position.z + 10f, 1f).SetDelay(2f).SetEase(Ease.InOutExpo).OnComplete(() =>
+                {
+                    transform.DORotate(new Vector3(0, 180, 0), 0.2f);
+                });
             }
         }
 
@@ -150,7 +152,10 @@ namespace Managers
         private void OnMiniGame(int id)
         {
             var MiniGameHight = _scoreManager._score;
-            transform.DOMoveY(MiniGameHight/10, MiniGameHight/100);
+            transform.DOMoveY(MiniGameHight / 5, MiniGameHight / 50).OnComplete(() =>
+            {
+                  CoreGameSignals.Instance.onLevelSuccessful?.Invoke();
+            });
         }
     }
 }
