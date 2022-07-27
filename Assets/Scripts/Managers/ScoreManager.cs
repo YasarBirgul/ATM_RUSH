@@ -37,15 +37,13 @@ namespace Managers
         } 
         private void SubscribeEvents()
         {
-            CollectableSignals.Instance.onMoneyCollection += OnMoneyCollection;                  
-            CollectableSignals.Instance.onObstacleCollision += OnObstacleCollision; 
-            // CollectableSignals.Instance.onDeposit -= OnDeposit;
+            CollectableSignals.Instance.onMoneyCollection += OnMoneyCollection;
+            ScoreSignals.Instance.onScoreDown += OnScoreDown;
         }  
         private void UnsubscribeEvents()
         {
             CollectableSignals.Instance.onMoneyCollection -= OnMoneyCollection;
-            CollectableSignals.Instance.onObstacleCollision -= OnObstacleCollision;
-
+            ScoreSignals.Instance.onScoreDown -= OnScoreDown;
         } 
         private void OnDisable()
         {
@@ -57,41 +55,24 @@ namespace Managers
             ScoreUp(self);
         }
         
-        private void OnObstacleCollision(GameObject self,int index)
-        {
-           // ScoreDown(self,index);
-        }
         private void ScoreUp(GameObject self)
         {
-            
             if (self.CompareTag("Collectable"))
             { 
-                _score += 1;
+                _score += (int)self.GetComponent<CollectableManager>().StateData;
                 scoreText.text = _score.ToString();
             }
-
-           
         }
-        public void ScoreDownUpdate(int value, GameObject tp)
+        private void OnScoreDown(int Value)
         {
-            minesScore = value;
-            ScoreDown(tp,value);
-        }
-        private void ScoreDown(GameObject self, int minusScore)
-        {
-            if (self.CompareTag("Collected"))
-            {
-                _score -= minesScore;
+            _score -= Value;
                     
-                if (_score <= 0)
-                {
-                    _score = 0;
-                } 
-                scoreText.text = _score.ToString();  
-            }
+            if (_score <= 0)
+            {
+                _score = 0;
+            } 
+            scoreText.text = _score.ToString();  
         }
-
-        
     }
 }
 
