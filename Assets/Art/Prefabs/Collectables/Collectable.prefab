@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 3455668191144258398}
   - component: {fileID: 9178987126235562806}
   m_Layer: 0
-  m_Name: Collibtable
+  m_Name: Collectable
   m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -133,6 +133,7 @@ MonoBehaviour:
   money: {fileID: 6282313141892572864}
   gold: {fileID: 7814236899799420464}
   diamond: {fileID: 8095479851799326905}
+  ScoreManager: {fileID: 0}
   go: {fileID: 0}
   collectablePhysicsController: {fileID: 3455668191144258398}
 --- !u!114 &3455668191144258398
@@ -148,7 +149,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CollectableManager: {fileID: 7720880560590340716}
-  index: 0
 --- !u!65 &9178987126235562806
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -108,13 +108,9 @@ namespace Managers
         #endregion
         #region Stack Adding and Removing
         private void AddOnStack(GameObject other)
-        {
-            other.tag = "Collected"; 
+        { 
             other.transform.parent = transform;
-            other.transform.localPosition = new Vector3(0, 0, 5f);
             Collected.Add(other.gameObject);
-            
-            
         }
                 private void RemoveFromStack(GameObject CollidedActiveObject,int stackedCollectablesIndex) 
                 {

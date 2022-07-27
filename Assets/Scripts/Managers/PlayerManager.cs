@@ -152,7 +152,7 @@ namespace Managers
         private void OnMiniGame(int id)
         {
             var MiniGameHight = _scoreManager._score;
-            transform.DOMoveY(MiniGameHight / 5, MiniGameHight / 50).OnComplete(() =>
+            transform.DOMoveY(MiniGameHight/5, MiniGameHight / 50).OnComplete(() =>
             {
                   CoreGameSignals.Instance.onLevelSuccessful?.Invoke();
             });

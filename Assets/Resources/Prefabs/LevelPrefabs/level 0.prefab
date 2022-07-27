@@ -5847,7 +5847,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6646105267160652496, guid: 572bd8ffab0de3c4ab17f026f854c75e, type: 3}
       propertyPath: m_Name
-      value: Collibtable
+      value: Collectable
       objectReference: {fileID: 0}
     - target: {fileID: 7720880560590340716, guid: 572bd8ffab0de3c4ab17f026f854c75e, type: 3}
       propertyPath: ScoreManager

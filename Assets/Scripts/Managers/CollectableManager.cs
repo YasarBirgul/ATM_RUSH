@@ -1,12 +1,8 @@
-﻿using System;
-using System.Net.NetworkInformation;
-using Controllers;
+﻿using Controllers;
 using Data.UnityObject;
-using Data.ValueObject;
 using Enums;
 using Signals;
 using UnityEngine;
-using DG.Tweening;
 
 namespace Managers
 {
@@ -19,10 +15,7 @@ namespace Managers
         public GameObject gold;
         public GameObject diamond;
         public ScoreManager ScoreManager;
-
-        public GameObject go;
-
-
+        
         #endregion
         #region Serialized Variables
         [SerializeField] private CollectablePhysicsController collectablePhysicsController;
@@ -68,9 +61,17 @@ namespace Managers
             Resources.Load<CD_Collectable>("Data/CD_Collectable").CollectableData.CollectableType;
         
 
-        private void OnMoneyCollection(GameObject self)
+        private void OnMoneyCollection(GameObject other)
         {
-           // İndex ataması
+            AddOnStack(other);
+        } 
+        private static void AddOnStack(GameObject other)
+        {
+            if (other.CompareTag("Collectable"))
+            {
+                other.tag = "Collected";
+                other.transform.localPosition = new Vector3(0, 0, 5f);
+            }
         }
         public void OnUpgradeMoney()
         {

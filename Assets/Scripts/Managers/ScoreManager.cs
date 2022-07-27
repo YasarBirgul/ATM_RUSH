@@ -42,7 +42,6 @@ namespace Managers
         {
             CollectableSignals.Instance.onMoneyCollection -= OnMoneyCollection;
             CollectableSignals.Instance.onObstacleCollision -= OnObstacleCollision;
-          // CollectableSignals.Instance.onDeposit -= OnDeposit;
 
         } 
         private void OnDisable()
@@ -62,7 +61,7 @@ namespace Managers
         private void ScoreUp(GameObject self)
         {
             
-            if (self.CompareTag("Collected"))
+            if (self.CompareTag("Collectable"))
             { 
                 _score += 1;
                 scoreText.text = _score.ToString();
