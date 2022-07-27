@@ -82,11 +82,14 @@ namespace Managers
                     }
                 }
 
-        void OnFinalAtmCollision(GameObject Collectable)
+        void OnFinalAtmCollision(GameObject Collected)
         { 
-            Collected.Remove(Collectable);
-            Collectable.transform.DOMoveX(Collectable.transform.position.x - 10, 1);
-            Collectable.transform.DOMoveZ(Collectable.transform.position.z , 1);
+            if (Collected.CompareTag("Collected"))
+            { 
+                this.Collected.Remove(Collected);
+                Collected.transform.DOMoveX(Collected.transform.position.x - 10, 1);
+                Collected.transform.DOMoveZ(Collected.transform.position.z , 1);   
+            }
         }
         
         public IEnumerator CollectableScaleUp()

@@ -24,6 +24,7 @@ namespace Managers
 
         [Space][SerializeField] private PlayerMovementController movementController;
         [SerializeField] private PlayerAnimationController playerAnimationController;
+        [SerializeField] private ScoreManager _scoreManager;
         
 
         #endregion
@@ -65,6 +66,7 @@ namespace Managers
             CoreGameSignals.Instance.onLevelFailed += OnLevelFailed;
             CollectableSignals.Instance.onObstacleCollision += OnObstacleCollision;
             CollectableSignals.Instance.onFinalAtmCollision += OnFinalAtmCollision;
+            CoreGameSignals.Instance.OnMiniGame += OnMiniGame;
         }
 
         private void UnsubscribeEvents()
@@ -78,6 +80,7 @@ namespace Managers
             CoreGameSignals.Instance.onLevelFailed -= OnLevelFailed;
             CollectableSignals.Instance.onObstacleCollision -= OnObstacleCollision;
             CollectableSignals.Instance.onFinalAtmCollision -= OnFinalAtmCollision;
+            CoreGameSignals.Instance.OnMiniGame -= OnMiniGame;
         }
 
         private void OnDisable()
@@ -96,9 +99,8 @@ namespace Managers
             {
                 movementController.IsReadyToPlay(false);
                 playerAnimationController.IdlePlayerMovementAnimation();
-                transform.DOMoveZ(transform.position.z+10f,0.2f).SetEase(Ease.InBounce).OnComplete(() => {
-                    playerAnimationController.MiniGameMovement();
-                });
+                transform.DOMoveZ(transform.position.z + 10f, 0.2f).SetEase(Ease.InOutExpo);
+                
             }
         }
 
@@ -144,6 +146,11 @@ namespace Managers
         private void OnReset()
         {
             movementController.OnReset();
+        }
+        private void OnMiniGame(int id)
+        {
+            var MiniGameHight = _scoreManager._score;
+            transform.DOMoveY(MiniGameHight/10, MiniGameHight/100);
         }
     }
 }
