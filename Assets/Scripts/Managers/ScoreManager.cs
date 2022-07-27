@@ -21,12 +21,15 @@ namespace Managers
         #endregion
         #region Private Variables
 
-        [HideInInspector]
+        private int minesScore;
+        
+        
         public float _score = 0;
         #endregion
         #endregion
 
 
+       
 
         private void OnEnable()
         {
@@ -56,7 +59,7 @@ namespace Managers
         
         private void OnObstacleCollision(GameObject self,int index)
         {
-           ScoreDown(self);
+           // ScoreDown(self,index);
         }
         private void ScoreUp(GameObject self)
         {
@@ -69,11 +72,16 @@ namespace Managers
 
            
         }
-        private void ScoreDown(GameObject self)
+        public void ScoreDownUpdate(int value, GameObject tp)
+        {
+            minesScore = value;
+            ScoreDown(tp,value);
+        }
+        private void ScoreDown(GameObject self, int minusScore)
         {
             if (self.CompareTag("Collected"))
             {
-                _score -= 1;
+                _score -= minesScore;
                     
                 if (_score <= 0)
                 {
@@ -82,6 +90,8 @@ namespace Managers
                 scoreText.text = _score.ToString();  
             }
         }
+
+        
     }
 }
 

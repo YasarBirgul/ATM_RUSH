@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
+using Enums;
 using Extentions;
 using Signals;
 using UnityEngine;
@@ -15,6 +16,7 @@ namespace Managers
         public List<GameObject> Collected = new List<GameObject>();
         public GameObject TempHolder;
         private TweenCallback tweenCallback;
+        [SerializeField] ScoreManager _scoreManager;
         #endregion
         #region Serialized Variables
         #endregion
@@ -120,6 +122,8 @@ namespace Managers
                     {
                         for (int i = Collected.Count-1; i >= 0; i--)
                         {
+                            int value = (int)Collected[i].GetComponent<CollectableManager>().StateData;
+                            _scoreManager.ScoreDownUpdate(value,CollidedActiveObject);
                             if (i < 0 )
                             {
                                 return;
@@ -129,6 +133,8 @@ namespace Managers
                             Collected[i].transform.tag = "Collectable";
                             Collected[i].transform.SetParent(TempHolder.transform);
                             Collected.Remove(Collected[i]);
+                            
+                           
                         }
                         Collected.TrimExcess();
                     }
@@ -146,6 +152,8 @@ namespace Managers
                         {
                            for (int i = ChildCheck; i > stackedCollectablesIndex; i--)
                            {
+                               int value = (int)Collected[i].GetComponent<CollectableManager>().StateData;
+                               _scoreManager.ScoreDownUpdate(value, CollidedActiveObject);
                                if (i > ChildCheck)
                                {
                                    return;
@@ -154,6 +162,7 @@ namespace Managers
                                Collected[i].transform.DOJump(Collected[i].transform.position + new Vector3(Random.Range(-3, 3), 0, (Random.Range(9, 15))), 4.0f, 2, 1f);
                                Collected[i].transform.tag = "Collectable";
                                Collected.Remove(Collected[i]);
+                               
                            }
                            Collected.TrimExcess();
                            if (ChildCheck == 0)

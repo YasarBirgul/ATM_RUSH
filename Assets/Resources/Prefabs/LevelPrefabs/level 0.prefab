@@ -534,6 +534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Collected: []
   TempHolder: {fileID: 7091144856513256247}
+  _scoreManager: {fileID: 3424718568804411768}
 --- !u!1 &1335653798374692270
 GameObject:
   m_ObjectHideFlags: 0
@@ -5915,6 +5916,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Collibtable (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 6646105267160652496, guid: 572bd8ffab0de3c4ab17f026f854c75e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7720880560590340716, guid: 572bd8ffab0de3c4ab17f026f854c75e, type: 3}
       propertyPath: ScoreManager
       value: 
@@ -6307,6 +6312,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Collibtable (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 6646105267160652496, guid: 572bd8ffab0de3c4ab17f026f854c75e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7720880560590340716, guid: 572bd8ffab0de3c4ab17f026f854c75e, type: 3}
       propertyPath: ScoreManager
       value: 
@@ -6438,6 +6447,10 @@ PrefabInstance:
     - target: {fileID: 6646105267160652496, guid: 572bd8ffab0de3c4ab17f026f854c75e, type: 3}
       propertyPath: m_Name
       value: Collibtable (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646105267160652496, guid: 572bd8ffab0de3c4ab17f026f854c75e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7720880560590340716, guid: 572bd8ffab0de3c4ab17f026f854c75e, type: 3}
       propertyPath: ScoreManager
@@ -6836,6 +6849,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Collibtable (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 6646105267160652496, guid: 572bd8ffab0de3c4ab17f026f854c75e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7720880560590340716, guid: 572bd8ffab0de3c4ab17f026f854c75e, type: 3}
       propertyPath: ScoreManager
       value: 
@@ -7165,6 +7182,10 @@ PrefabInstance:
     - target: {fileID: 6646105267160652496, guid: 572bd8ffab0de3c4ab17f026f854c75e, type: 3}
       propertyPath: m_Name
       value: Collibtable (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646105267160652496, guid: 572bd8ffab0de3c4ab17f026f854c75e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7720880560590340716, guid: 572bd8ffab0de3c4ab17f026f854c75e, type: 3}
       propertyPath: ScoreManager
@@ -7846,6 +7867,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Collibtable (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 6646105267160652496, guid: 572bd8ffab0de3c4ab17f026f854c75e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7720880560590340716, guid: 572bd8ffab0de3c4ab17f026f854c75e, type: 3}
       propertyPath: ScoreManager
       value: 
@@ -8445,6 +8470,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Collibtable (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 6646105267160652496, guid: 572bd8ffab0de3c4ab17f026f854c75e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7720880560590340716, guid: 572bd8ffab0de3c4ab17f026f854c75e, type: 3}
       propertyPath: ScoreManager
       value: 
@@ -8510,6 +8539,10 @@ PrefabInstance:
     - target: {fileID: 6646105267160652496, guid: 572bd8ffab0de3c4ab17f026f854c75e, type: 3}
       propertyPath: m_Name
       value: Collibtable (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6646105267160652496, guid: 572bd8ffab0de3c4ab17f026f854c75e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7720880560590340716, guid: 572bd8ffab0de3c4ab17f026f854c75e, type: 3}
       propertyPath: ScoreManager
