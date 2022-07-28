@@ -1,3 +1,4 @@
+using Managers;
 using TMPro;
 using UnityEngine;
 
@@ -14,16 +15,14 @@ namespace Controllers
 
         #endregion
         
-        private void Update()
-        { 
-            scoreText.text = score.ToString();
-        }
         
         public void OnDeposit(GameObject self)
         {
             if (self.CompareTag("Collected"))
             {
-                score += 1;
+                int state = (int)self.GetComponent<CollectableManager>().StateData;
+                score += state;
+                scoreText.text = score.ToString();
             }
         }
     }

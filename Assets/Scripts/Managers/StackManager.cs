@@ -66,7 +66,7 @@ namespace Managers
         
         private void OnDeposit(GameObject CollidedActiveObject,int stackedCollectablesIndex)
         {
-            RemoveFromStack(CollidedActiveObject,stackedCollectablesIndex);
+            RemoveFromStackATM(CollidedActiveObject,stackedCollectablesIndex);
         }
         #region LerpMove
         private void StackLerpMove()
@@ -139,7 +139,7 @@ namespace Managers
             }
             if (CollidedActiveObject.CompareTag("Collected"))
             { 
-                var ChildCheck = Collected.Count-1;
+                var ChildCheck = Collected.Count-2;
                         
                 if (stackedCollectablesIndex-1 == ChildCheck)
                 {
@@ -181,5 +181,68 @@ namespace Managers
             }
         } 
                 #endregion
+        
+        private void RemoveFromStackATM(GameObject CollidedActiveObject,int stackedCollectablesIndex) 
+        {
+            if (CollidedActiveObject.CompareTag("Player"))
+            {
+                for (int i = Collected.Count-1; i >= 0; i--)
+                { 
+                    if (i < 0 )
+                    {
+                      return; 
+                    }
+                    
+                    int DescreaseScoreValue = (int)Collected[i].GetComponent<CollectableManager>().StateData;
+                    Collected[i].transform.DOJump(Collected[i].transform.position + new Vector3(Random.Range(-3, 3), 0, (Random.Range(9, 15))), 4.0f, 2, 1f);
+                  Collected[i].transform.tag = "Collectable";
+                  Collected[i].transform.SetParent(TempHolder.transform);
+                  Collected.Remove(Collected[i]);
+                  ParticleGO.transform.localPosition = transform.localPosition;
+                }
+                Collected.TrimExcess();
+            }
+            if (CollidedActiveObject.CompareTag("Collected"))
+            { 
+                var ChildCheck = Collected.Count-2;
+                        
+                if (stackedCollectablesIndex-1 == ChildCheck)
+                {
+                  
+                    
+                    int DescreaseScoreValue = (int)Collected[ChildCheck].GetComponent<CollectableManager>().StateData;
+                    
+                             Collected.Remove(CollidedActiveObject);
+                             Destroy(CollidedActiveObject); 
+                             Collected.TrimExcess();
+                             ParticleGO.transform.localPosition = Collected[Collected.Count-1].transform.localPosition;
+                         
+                }
+                else
+                { 
+                    for (int i = ChildCheck; i > stackedCollectablesIndex-1; i--)
+                    {
+                        
+                        int DescreaseScoreValue = (int)Collected[i].GetComponent<CollectableManager>().StateData;
+                        ScoreSignals.Instance.onScoreDown?.Invoke(DescreaseScoreValue);
+                        if (i > ChildCheck+2)
+                        {
+                            return;
+                        }
+                        Collected[i].transform.SetParent(TempHolder.transform);
+                        Collected[i].transform.DOJump(Collected[i].transform.position + new Vector3(Random.Range(-3, 3), 0, (Random.Range(9, 15))), 4.0f, 2, 1f);
+                        Collected[i].transform.tag = "Collectable";
+                        Collected.Remove(Collected[i]);
+                        ParticleGO.transform.localPosition = Collected[i].transform.localPosition;
+                    }
+                    Collected.TrimExcess();
+                    if (ChildCheck == 0)
+                    {
+                        return;
+                    }
+                }
+                Collected.TrimExcess();
+            }
+        } 
     }
 }
