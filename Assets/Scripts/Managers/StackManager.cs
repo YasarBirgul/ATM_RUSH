@@ -80,7 +80,7 @@ namespace Managers
                             var SectBall = Collected.ElementAt(i);
         
                             SectBall.transform.DOMoveX(FirstBall.transform.position.x, 20 * Time.deltaTime);
-                            SectBall.transform.DOMoveZ(FirstBall.transform.position.z + 1.5f, 15 * Time.deltaTime);
+                            SectBall.transform.DOMoveZ(FirstBall.transform.position.z + 1.5f, 1 * Time.deltaTime);
                         }
                     }
                 }

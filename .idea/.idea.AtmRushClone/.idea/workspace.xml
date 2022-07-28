@@ -4,7 +4,6 @@
     <list default="true" id="01c7924d-320e-4a8c-a339-30539f82d49c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AtmRushClone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AtmRushClone/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelPrefabs/level 0.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelPrefabs/level 0.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/ScoreManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/ScoreManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/StackManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/StackManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -82,6 +81,7 @@
       <workItem from="1658748727660" duration="297000" />
       <workItem from="1658751534365" duration="4196000" />
       <workItem from="1658934886401" duration="2819000" />
+      <workItem from="1659002848816" duration="1308000" />
     </task>
     <servers />
   </component>
