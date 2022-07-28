@@ -2,11 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
-using Enums;
-using Extentions;
 using Signals;
 using UnityEngine;
-using UnityEngine.Rendering;
+
 
 namespace Managers
 {
@@ -18,6 +16,7 @@ namespace Managers
         public GameObject TempHolder;
         private TweenCallback tweenCallback;
         [SerializeField] ScoreManager _scoreManager;
+        [SerializeField] private GameObject ParticleGO;
         #endregion
         #region Serialized Variables
         #endregion
@@ -114,6 +113,7 @@ namespace Managers
         { 
             other.transform.parent = transform;
             Collected.Add(other.gameObject);
+            ParticleGO.transform.localPosition = Collected[Collected.Count-1].transform.localPosition;
         }
         private void RemoveFromStack(GameObject CollidedActiveObject,int stackedCollectablesIndex) 
         {
@@ -133,6 +133,7 @@ namespace Managers
                   Collected[i].transform.tag = "Collectable";
                   Collected[i].transform.SetParent(TempHolder.transform);
                   Collected.Remove(Collected[i]);
+                  ParticleGO.transform.localPosition = transform.localPosition;
                 }
                 Collected.TrimExcess();
             }
@@ -140,18 +141,23 @@ namespace Managers
             { 
                 var ChildCheck = Collected.Count-1;
                         
-                if (stackedCollectablesIndex == ChildCheck)
+                if (stackedCollectablesIndex-1 == ChildCheck)
                 {
+                  
+                    
                     int DescreaseScoreValue = (int)Collected[ChildCheck].GetComponent<CollectableManager>().StateData;
                         ScoreSignals.Instance.onScoreDown?.Invoke(DescreaseScoreValue);
                              Collected.Remove(CollidedActiveObject);
                              Destroy(CollidedActiveObject); 
                              Collected.TrimExcess();
+                             ParticleGO.transform.localPosition = Collected[Collected.Count-1].transform.localPosition;
+                             ParticleGO.transform.GetChild(DescreaseScoreValue-1).GetComponent<ParticleSystem>().Play();
                 }
                 else
                 { 
-                    for (int i = ChildCheck; i > stackedCollectablesIndex; i--)
+                    for (int i = ChildCheck; i > stackedCollectablesIndex-1; i--)
                     {
+                        
                         int DescreaseScoreValue = (int)Collected[i].GetComponent<CollectableManager>().StateData;
                         ScoreSignals.Instance.onScoreDown?.Invoke(DescreaseScoreValue);
                         if (i > ChildCheck)
@@ -162,7 +168,8 @@ namespace Managers
                         Collected[i].transform.DOJump(Collected[i].transform.position + new Vector3(Random.Range(-3, 3), 0, (Random.Range(9, 15))), 4.0f, 2, 1f);
                         Collected[i].transform.tag = "Collectable";
                         Collected.Remove(Collected[i]);
-                               
+                        ParticleGO.transform.localPosition = Collected[i].transform.localPosition;
+                        ParticleGO.transform.GetChild(DescreaseScoreValue-1).GetComponent<ParticleSystem>().Play();
                     }
                     Collected.TrimExcess();
                     if (ChildCheck == 0)

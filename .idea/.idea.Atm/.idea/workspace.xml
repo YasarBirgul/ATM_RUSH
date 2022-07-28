@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a44203a2-bbe6-4073-8e8c-363745c218a2" name="Changes" comment="" />
+    <list default="true" id="a44203a2-bbe6-4073-8e8c-363745c218a2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Atm/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Atm/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Scenes/Trial.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Scenes/Trial.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelPrefabs/level 0.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelPrefabs/level 0.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/StackManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/StackManager.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -9,6 +14,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="2CRXVO7XFu3YnfRNJ37FDzhBSFC" />
   <component name="ProjectViewState">
@@ -58,6 +71,8 @@
       <workItem from="1658815890016" duration="3468000" />
       <workItem from="1658832376207" duration="2833000" />
       <workItem from="1658844151335" duration="2162000" />
+      <workItem from="1659025696930" duration="1221000" />
+      <workItem from="1659028307787" duration="3009000" />
     </task>
     <servers />
   </component>
