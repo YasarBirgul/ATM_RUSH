@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Main Camera Blends
   m_EditorClassIdentifier: 
   m_CustomBlends:
-  - m_From: CM vcam1
+  - m_From: CM vcam2
     m_To: CameraManager
     m_Blend:
       m_Style: 1

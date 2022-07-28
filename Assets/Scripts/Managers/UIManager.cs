@@ -1,3 +1,4 @@
+using System;
 using Controllers;
 using Enums;
 using Signals;
@@ -16,11 +17,14 @@ namespace Managers
 
         #endregion
         
-       
+        public CinemachineAnimationController _cinemachineAnimationController;
+        private bool _mainCamera = true;
 
         #endregion
 
         #region Event Subscriptions
+
+        
 
         private void OnEnable()
         {
@@ -83,6 +87,7 @@ namespace Managers
         private void OnPlay()
         {
             UISignals.Instance.onClosePanel?.Invoke(UIPanels.StartPanel);
+            _cinemachineAnimationController._animator.SetBool("isDefault",true);
             
            
         }
@@ -102,6 +107,7 @@ namespace Managers
         public void Play()
         {
             CoreGameSignals.Instance.onPlay?.Invoke();
+            
         }
 
         public void NextLevel()
