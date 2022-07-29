@@ -14,9 +14,10 @@ namespace Managers
 
         #region Serialized Variables
 
-         public CinemachineVirtualCamera virtualCamera;
+        public CinemachineVirtualCamera virtualCamera;
         
-         private Animator _animator;
+        private Animator _animator;
+       
         #endregion
 
         #region Private Variables
@@ -49,6 +50,7 @@ namespace Managers
             CoreGameSignals.Instance.onPlay += SetCameraTarget;
             CoreGameSignals.Instance.onSetCameraTarget += OnSetCameraTarget;
             CoreGameSignals.Instance.onReset += OnReset;
+            CoreGameSignals.Instance.onNextLevel += OnNextLevel;
             
         }
 
@@ -57,6 +59,7 @@ namespace Managers
             CoreGameSignals.Instance.onPlay -= SetCameraTarget;
             CoreGameSignals.Instance.onSetCameraTarget -= OnSetCameraTarget;
             CoreGameSignals.Instance.onReset -= OnReset;
+            CoreGameSignals.Instance.onNextLevel -= OnNextLevel;
         }
 
         private void OnDisable()
@@ -98,6 +101,11 @@ namespace Managers
             virtualCamera.Follow = null;
             virtualCamera.LookAt = null;
             OnMoveToInitialPosition();
+        }
+
+        private void OnNextLevel()
+        {
+            CameraChange(CameraStatesType.InitCam);
         }
         
         public void CameraChange(CameraStatesType cameraStatesType)
