@@ -21,6 +21,7 @@ namespace Managers
         
         public CinemachineAnimationController _cinemachineAnimationController;
         private bool _mainCamera = true;
+        
         public CameraManager CameraManager;
         
         #endregion
@@ -110,6 +111,7 @@ namespace Managers
         public void Play()
         {
             CoreGameSignals.Instance.onPlay?.Invoke();
+            Time.timeScale = 1f;
             
         }
 
@@ -134,7 +136,8 @@ namespace Managers
             //UISignals.Instance.onClosePanel?.Invoke(UIPanels.LevelPanel);
             UISignals.Instance.onOpenPanel?.Invoke(UIPanels.StartPanel);
             CoreGameSignals.Instance.onReset?.Invoke();
-            
+            Time.timeScale = 0f;
+
         }
         
     }

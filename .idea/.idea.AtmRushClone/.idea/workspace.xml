@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="01c7924d-320e-4a8c-a339-30539f82d49c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.AtmRushClone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AtmRushClone/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/UIPanelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/UIPanelController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" afterDir="false" />
-    </list>
+    <list default="true" id="01c7924d-320e-4a8c-a339-30539f82d49c" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -83,7 +79,7 @@
       <workItem from="1658751534365" duration="4196000" />
       <workItem from="1658934886401" duration="2819000" />
       <workItem from="1659002848816" duration="10230000" />
-      <workItem from="1659094930398" duration="5070000" />
+      <workItem from="1659094930398" duration="5889000" />
     </task>
     <servers />
   </component>
