@@ -70,7 +70,7 @@ namespace Managers
             if (other.CompareTag("Collectable"))
             {
                 other.tag = "Collected";
-                other.transform.localPosition = new Vector3(0, 0, 5f);
+                other.transform.localPosition = new Vector3(0, 0, 3f);
             }
         }
         public void OnUpgradeMoney()
