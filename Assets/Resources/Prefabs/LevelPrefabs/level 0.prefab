@@ -7257,6 +7257,34 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: 4.76
       objectReference: {fileID: 0}
+    - target: {fileID: 5851024373141477316, guid: 9d4496b8136de924ca19ff387a8b4975, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.0087257605
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851024373141477316, guid: 9d4496b8136de924ca19ff387a8b4975, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.0010154779
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851024373141477316, guid: 9d4496b8136de924ca19ff387a8b4975, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.9999239
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851024373141477316, guid: 9d4496b8136de924ca19ff387a8b4975, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.008663376
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851024373141477316, guid: 9d4496b8136de924ca19ff387a8b4975, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0.994
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851024373141477316, guid: 9d4496b8136de924ca19ff387a8b4975, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -179.001
+      objectReference: {fileID: 0}
+    - target: {fileID: 5851024373141477316, guid: 9d4496b8136de924ca19ff387a8b4975, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -0.108
+      objectReference: {fileID: 0}
     - target: {fileID: 6417677088957793837, guid: 9d4496b8136de924ca19ff387a8b4975, type: 3}
       propertyPath: m_Name
       value: CardObstacle
@@ -9032,6 +9060,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5656208848294424740}
     m_Modifications:
+    - target: {fileID: 2937799561069770528, guid: 95a7462d639594f45b39ca7fec65798c, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 5bcd0362dc949bf459e64094d9d56f2b, type: 2}
     - target: {fileID: 5302000974235519271, guid: 95a7462d639594f45b39ca7fec65798c, type: 3}
       propertyPath: m_IsTrigger
       value: 1
