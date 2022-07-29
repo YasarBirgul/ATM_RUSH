@@ -3,6 +3,8 @@ using Controllers;
 using Enums;
 using Signals;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 namespace Managers
 {
@@ -19,7 +21,8 @@ namespace Managers
         
         public CinemachineAnimationController _cinemachineAnimationController;
         private bool _mainCamera = true;
-
+        public CameraManager CameraManager;
+        
         #endregion
 
         #region Event Subscriptions
@@ -120,14 +123,18 @@ namespace Managers
         public void RestartLevel()
         {
             CoreGameSignals.Instance.onRestartLevel?.Invoke();
-            UISignals.Instance.onClosePanel?.Invoke(UIPanels.FailPanel);
-            UISignals.Instance.onOpenPanel?.Invoke(UIPanels.StartPanel);
+            //UISignals.Instance.onClosePanel?.Invoke(UIPanels.FailPanel);
+            UISignals.Instance.onOpenPanel?.Invoke(UIPanels.StartPanel); 
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            
+
         }
-        public void RetryLevel()
+        public void PauseLevel()
         {
-            UISignals.Instance.onClosePanel?.Invoke(UIPanels.LevelPanel);
+            //UISignals.Instance.onClosePanel?.Invoke(UIPanels.LevelPanel);
             UISignals.Instance.onOpenPanel?.Invoke(UIPanels.StartPanel);
             CoreGameSignals.Instance.onReset?.Invoke();
+            
         }
         
     }

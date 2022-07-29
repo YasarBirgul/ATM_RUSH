@@ -40,5 +40,14 @@ namespace Controllers
             settingsButton.SetActive(false);
             layoutGroup.SetActive(false);
         }
+
+        public void SettingButtonClose()
+        {
+            layoutGroup.SetActive(false);
+        }
+        public void SettingButtonOpen()
+        {
+            layoutGroup.SetActive(true);
+        }
     }
 }
