@@ -87,7 +87,7 @@ namespace Managers
         private void OnPlay()
         {
             UISignals.Instance.onClosePanel?.Invoke(UIPanels.StartPanel);
-            _cinemachineAnimationController._animator.SetBool("isDefault",true);
+            // _cinemachineAnimationController._animator.SetBool("isDefault",true);
             
            
         }

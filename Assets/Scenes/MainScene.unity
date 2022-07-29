@@ -391,6 +391,8 @@ MonoBehaviour:
     m_ParentHash: 756556552
   - m_Hash: -664111772
     m_ParentHash: 756556552
+  - m_Hash: -1897160883
+    m_ParentHash: 756556552
 --- !u!4 &85173603
 Transform:
   m_ObjectHideFlags: 0
@@ -448,7 +450,6 @@ GameObject:
   - component: {fileID: 205566078}
   - component: {fileID: 205566077}
   - component: {fileID: 205566079}
-  - component: {fileID: 205566080}
   - component: {fileID: 205566081}
   m_Layer: 0
   m_Name: StateDrivenCamera
@@ -494,7 +495,7 @@ MonoBehaviour:
     m_MinDuration: 0
   m_DefaultBlend:
     m_Style: 1
-    m_Time: 2
+    m_Time: 1
     m_CustomCurve:
       serializedVersion: 2
       m_Curve: []
@@ -544,19 +545,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &205566080
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 205566076}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22a066b376710c747be90684142e7d1a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 0}
 --- !u!114 &205566081
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1307,7 +1295,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   uiPanelController: {fileID: 954736986}
   levelPanelController: {fileID: 954736987}
-  _cinemachineAnimationController: {fileID: 205566080}
+  _cinemachineAnimationController: {fileID: 0}
 --- !u!1 &1004829001
 GameObject:
   m_ObjectHideFlags: 0
@@ -2048,7 +2036,7 @@ MonoBehaviour:
   - m_Script
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
-  m_Priority: 10
+  m_Priority: 12
   m_StandbyUpdate: 2
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 0}

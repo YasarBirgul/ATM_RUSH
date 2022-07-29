@@ -80,6 +80,7 @@ namespace Managers
         private void SetCameraTarget()
         {
             CoreGameSignals.Instance.onSetCameraTarget?.Invoke();
+            CameraChange(CameraStatesType.DefaultCam);
             
         }
 
@@ -103,15 +104,16 @@ namespace Managers
         {
             if (cameraStatesType == CameraStatesType.InitCam)
             {
-                _animator.Play("CameraManager");
+                _animator.Play("CM vcam1"); //CM vcam1
                 
-                cameraStatesType = CameraStatesType.DefaultCam;
+                // cameraStatesType = CameraStatesType.DefaultCam;
                 Debug.Log(cameraStatesType);
             }
+           
             else if (cameraStatesType == CameraStatesType.DefaultCam)
             {
                 
-                _animator.Play("CM vcam1");
+                _animator.Play("CameraManager"); //CameraManager
                 cameraStatesType = CameraStatesType.FinalCam;
             }
 
