@@ -36,7 +36,7 @@ namespace Managers
         {
             UnsubscribeEvents();
         } 
-        private void OnDeposit(GameObject gameObject,int id)
+        private void OnDeposit(GameObject gameObject,GameObject Collided,int id)
         {
             atmScoreController.OnDeposit(gameObject);
             if (id == instanceid)

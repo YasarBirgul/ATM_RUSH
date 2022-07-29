@@ -12,12 +12,10 @@ namespace Managers
     {
         #region Self Variables
         #region Public Variables
-
-        public CollectableType _CollectableType;
-        
+        public TextMeshPro scoreText;
         #endregion
         #region Serialized Variables
-        public TextMeshPro scoreText;
+       
         #endregion
         #region Private Variables
 
@@ -63,9 +61,9 @@ namespace Managers
                 scoreText.text = _score.ToString();
             }
         }
-        private void OnScoreDown(int Value)
+        public void OnScoreDown(int DecreaseScoreValue)
         {
-            _score -= Value;
+            _score -=DecreaseScoreValue;
                     
             if (_score <= 0)
             {

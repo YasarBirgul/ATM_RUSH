@@ -27,11 +27,11 @@ namespace Controllers
             }        
             else if (other.CompareTag("Obstacle"))
             {
-                CollectableSignals.Instance.onObstacleCollision?.Invoke(gameObject,transform.GetSiblingIndex());
+                CollectableSignals.Instance.onObstacleCollision?.Invoke(gameObject,other.gameObject,transform.GetSiblingIndex());
             }
             else if (other.CompareTag("Atm"))
             {
-                CollectableSignals.Instance.onDeposit?.Invoke(gameObject,transform.GetSiblingIndex());
+                CollectableSignals.Instance.onDeposit?.Invoke(gameObject,other.gameObject,transform.GetSiblingIndex());
             }
             else if (other.CompareTag("UpgradeGate"))
             {        
