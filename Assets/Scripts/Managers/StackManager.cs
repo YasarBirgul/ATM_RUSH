@@ -10,6 +10,7 @@ namespace Managers
 {
     public class StackManager : MonoBehaviour
     {
+
         #region Self Variables
         #region Public Variables
         public List<GameObject> Collected = new List<GameObject>();
@@ -43,62 +44,57 @@ namespace Managers
             UnsubscribeEvents();
         }
         #endregion
+
+        #region Base Functions
         private void Update() 
         {
             StackLerpMove();
-        }
-        private void OnMoneyCollection(GameObject other)
-        {
-            AddOnStack(other);
-            StartCoroutine(CollectableScaleUp());
-        }
-
-        private void OnObstacleCollision(GameObject CollidedActiveObject,GameObject Collided,int stackedCollectablesIndex)
-        {
-            RemoveFromStack(CollidedActiveObject,Collided,stackedCollectablesIndex);
-     
-        }
-        
-        private void OnDeposit(GameObject CollidedActiveObject,GameObject Collided,int stackedCollectablesIndex)
-        {
-            RemoveFromStack(CollidedActiveObject,Collided,stackedCollectablesIndex);
-        }
-        #region LerpMove
-        private void StackLerpMove()
-                {
-                    if (Collected.Count > 1)
-                    {
-                        for (int i = 1; i < Collected.Count; i++)
-                        {
-                            var FirstBall = Collected.ElementAt(i - 1);
-                            var SectBall = Collected.ElementAt(i);
-        
-                            SectBall.transform.DOMoveX(FirstBall.transform.position.x, 20 * Time.deltaTime);
-                        }
-                    }
-                }
-        void OnFinalAtmCollision(GameObject Collected)
-        { 
-            if (Collected.CompareTag("Collected"))
-            { 
-                this.Collected.Remove(Collected);
-                Collected.transform.DOMoveX(Collected.transform.position.x - 10, 1);
-                Collected.transform.DOMoveZ(Collected.transform.position.z , 1);   
-            }
         } 
-        public IEnumerator CollectableScaleUp()
+        private void StackLerpMove()
         {
-            for (int i = Collected.Count -1; i >= 0; i--)
+            if (Collected.Count > 1)
             {
-                int index = i;
-                Vector3 scale = Vector3.one * 1.5f;
-                Collected[index].transform.DOScale(scale, 0.2f).SetEase(Ease.Flash);
-                Collected[index].transform.DOScale(Vector3.one, 0.2f).SetDelay(0.2f).SetEase(Ease.Flash);
-                yield return new WaitForSeconds(0.05f);
+                for (int i = 1; i < Collected.Count; i++)
+                {
+                    var FirstBall = Collected.ElementAt(i - 1);
+                    var SectBall = Collected.ElementAt(i);
+
+                    SectBall.transform.DOMoveX(FirstBall.transform.position.x, 20 * Time.deltaTime);
+                }
             }
-            Collected.TrimExcess();
         }
+                private void OnMoneyCollection(GameObject CollectedGO)
+                {
+                    AddOnStack(CollectedGO);
+                }
+        
+                private void OnObstacleCollision(GameObject CollidedActiveObject,GameObject Collided,int stackedCollectablesIndex)
+                {
+                    RemoveFromStack(CollidedActiveObject,Collided,stackedCollectablesIndex);
+             
+                }
+                
+                private void OnDeposit(GameObject CollidedActiveObject,GameObject Collided,int stackedCollectablesIndex)
+                {
+                    RemoveFromStack(CollidedActiveObject,Collided,stackedCollectablesIndex);
+                }
+                
+                #region LerpMove
+               
+                void OnFinalAtmCollision(GameObject Collected)
+                { 
+                    if (Collected.CompareTag("Collected"))
+                    { 
+                        this.Collected.Remove(Collected);
+                        Collected.transform.DOMoveX(Collected.transform.position.x - 10, 1);
+                        Collected.transform.DOMoveZ(Collected.transform.position.z , 1);   
+                    }
+                } 
+
         #endregion
+        
+        #endregion
+        
         #region Stack Adding and Removing
         private void AddOnStack(GameObject other)
         {
@@ -113,75 +109,98 @@ namespace Managers
                     var SectBall = Collected[i];
                     SectBall.transform.DOMoveZ(FirstBall.transform.position.z + 1.5f, 0*Time.fixedDeltaTime); 
                     Collected.TrimExcess();
+                    StartCoroutine(CollectableScaleUp());
                 } 
              } 
              Collected.TrimExcess();
         }
+        public IEnumerator CollectableScaleUp()
+        {
+            for (int i = Collected.Count -1; i >= 0; i--)
+            {
+                int index = i;
+                Vector3 scale = Vector3.one * 1.5f;
+                Collected[index].transform.DOScale(scale, 0.2f).SetEase(Ease.Flash);
+                Collected[index].transform.DOScale(Vector3.one, 0.2f).SetDelay(0.2f).SetEase(Ease.Flash);
+                yield return new WaitForSeconds(0.05f);
+            }
+            Collected.TrimExcess();
+        }
+        
         private void RemoveFromStack(GameObject CollidedActiveObject,GameObject Collided,int stackedCollectablesIndex) 
         {
+            #region Player Collision 
+
             if (CollidedActiveObject.CompareTag("Player"))
-            {
-                for (int i = Collected.Count-1; i >= 0; i--)
-                { 
-                    if (i < 0 )
-                    {
-                      return; 
-                    }
-                    int DecreaseScoreValue = (int)Collected[i].GetComponent<CollectableManager>().StateData;
-                    if (Collided.CompareTag("Obstacle"))
-                    {
-                        ScoreSignals.Instance.onScoreDown?.Invoke(DecreaseScoreValue);
-                    }
-                    Collected[i].transform.DOJump(Collected[i].transform.position + new Vector3(Random.Range(-3, 3), 0, (Random.Range(9, 15))), 4.0f, 2, 1f);
-                    Collected[i].transform.tag = "Collectable";
-                    Collected[i].transform.SetParent(TempHolder.transform);
-                    Collected.Remove(Collected[i]);
-                }
-                Collected.TrimExcess();
-            }
-            if (CollidedActiveObject.CompareTag("Collected"))
-            { 
-                var ChildCheck = Collected.Count-1;
-                        
-                if (stackedCollectablesIndex == ChildCheck)
-                {
-                    int DecreaseScoreValue = (int)Collected[ChildCheck].GetComponent<CollectableManager>().StateData;
-                    
-                    if (Collided.CompareTag("Obstacle"))
-                    {
-                        ScoreSignals.Instance.onScoreDown?.Invoke(DecreaseScoreValue);
-                    }
-                    Collected.Remove(CollidedActiveObject);
-                    Destroy(CollidedActiveObject); 
-                    Collected.TrimExcess();
-                }
-                else
-                { 
-                    for (int i = ChildCheck; i > stackedCollectablesIndex; i--)
-                    {
-                        int DecreaseScoreValue = (int)Collected[i].GetComponent<CollectableManager>().StateData;
-                        if (Collided.CompareTag("Obstacle"))
                         {
-                            ScoreSignals.Instance.onScoreDown?.Invoke(DecreaseScoreValue);
+                            for (int i = Collected.Count-1; i >= 0; i--)
+                            { 
+                                if (i < 0 )
+                                {
+                                  return; 
+                                }
+                                if (Collided.CompareTag("Obstacle"))
+                                {
+                                    int DecreaseScoreValue = (int)Collected[i].GetComponent<CollectableManager>().StateData;
+                                    ScoreSignals.Instance.onScoreDown?.Invoke(DecreaseScoreValue);
+                                }
+                                Collected[i].transform.DOJump(Collected[i].transform.position + new Vector3(Random.Range(-3, 3), 0, (Random.Range(9, 15))), 4.0f, 2, 1f);
+                                Collected[i].transform.tag = "Collectable";
+                                Collected[i].transform.SetParent(TempHolder.transform);
+                                Collected.Remove(Collected[i]);
+                            }
+                            Collected.TrimExcess();
                         }
-                        if (i > ChildCheck)
-                        {
-                                   return;
+
+            #endregion
+
+            #region Collected Items Collision 
+
+              if (CollidedActiveObject.CompareTag("Collected"))
+                        { 
+                            var ChildCheck = Collected.Count-1;
+                                    
+                            if (stackedCollectablesIndex == ChildCheck)
+                            {
+                                if (Collided.CompareTag("Obstacle"))
+                                {  int DecreaseScoreValue = (int)Collected[ChildCheck].GetComponent<CollectableManager>().StateData;
+                                    ScoreSignals.Instance.onScoreDown?.Invoke(DecreaseScoreValue);
+                                }
+                                Collected.Remove(CollidedActiveObject);
+                                Destroy(CollidedActiveObject); 
+                                Collected.TrimExcess();
+                            }
+                            else
+                            { 
+                                for (int i = ChildCheck; i > stackedCollectablesIndex; i--)
+                                {
+                                    if (Collided.CompareTag("Obstacle"))
+                                    {
+                                        int DecreaseScoreValue = (int)Collected[i].GetComponent<CollectableManager>().StateData;
+                                        ScoreSignals.Instance.onScoreDown?.Invoke(DecreaseScoreValue);
+                                    }
+                                    if (i > ChildCheck)
+                                    {
+                                               return;
+                                    }
+                                    Collected[i].transform.SetParent(TempHolder.transform);
+                                    Collected[i].transform.DOJump(Collected[i].transform.position + new Vector3(Random.Range(-3, 3), 0, (Random.Range(9, 15))), 4.0f, 2, 1f);
+                                    Collected[i].transform.tag = "Collectable";
+                                    Collected.Remove(Collected[i]);
+                                }
+                                Collected.TrimExcess();
+                                if (ChildCheck == 0)
+                                {
+                                           return;
+                                }
+                            }
+                            Collected.TrimExcess();
                         }
-                        Collected[i].transform.SetParent(TempHolder.transform);
-                        Collected[i].transform.DOJump(Collected[i].transform.position + new Vector3(Random.Range(-3, 3), 0, (Random.Range(9, 15))), 4.0f, 2, 1f);
-                        Collected[i].transform.tag = "Collectable";
-                        Collected.Remove(Collected[i]);
-                    }
-                    Collected.TrimExcess();
-                    if (ChildCheck == 0)
-                    {
-                               return;
-                    }
-                }
-                Collected.TrimExcess();
-            }
+
+            #endregion
+            
+          
         } 
-                #endregion
+        #endregion
     }
 }
