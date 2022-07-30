@@ -19,6 +19,7 @@ namespace Managers
         #region Serialized Variables
         #endregion
         #endregion
+       
         #region Event Subscription
         private void OnEnable()
         {

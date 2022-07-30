@@ -1,11 +1,10 @@
-using System;
 using Controllers;
 using Data.UnityObject;
 using Data.ValueObject;
-using Extentions;
 using Keys;
 using Signals;
 using Sirenix.OdinInspector;
+using StylizedWater2;
 using UnityEngine;
 
 namespace Managers
@@ -101,6 +100,7 @@ namespace Managers
                 Level = _levelID
             });
             CoreGameSignals.Instance.onLevelInitialize?.Invoke();
+            UISignals.Instance.onSetLevelText?.Invoke(_levelID);
         }
 
         private void OnRestartLevel()
@@ -112,6 +112,7 @@ namespace Managers
                 Level = _levelID
             });
             CoreGameSignals.Instance.onLevelInitialize?.Invoke();
+            UISignals.Instance.onSetLevelText?.Invoke(_levelID);
         }
 
         private int OnGetLevelID()
@@ -124,6 +125,7 @@ namespace Managers
         {
             var newLevelData = _levelID % Resources.Load<CD_Level>("Data/CD_Level").Levels.Count;
             levelLoader.InitializeLevel(newLevelData, levelHolder.transform);
+            UISignals.Instance.onSetLevelText?.Invoke(_levelID+1);
         }
 
         private void OnClearActiveLevel()

@@ -1,5 +1,4 @@
-﻿using System;
-using Data.UnityObject;
+﻿using Data.UnityObject;
 using Data.ValueObject;
 using Enums;
 using Signals;
@@ -7,7 +6,7 @@ using UnityEngine;
 
 namespace Managers
 { 
-    public class StackParticleManager : MonoBehaviour
+    public class CollectableParticleManager : MonoBehaviour
     {
 
         public CollectableData Data;
@@ -76,7 +75,6 @@ namespace Managers
               particleSystem.Play();
           }
         }
-
     }
 }
 

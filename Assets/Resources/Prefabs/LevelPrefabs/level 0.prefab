@@ -2178,7 +2178,7 @@ GameObject:
   - component: {fileID: 8331259655719502593}
   - component: {fileID: 240265933999367523}
   m_Layer: 0
-  m_Name: ParticleManager
+  m_Name: CollectableParticleManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -16,6 +16,7 @@ namespace Managers
 
         [SerializeField] private UIPanelController uiPanelController;
         [SerializeField] private LevelPanelController levelPanelController;
+        [SerializeField] private LevelManager _levelManager;
 
         #endregion
         
