@@ -16,8 +16,8 @@ namespace Managers
 
         #region Serialized Variables
         
-        public GameObject MiniGamePlayer;
-        
+        public GameObject MiniGameBlocks;
+        public GameObject MiniGamePLayer;
         #endregion
 
         #region Private Variables
@@ -51,7 +51,9 @@ namespace Managers
         {
             if (CollidedActiveObject.CompareTag("Player"))
             {
-                MiniGamePlayer.SetActive(true);
+                MiniGameBlocks.SetActive(true);
+                MiniGamePLayer.SetActive(true);
+                CoreGameSignals.Instance.OnMiniGame?.Invoke(0);
             }
         }
     }
