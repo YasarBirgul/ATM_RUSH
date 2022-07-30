@@ -23,12 +23,7 @@ namespace Controllers
         
         public void SetLevelText(int value)
         {
-            levelText.text = value.ToString();
-        }
-
-        public void UpdateStageData(int value)
-        {
-            stageImages[value].DOColor(Color.green, .5f).SetEase(Ease.Linear);
+            levelText.text = "Level :" + (value + 1).ToString();
         }
     }
 }

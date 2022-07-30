@@ -40,7 +40,6 @@ namespace Managers
         {
             UISignals.Instance.onOpenPanel += OnOpenPanel;
             UISignals.Instance.onClosePanel += OnClosePanel;
-            UISignals.Instance.onUpdateStageData += OnUpdateStageData;
             UISignals.Instance.onSetLevelText += OnSetLevelText;
             CoreGameSignals.Instance.onPlay += OnPlay;
             CoreGameSignals.Instance.onLevelFailed += OnLevelFailed;
@@ -51,7 +50,6 @@ namespace Managers
         {
             UISignals.Instance.onOpenPanel -= OnOpenPanel;
             UISignals.Instance.onClosePanel -= OnClosePanel;
-            UISignals.Instance.onUpdateStageData -= OnUpdateStageData;
             UISignals.Instance.onSetLevelText -= OnSetLevelText;
             CoreGameSignals.Instance.onPlay -= OnPlay;
             CoreGameSignals.Instance.onLevelFailed -= OnLevelFailed;
@@ -62,7 +60,6 @@ namespace Managers
         {
             UnsubscribeEvents();
         }
-
         #endregion
        
         
@@ -75,14 +72,9 @@ namespace Managers
         private void OnClosePanel(UIPanels panelParam)
         {
             uiPanelController.ClosePanel(panelParam);
-            
-            
         }
 
-        private void OnUpdateStageData(int value)
-        {
-            levelPanelController.UpdateStageData(value);
-        }
+        
 
         private void OnSetLevelText(int value)
         {
@@ -92,9 +84,8 @@ namespace Managers
         private void OnPlay()
         {
             UISignals.Instance.onClosePanel?.Invoke(UIPanels.StartPanel);
-            // _cinemachineAnimationController._animator.SetBool("isDefault",true);
-            
-           
+            UISignals.Instance.onOpenPanel?.Invoke(UIPanels.LevelPanel);
+            UISignals.Instance.onClosePanel?.Invoke(UIPanels.ExtrasPanel);
         }
 
         private void OnLevelFailed()
@@ -121,6 +112,7 @@ namespace Managers
             CoreGameSignals.Instance.onNextLevel?.Invoke();
             UISignals.Instance.onClosePanel?.Invoke(UIPanels.WinPanel);
             UISignals.Instance.onOpenPanel?.Invoke(UIPanels.StartPanel);
+            UISignals.Instance.onOpenPanel?.Invoke(UIPanels.ExtrasPanel);
         }
 
         public void RestartLevel()

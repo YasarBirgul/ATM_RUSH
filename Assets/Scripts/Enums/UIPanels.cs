@@ -8,6 +8,7 @@ namespace Enums
         WinPanel,
         FailPanel,
         LevelPanel,
+        ExtrasPanel,
         MiniGamePanel,
         StartPanel
     }
