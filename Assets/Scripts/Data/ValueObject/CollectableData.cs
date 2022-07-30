@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using Enums;
+using UnityEngine;
 
 namespace Data.ValueObject
 {
@@ -7,5 +9,6 @@ namespace Data.ValueObject
     public class CollectableData
     {
         public CollectableType CollectableType = CollectableType.Money;
+        public List<CollectableParticleData> CollectableParticleSpriteList;
     }
 }

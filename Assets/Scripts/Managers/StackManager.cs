@@ -2,11 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
-using Enums;
-using Extentions;
 using Signals;
 using UnityEngine;
-using UnityEngine.Rendering;
 
 namespace Managers
 {

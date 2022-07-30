@@ -14,3 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CollectableData:
     CollectableType: 1
+    CollectableParticleSpriteList:
+    - CollectanbleParticals: {fileID: -2305087399525422191, guid: aa93f0f40ddc5af46a1f6685d4c18101, type: 3}
+    - CollectanbleParticals: {fileID: -4319389223529738641, guid: aa93f0f40ddc5af46a1f6685d4c18101, type: 3}
+    - CollectanbleParticals: {fileID: 9054736125346181435, guid: aa93f0f40ddc5af46a1f6685d4c18101, type: 3}
+  meshState:
+    meshType: 0
