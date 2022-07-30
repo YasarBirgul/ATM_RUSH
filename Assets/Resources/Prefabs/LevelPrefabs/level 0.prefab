@@ -1786,6 +1786,7 @@ MonoBehaviour:
       ForwardSpeed: 5
       SidewaysSpeed: 2
       ForwardForceSpeed: 10
+  miniGamePlayer: {fileID: 5123042836950174765}
   movementController: {fileID: 7412399309161339759}
   playerAnimationController: {fileID: 6876912874187108642}
   _scoreManager: {fileID: 3424718568804411768}
@@ -10932,7 +10933,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6459867668330613096, guid: a01595f7791b25d4ea48b099b1cef004, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6459867668330613096, guid: a01595f7791b25d4ea48b099b1cef004, type: 3}
       propertyPath: m_TagString

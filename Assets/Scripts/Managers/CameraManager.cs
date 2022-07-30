@@ -94,7 +94,7 @@ namespace Managers
         private void SetCameraTarget()
         {
             CoreGameSignals.Instance.onSetCameraTarget?.Invoke();
-            OnCameraChange(CameraStatesType.InitCam);
+            
             
         }
 
@@ -128,10 +128,17 @@ namespace Managers
             else if (cameraState == CameraStatesType.DefaultCam) // currentstate = cameraStatesType
             {
                 cameraStatesType = CameraStatesType.FinalCam;
-                var _fakePlayer = GameObject.FindGameObjectsWithTag("MiniGamePlayer");
-                //MiniGameCamera.m_Follow = _fakePlayer.tra
+                Debug.Log(cameraStatesType);
+                var _fakePlayer = GameObject.FindGameObjectWithTag("MiniGamePlayer");
+                MiniGameCamera.m_Follow = _fakePlayer.transform;
+                
                
                 _animator.Play("FinalCamera"); //CameraManager
+            }
+            else if (cameraState == CameraStatesType.FinalCam)
+            {
+                cameraStatesType = CameraStatesType.InitCam;
+                _animator.Play("CM vcam1");
             }
             // else if (cameraStatesType == CameraStatesType.FinalCam)
             // {

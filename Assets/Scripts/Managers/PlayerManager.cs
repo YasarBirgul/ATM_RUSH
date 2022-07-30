@@ -22,6 +22,7 @@ namespace Managers
 
         #region Serialized Variables
 
+        [SerializeField] private GameObject miniGamePlayer;
         [Space][SerializeField] private PlayerMovementController movementController;
         [SerializeField] private PlayerAnimationController playerAnimationController;
         [SerializeField] private ScoreManager _scoreManager;
@@ -29,7 +30,7 @@ namespace Managers
 
         #endregion
 
-        
+        private MiniGameStartCommand _miniGameStartCommand = new MiniGameStartCommand();
         #endregion
 
 
@@ -37,6 +38,7 @@ namespace Managers
         {
             Data = GetPlayerData();
             SendPlayerDataToControllers();
+            miniGamePlayer.SetActive(false);
         }
 
 

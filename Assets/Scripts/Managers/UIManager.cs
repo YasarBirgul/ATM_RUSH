@@ -104,6 +104,7 @@ namespace Managers
         {
             CoreGameSignals.Instance.onPlay?.Invoke();
             Time.timeScale = 1f;
+            CoreGameSignals.Instance.onSetCameraState?.Invoke((CameraStatesType.InitCam));
             
         }
 
@@ -113,6 +114,7 @@ namespace Managers
             UISignals.Instance.onClosePanel?.Invoke(UIPanels.WinPanel);
             UISignals.Instance.onOpenPanel?.Invoke(UIPanels.StartPanel);
             UISignals.Instance.onOpenPanel?.Invoke(UIPanels.ExtrasPanel);
+            CoreGameSignals.Instance.onSetCameraState?.Invoke(CameraStatesType.FinalCam);
         }
 
         public void RestartLevel()

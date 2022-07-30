@@ -1,3 +1,4 @@
+using Enums;
 using Managers;
 using Signals;
 using UnityEngine;
@@ -35,6 +36,7 @@ namespace Controllers
             if (other.CompareTag("Conveyor"))
             {
                 CollectableSignals.Instance.onFinalAtmCollision?.Invoke(gameObject);
+                
             }
         }
     }
