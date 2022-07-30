@@ -8,6 +8,7 @@ namespace Managers
     public class AtmManager : MonoBehaviour
     {
         public AtmScoreController atmScoreController;
+        private FinalAtmAnimationCommand FinalAtmAnimationCommand;
 
         private int instanceid;
         
@@ -39,8 +40,16 @@ namespace Managers
         private void OnDeposit(GameObject gameObject,GameObject Collided,int id)
         {
             atmScoreController.OnDeposit(gameObject);
+            FinalAtmAnimationCommand = new FinalAtmAnimationCommand();
+
+            if (gameObject.CompareTag("Collected"))
+            {
+                FinalAtmAnimationCommand.ShakeAtm(transform);   
+            }
+
             if (id == instanceid)
             {
+                
                 if (gameObject.CompareTag("Player"))
                 {
                     transform.DOMoveY(-5f, 0.3f).SetEase(Ease.OutBounce);

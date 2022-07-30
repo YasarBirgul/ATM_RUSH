@@ -874,7 +874,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8126329686386198497}
   m_Layer: 0
-  m_Name: RankCubes
+  m_Name: MiniGame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
