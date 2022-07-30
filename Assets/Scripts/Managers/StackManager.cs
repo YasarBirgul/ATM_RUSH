@@ -105,7 +105,7 @@ namespace Managers
         {
             Collected.Add(other.gameObject);
             other.transform.parent = transform;
-            for (int i = transform.childCount-1; i >= 1; i--)
+            for (int i=1; i <= Collected.Count-1; i++)
             {
                 var FirstBall = Collected.ElementAt(i-1);
                 var SectBall = Collected.ElementAt(i);
