@@ -1,6 +1,7 @@
 using System;
 using Cinemachine;
 using Controllers;
+using Managers;
 using Enums;
 using Signals;
 using Sirenix.OdinInspector;
@@ -15,16 +16,21 @@ namespace Managers
         #region Serialized Variables
 
         public CinemachineVirtualCamera virtualCamera;
+        public CinemachineVirtualCamera MiniGameCamera;
         
-        private Animator _animator;
+        private  Animator _animator;
        
         #endregion
 
         #region Private Variables
 
         [ShowInInspector] private Vector3 _initialPosition;
+        
+       
+        
+        private CinemachineTransposer _miniGameTransposer;
 
-        public CameraStatesType cameraStatesType = CameraStatesType.InitCam;
+        private CameraStatesType cameraStatesType = CameraStatesType.InitCam;
 
         #endregion
 
@@ -36,8 +42,9 @@ namespace Managers
         {
             
              _animator = GetComponent<Animator>();
-             CameraChange(cameraStatesType);
+             _miniGameTransposer = MiniGameCamera.GetCinemachineComponent<CinemachineTransposer>();
              GetInitialPosition();
+            
         }
 
         private void OnEnable()
@@ -48,20 +55,22 @@ namespace Managers
         private void SubscribeEvents()
         {
             CoreGameSignals.Instance.onPlay += SetCameraTarget;
+            CoreGameSignals.Instance.onSetCameraState += OnCameraChange;
             CoreGameSignals.Instance.onSetCameraTarget += OnSetCameraTarget;
             CoreGameSignals.Instance.onReset += OnReset;
-            CoreGameSignals.Instance.onNextLevel += OnNextLevel;
-            CollectableSignals.Instance.onFinalAtmCollision += OnFinalAtmCollision;
+            //CoreGameSignals.Instance.onNextLevel += OnNextLevel;
+            
             
         }
 
         private void UnsubscribeEvents()
         {
             CoreGameSignals.Instance.onPlay -= SetCameraTarget;
+            CoreGameSignals.Instance.onSetCameraState -= OnCameraChange;
             CoreGameSignals.Instance.onSetCameraTarget -= OnSetCameraTarget;
             CoreGameSignals.Instance.onReset -= OnReset;
-            CoreGameSignals.Instance.onNextLevel -= OnNextLevel;
-            CollectableSignals.Instance.onFinalAtmCollision -= OnFinalAtmCollision;
+            //CoreGameSignals.Instance.onNextLevel -= OnNextLevel;
+            
         }
 
         private void OnDisable()
@@ -85,7 +94,7 @@ namespace Managers
         private void SetCameraTarget()
         {
             CoreGameSignals.Instance.onSetCameraTarget?.Invoke();
-            CameraChange(CameraStatesType.DefaultCam);
+            OnCameraChange(CameraStatesType.InitCam);
             
         }
 
@@ -102,31 +111,35 @@ namespace Managers
             OnMoveToInitialPosition();
         }
 
-        private void OnNextLevel()
-        {
-            CameraChange(CameraStatesType.InitCam);
-        }
+        // private void OnNextLevel()
+        // {
+        //     OnCameraChange(CameraStatesType.InitCam);
+        // }
         
-        public void CameraChange(CameraStatesType cameraStatesType)
+        public void OnCameraChange(CameraStatesType cameraState)
         {
-            if (cameraStatesType == CameraStatesType.InitCam)
+            if (cameraState == CameraStatesType.InitCam)
             {
-                _animator.Play("CM vcam1"); //CM vcam1
-                
-                // cameraStatesType = CameraStatesType.DefaultCam;
-                Debug.Log(cameraStatesType);
+                cameraStatesType = CameraStatesType.DefaultCam;
+                //cameraStatesType = CameraStatesType.DefaultCam;
+                _animator.Play("CameraManager"); //CM vcam1
             }
            
-            else if (cameraStatesType == CameraStatesType.DefaultCam)
+            else if (cameraState == CameraStatesType.DefaultCam) // currentstate = cameraStatesType
             {
-                
-                _animator.Play("CameraManager"); //CameraManager
                 cameraStatesType = CameraStatesType.FinalCam;
+                var _fakePlayer = GameObject.FindGameObjectsWithTag("MiniGamePlayer");
+                //MiniGameCamera.m_Follow = _fakePlayer.tra
+               
+                _animator.Play("FinalCamera"); //CameraManager
             }
+            // else if (cameraStatesType == CameraStatesType.FinalCam)
+            // {
+            //     cameraStatesType = CameraStatesType.FinalCam;
+            //     var miniGamePlayer = GameObject.FindGameObjectsWithTag("MiniGamePlayer");
+            //     _animator.Play("FinalCamera");
+            // }
         }
-        void OnFinalAtmCollision(GameObject collidedActiveObject)
-        {
-            
-        }
+        
     }
 }

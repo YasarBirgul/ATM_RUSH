@@ -9,6 +9,9 @@ TagManager:
   - Obstacle
   - Atm
   - UpgradeGate
+  - RankCube
+  - Conveyor
+  - MiniGamePlayer
   layers:
   - Default
   - TransparentFX

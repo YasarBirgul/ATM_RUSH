@@ -21,6 +21,7 @@ namespace Signals
 
         
         public UnityAction onSetCameraTarget = delegate { };
+        public UnityAction<CameraStatesType> onSetCameraState = delegate { };
         public UnityAction onStageAreaReached = delegate { };
         public UnityAction onStageSuccessful = delegate { };
         public UnityAction<int> OnMiniGame =delegate {  }; 
