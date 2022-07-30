@@ -51,6 +51,7 @@ namespace Managers
             CoreGameSignals.Instance.onSetCameraTarget += OnSetCameraTarget;
             CoreGameSignals.Instance.onReset += OnReset;
             CoreGameSignals.Instance.onNextLevel += OnNextLevel;
+            CollectableSignals.Instance.onFinalAtmCollision += OnFinalAtmCollision;
             
         }
 
@@ -60,6 +61,7 @@ namespace Managers
             CoreGameSignals.Instance.onSetCameraTarget -= OnSetCameraTarget;
             CoreGameSignals.Instance.onReset -= OnReset;
             CoreGameSignals.Instance.onNextLevel -= OnNextLevel;
+            CollectableSignals.Instance.onFinalAtmCollision -= OnFinalAtmCollision;
         }
 
         private void OnDisable()
@@ -91,9 +93,6 @@ namespace Managers
         {
             var playerManager = FindObjectOfType<PlayerManager>().transform;
             virtualCamera.Follow = playerManager;
-            
-
-
         }
 
         private void OnReset()
@@ -124,7 +123,9 @@ namespace Managers
                 _animator.Play("CameraManager"); //CameraManager
                 cameraStatesType = CameraStatesType.FinalCam;
             }
-
+        }
+        void OnFinalAtmCollision(GameObject collidedActiveObject)
+        {
             
         }
     }
