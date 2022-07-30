@@ -75,7 +75,6 @@ namespace Managers
                             var SectBall = Collected.ElementAt(i);
         
                             SectBall.transform.DOMoveX(FirstBall.transform.position.x, 20 * Time.deltaTime);
-                            SectBall.transform.DOMoveZ(FirstBall.transform.position.z + 1.5f, 1*Time.deltaTime);
                         }
                     }
                 }
@@ -103,9 +102,15 @@ namespace Managers
         #endregion
         #region Stack Adding and Removing
         private void AddOnStack(GameObject other)
-        { 
-            other.transform.parent = transform;
+        {
             Collected.Add(other.gameObject);
+            other.transform.parent = transform;
+            for (int i = transform.childCount-1; i >= 1; i--)
+            {
+                var FirstBall = Collected.ElementAt(i-1);
+                var SectBall = Collected.ElementAt(i);
+                SectBall.transform.DOMoveZ(FirstBall.transform.position.z + 1.5f, 1*Time.deltaTime);
+            }
         }
         private void RemoveFromStack(GameObject CollidedActiveObject,GameObject Collided,int stackedCollectablesIndex) 
         {
@@ -120,7 +125,7 @@ namespace Managers
                     int DecreaseScoreValue = (int)Collected[i].GetComponent<CollectableManager>().StateData;
                     if (Collided.CompareTag("Obstacle"))
                     {
-                        ScoreSignals.Instance.onScoreDown(DecreaseScoreValue);
+                        ScoreSignals.Instance.onScoreDown?.Invoke(DecreaseScoreValue);
                     }
                     Collected[i].transform.DOJump(Collected[i].transform.position + new Vector3(Random.Range(-3, 3), 0, (Random.Range(9, 15))), 4.0f, 2, 1f);
                     Collected[i].transform.tag = "Collectable";
@@ -139,7 +144,7 @@ namespace Managers
                     
                     if (Collided.CompareTag("Obstacle"))
                     {
-                        ScoreSignals.Instance.onScoreDown(DecreaseScoreValue);
+                        ScoreSignals.Instance.onScoreDown?.Invoke(DecreaseScoreValue);
                     }
                     Collected.Remove(CollidedActiveObject);
                     Destroy(CollidedActiveObject); 
@@ -152,7 +157,7 @@ namespace Managers
                         int DecreaseScoreValue = (int)Collected[i].GetComponent<CollectableManager>().StateData;
                         if (Collided.CompareTag("Obstacle"))
                         {
-                            ScoreSignals.Instance.onScoreDown(DecreaseScoreValue);
+                            ScoreSignals.Instance.onScoreDown?.Invoke(DecreaseScoreValue);
                         }
                         if (i > ChildCheck)
                         {
