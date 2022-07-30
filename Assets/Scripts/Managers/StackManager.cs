@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using Signals;
+using TMPro;
 using UnityEngine;
 
 namespace Managers
@@ -17,13 +18,11 @@ namespace Managers
         #region Serialized Variables
         #endregion
         #endregion
-        #region Event Subscription 
-        
+        #region Event Subscription
         private void OnEnable()
         {
             SubscribeEvents();
         }
-
         private void SubscribeEvents()
         {
             CollectableSignals.Instance.onMoneyCollection += OnMoneyCollection;
@@ -103,14 +102,20 @@ namespace Managers
         #region Stack Adding and Removing
         private void AddOnStack(GameObject other)
         {
-            Collected.Add(other.gameObject);
-            other.transform.parent = transform;
-            for (int i=1; i <= Collected.Count-1; i++)
-            {
-                var FirstBall = Collected.ElementAt(i-1);
-                var SectBall = Collected.ElementAt(i);
-                SectBall.transform.DOMoveZ(FirstBall.transform.position.z + 1.5f, 1*Time.deltaTime);
-            }
+             Collected.Add(other.gameObject);
+             other.transform.parent = transform;
+             
+             if (other.CompareTag("Collectable")) 
+             { 
+                for (int i=1; i <= Collected.Count-1; i++)
+                {
+                    var FirstBall = Collected[i-1];
+                    var SectBall = Collected[i];
+                    SectBall.transform.DOMoveZ(FirstBall.transform.position.z + 1.5f, 0*Time.fixedDeltaTime); 
+                    Collected.TrimExcess();
+                } 
+             } 
+             Collected.TrimExcess();
         }
         private void RemoveFromStack(GameObject CollidedActiveObject,GameObject Collided,int stackedCollectablesIndex) 
         {
