@@ -1,5 +1,6 @@
 using System;
 using Controllers;
+using DG.Tweening;
 using Signals;
 using UnityEngine;
 
@@ -24,15 +25,25 @@ public class FinalAtmManager : MonoBehaviour
     {
         CollectableSignals.Instance.onFinalAtmCollision -= OnUpdateAtmScore;
     }
+    void OnUpdateAtmScore(GameObject CollidedObject)
+    { 
+        if (CollidedObject.CompareTag("Collected"))
+        {
+            FinalAtmShake();
+            PullMoneyAndDestroy(CollidedObject);
+        }
+    }
 
-    private void Awake()
+    private void FinalAtmShake()
     {
         finalAtmAnimationCommand = new FinalAtmAnimationCommand();
-    }
-
-    void OnUpdateAtmScore(GameObject CollidedObject)
-    {
         finalAtmAnimationCommand.ShakeAtm(transform);
     }
-
+    private void PullMoneyAndDestroy(GameObject CollidedObject)
+    {
+        CollidedObject.transform.DOMoveX(-6, 1).OnComplete(() =>
+        {
+            Destroy(CollidedObject);
+        });
+    }
 }

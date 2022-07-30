@@ -66,7 +66,6 @@ namespace Managers
             CoreGameSignals.Instance.onLevelFailed += OnLevelFailed;
             CollectableSignals.Instance.onObstacleCollision += OnObstacleCollision;
             CollectableSignals.Instance.onFinalAtmCollision += OnFinalAtmCollision;
-            CoreGameSignals.Instance.OnMiniGame += OnMiniGame;
         }
 
         private void UnsubscribeEvents()
@@ -80,7 +79,6 @@ namespace Managers
             CoreGameSignals.Instance.onLevelFailed -= OnLevelFailed;
             CollectableSignals.Instance.onObstacleCollision -= OnObstacleCollision;
             CollectableSignals.Instance.onFinalAtmCollision -= OnFinalAtmCollision;
-            CoreGameSignals.Instance.OnMiniGame -= OnMiniGame;
         }
 
         private void OnDisable()
@@ -99,10 +97,6 @@ namespace Managers
             {
                 movementController.IsReadyToPlay(false);
                 playerAnimationController.IdlePlayerMovementAnimation();
-                transform.DOMoveZ(transform.position.z + 10f, 1f).SetDelay(2f).SetEase(Ease.InOutExpo).OnComplete(() =>
-                {
-                    transform.DORotate(new Vector3(0, 180, 0), 0.2f);
-                });
             }
         }
 
@@ -148,14 +142,6 @@ namespace Managers
         private void OnReset()
         {
             movementController.OnReset();
-        }
-        private void OnMiniGame(int id)
-        {
-            var MiniGameHight = _scoreManager._score;
-            transform.DOMoveY(MiniGameHight/5, MiniGameHight / 50).OnComplete(() =>
-            {
-                  CoreGameSignals.Instance.onLevelSuccessful?.Invoke();
-            });
         }
     }
 }

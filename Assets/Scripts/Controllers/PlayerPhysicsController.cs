@@ -36,11 +36,6 @@ namespace Controllers
             {
                 CollectableSignals.Instance.onFinalAtmCollision?.Invoke(gameObject);
             }
-
-            if (other.CompareTag("RankCube"))
-            {
-                CoreGameSignals.Instance.OnMiniGame?.Invoke(other.GetComponent<MiniGameManager>().GetInstanceID());
-            }
         }
     }
 }

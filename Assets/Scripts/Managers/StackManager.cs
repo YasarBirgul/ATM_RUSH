@@ -82,13 +82,13 @@ namespace Managers
                 
                 #region LerpMove
                
-                void OnFinalAtmCollision(GameObject Collected)
+                void OnFinalAtmCollision(GameObject CollectedPassiveObject)
                 { 
-                    if (Collected.CompareTag("Collected"))
-                    { 
-                        this.Collected.Remove(Collected);
-                        Collected.transform.DOMoveX(Collected.transform.position.x - 10, 1);
-                        Collected.transform.DOMoveZ(Collected.transform.position.z , 1);   
+                    if (CollectedPassiveObject.CompareTag("Collected"))
+                    {
+                        CollectedPassiveObject.transform.parent = TempHolder.transform;
+                        Collected.Remove(CollectedPassiveObject);
+                        Collected.TrimExcess();
                     }
                 } 
 
