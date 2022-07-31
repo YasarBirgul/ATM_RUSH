@@ -15,8 +15,7 @@ MonoBehaviour:
   CollectableData:
     CollectableType: 1
     CollectableParticleSpriteList:
+    - CollectanbleParticals: {fileID: 21300000, guid: e593aa48f1252b943bd98c7364e67039, type: 3}
     - CollectanbleParticals: {fileID: -2305087399525422191, guid: aa93f0f40ddc5af46a1f6685d4c18101, type: 3}
     - CollectanbleParticals: {fileID: 21300000, guid: 61c3f75ee2a78034bbb2f04d785496a4, type: 3}
-    - CollectanbleParticals: {fileID: 21300000, guid: d803d7c412194d9489a776ff8294dbc0, type: 3}
-  meshState:
-    meshType: 0
+    - CollectanbleParticals: {fileID: 21300000, guid: 55e9abddd33f0854c9dedbe172db835b, type: 3}

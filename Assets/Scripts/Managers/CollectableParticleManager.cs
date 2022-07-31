@@ -38,12 +38,13 @@ namespace Managers
         private void SubscribeEvents()
         {
             CollectableSignals.Instance.onObstacleCollision += OnObstacleCollision;
+            CollectableSignals.Instance.onDeposit += OnDeposit;
         }
 
         private void UnsubscribeEvents()
         {
             CollectableSignals.Instance.onObstacleCollision -= OnObstacleCollision;
-           
+            CollectableSignals.Instance.onDeposit += OnDeposit;
         }
         private void OnDisable()
         {
@@ -67,7 +68,7 @@ namespace Managers
               transform.position = Collided.GetComponent<Collider>().transform.position;
               
               var ColObjStateData = CollidedActiveObject.GetComponent<CollectableManager>().StateData;
-              int ParticleOrder = (int)ColObjStateData-1;
+              int ParticleOrder = (int)ColObjStateData;
               var particleSprite = Data.CollectableParticleSpriteList[ParticleOrder].CollectanbleParticals;
               
               if (ColObjStateData == CollectableType.Money)
@@ -85,12 +86,23 @@ namespace Managers
                    Particle.textureSheetAnimation.SetSprite(0, particleSprite);
                    PlayTheParticle(Particle);
               }  
-            } 
-            void PlayTheParticle(ParticleSystem particleSystem)
-          {
-              particleSystem.Play();
-          }
+            }
         }
+         private void OnDeposit(GameObject CollidedActiveObject,GameObject Collided,int ID)
+         {
+             transform.position = Collided.GetComponent<Collider>().transform.position + new Vector3(0,-2f,0);
+             var particleSprite = Data.CollectableParticleSpriteList[0].CollectanbleParticals;
+             
+             if (CollidedActiveObject.CompareTag("Collected")&& Collided.CompareTag("Atm"))
+             {
+                 Particle.textureSheetAnimation.SetSprite(0, particleSprite);
+                 PlayTheParticle(Particle);
+             }
+         }
+         void PlayTheParticle(ParticleSystem particleSystem)
+         {
+             particleSystem.Play();
+         }
     }
 }
 
