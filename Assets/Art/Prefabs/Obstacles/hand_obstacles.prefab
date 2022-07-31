@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -8099506457526298406, guid: 7a8954663a89d464aae6668943b4ed3b, type: 3}
+  - {fileID: 2100000, guid: 5bcd0362dc949bf459e64094d9d56f2b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,7 +92,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7768832125306924397}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 10.342411, y: 0.70346963, z: 1.6542538}
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObstacleType: 5
-  obstacleAnimationsController: {fileID: 5127817973832850348}
+  ObstacleAnimationsController: {fileID: 5127817973832850348}
 --- !u!114 &5127817973832850348
 MonoBehaviour:
   m_ObjectHideFlags: 0

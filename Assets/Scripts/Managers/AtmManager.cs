@@ -7,15 +7,32 @@ namespace Managers
 {
     public class AtmManager : MonoBehaviour
     {
-        public AtmScoreController atmScoreController;
-        private FinalAtmAnimationCommand FinalAtmAnimationCommand;
+        #region Self Variables
+    
+        #region Public Variables
+        
+        public AtmScoreController AtmScoreController;
+        
+        #endregion
+    
+        #region Serialized Variables
 
-        private int instanceid;
+        #endregion
+    
+        #region Private Variables
+        
+        private FinalAtmAnimationCommand _finalAtmAnimationCommand;
+        
+        private int _instanceid;
+        
+        #endregion
+    
+        #endregion
         
         private void Awake()
         {
-            instanceid = GetComponent<AtmManager>().GetInstanceID();
-            Debug.Log(instanceid);
+            _instanceid = GetComponent<AtmManager>().GetInstanceID();
+            Debug.Log(_instanceid);
         }
 
         private void OnEnable()
@@ -39,17 +56,16 @@ namespace Managers
         } 
         private void OnDeposit(GameObject gameObject,GameObject Collided,int id)
         {
-            atmScoreController.OnDeposit(gameObject);
-            FinalAtmAnimationCommand = new FinalAtmAnimationCommand();
-
+            AtmScoreController.OnDeposit(gameObject);
+            _finalAtmAnimationCommand = new FinalAtmAnimationCommand();
+            
             if (gameObject.CompareTag("Collected"))
             {
-                FinalAtmAnimationCommand.ShakeAtm(transform);   
+                _finalAtmAnimationCommand.ShakeAtm(transform);   
             }
 
-            if (id == instanceid)
+            if (id == _instanceid)
             {
-                
                 if (gameObject.CompareTag("Player"))
                 {
                     transform.DOMoveY(-5f, 0.3f).SetEase(Ease.OutBounce);

@@ -1,7 +1,3 @@
-using System;
-using Cinemachine;
-using Data.ValueObject;
-using Enums;
 using UnityEngine;
 using Signals;
 using TMPro;
@@ -11,24 +7,29 @@ namespace Managers
     public class ScoreManager : MonoBehaviour
     {
         #region Self Variables
+        
         #region Public Variables
-        public TextMeshPro scoreText;
+        
+        public TextMeshPro ScoreText;
+        public float Score = 0;
+        
         #endregion
+        
         #region Serialized Variables
        
         #endregion
+        
         #region Private Variables
 
-        private int minesScore;
+        private int _minesScore;
         
+        #endregion
         
-        public float _score = 0;
-        #endregion
         #endregion
 
 
-       
-
+        #region EventSubscription
+        
         private void OnEnable()
         {
             SubscribeEvents();
@@ -47,6 +48,7 @@ namespace Managers
         {
             UnsubscribeEvents(); 
         }
+        #endregion
         
         private void OnMoneyCollection(GameObject self)
         { 
@@ -57,19 +59,19 @@ namespace Managers
         {
             if (self.CompareTag("Collectable"))
             { 
-                _score += (int)self.GetComponent<CollectableManager>().StateData;
-                scoreText.text = _score.ToString();
+                Score += (int)self.GetComponent<CollectableManager>().StateData;
+                ScoreText.text = Score.ToString();
             }
         }
         public void OnScoreDown(int DecreaseScoreValue)
         {
-            _score -=DecreaseScoreValue;
+            Score -=DecreaseScoreValue;
                     
-            if (_score <= 0)
+            if (Score <= 0)
             {
-                _score = 0;
+                Score = 0;
             } 
-            scoreText.text = _score.ToString();  
+            ScoreText.text = Score.ToString();  
         }
     }
 }

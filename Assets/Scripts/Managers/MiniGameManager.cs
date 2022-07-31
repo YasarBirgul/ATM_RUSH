@@ -1,5 +1,3 @@
-using Controllers;
-using DG.Tweening;
 using Enums;
 using Signals;
 using UnityEngine;
@@ -13,12 +11,14 @@ namespace Managers
 
         #region Public Variables
         
+        public GameObject MiniGameBlocks;
+        
+        public GameObject MiniGamePLayer;
+        
         #endregion
 
         #region Serialized Variables
-        
-        public GameObject MiniGameBlocks;
-        public GameObject MiniGamePLayer;
+
         #endregion
 
         #region Private Variables

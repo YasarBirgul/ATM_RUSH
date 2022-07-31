@@ -7,7 +7,24 @@ namespace Controllers
 { 
     public class MiniGamePlayerController:MonoBehaviour
     {
-        [SerializeField] private ScoreManager _scoreManager; 
+        #region Self Variables
+    
+        #region Public Variables
+
+        #endregion
+    
+        #region Serialized Variables
+        
+        [SerializeField] private ScoreManager scoreManager;
+        
+        #endregion
+        
+        #region Private Variables
+
+        #endregion
+    
+        #endregion
+         
         private void OnEnable()
         {
             SubscribeEvents();
@@ -26,7 +43,7 @@ namespace Controllers
         }
         void OnMiniGame(int integer)
         {
-            var MiniGameScoreHeight = _scoreManager._score;
+            var MiniGameScoreHeight = scoreManager.Score;
             transform.DOMoveY(MiniGameScoreHeight / 2, MiniGameScoreHeight/5).SetEase(Ease.Linear).OnComplete(() =>
             {
                 CoreGameSignals.Instance.onLevelSuccessful?.Invoke();

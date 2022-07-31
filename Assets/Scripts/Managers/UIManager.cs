@@ -12,24 +12,29 @@ namespace Managers
     {
         #region Self Variables
 
+        #region Public Variables
+        
+      
+        
+        #endregion
+        
         #region Serialized Variables
 
         [SerializeField] private UIPanelController uiPanelController;
         [SerializeField] private LevelPanelController levelPanelController;
-        [SerializeField] private LevelManager _levelManager;
+        [SerializeField] private LevelManager levelManager;
 
         #endregion
         
-        public CinemachineAnimationController _cinemachineAnimationController;
+        #region Private Variables
+        
         private bool _mainCamera = true;
         
-        public CameraManager CameraManager;
+        #endregion
         
         #endregion
 
         #region Event Subscriptions
-
-        
 
         private void OnEnable()
         {

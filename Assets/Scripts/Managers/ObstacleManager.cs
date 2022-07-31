@@ -9,12 +9,18 @@ public class ObstacleManager : MonoBehaviour
     #region Public Variables
 
     [Header("Data")] public ObstacleType ObstacleType;
+    
+    public ObstacleAnimationsController ObstacleAnimationsController;
 
     #endregion
 
     #region Serialized Variables
+    
+    #endregion
+    
+    #region Private Variables
 
-    public ObstacleAnimationsController obstacleAnimationsController;
+    #endregion
     
     #region Event Subscription
     private void OnEnable()
@@ -37,7 +43,7 @@ public class ObstacleManager : MonoBehaviour
 
     #endregion
 
-    #endregion
+    
     private void OnPlay()
     {
         ObstacleAnimationsOnPlay();
@@ -46,19 +52,19 @@ public class ObstacleManager : MonoBehaviour
     {
         if (ObstacleType == ObstacleType.Guillotine)
         {
-            obstacleAnimationsController.GuillotineMover();
+            ObstacleAnimationsController.GuillotineMover();
         }
         if (ObstacleType == ObstacleType.Card)
         {
-            obstacleAnimationsController.CardMover();
+            ObstacleAnimationsController.CardMover();
         }
         if (ObstacleType == ObstacleType.Hand)
         {
-            obstacleAnimationsController.HandMover();
+            ObstacleAnimationsController.HandMover();
         }
         if (ObstacleType == ObstacleType.Wall)
         {
-            obstacleAnimationsController.WallMover();
+            ObstacleAnimationsController.WallMover();
         }
     }
 }

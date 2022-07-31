@@ -1,7 +1,4 @@
-using System;
-using Controllers;
 using Enums;
-using Extentions;
 using Keys;
 using Signals;
 using UnityEngine;
@@ -9,15 +6,22 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     #region Self Variables
-
+    
     #region Public Variables
-
+    
     public GameStates States;
+    
+    #endregion
+    
+    #region Serialized Variables
+
+    #endregion
+    
+    #region Private Variables
 
     #endregion
     
     #endregion
-
     private void Awake()
     {
         Application.targetFrameRate = 60;

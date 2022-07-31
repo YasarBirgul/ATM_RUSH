@@ -4,7 +4,6 @@ using Data.ValueObject;
 using Keys;
 using Signals;
 using Sirenix.OdinInspector;
-using StylizedWater2;
 using UnityEngine;
 
 namespace Managers
@@ -119,8 +118,7 @@ namespace Managers
         {
             return _levelID;
         }
-
-
+        
         private void OnInitializeLevel()
         {
             var newLevelData = _levelID % Resources.Load<CD_Level>("Data/CD_Level").Levels.Count;

@@ -110,13 +110,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8097980630765325894}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.85, z: 0}
+  m_LocalRotation: {x: 0.0010154779, y: -0.9999239, z: 0.008663376, w: 0.0087257605}
+  m_LocalPosition: {x: 4.76, y: 0.85, z: 0}
   m_LocalScale: {x: 0.81446487, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3275608775977759792}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0.994, y: -179.001, z: -0.108}
 --- !u!33 &5708785353456643063
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -192,7 +192,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObstacleType: 4
-  obstacleAnimationsController: {fileID: 6772352662559443164}
+  ObstacleAnimationsController: {fileID: 6772352662559443164}
 --- !u!114 &6772352662559443164
 MonoBehaviour:
   m_ObjectHideFlags: 0

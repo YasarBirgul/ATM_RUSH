@@ -8,10 +8,26 @@ namespace Managers
 { 
     public class CollectableParticleManager : MonoBehaviour
     {
-
+        #region Self Variables
+    
+        #region Public Variables
+        
         public CollectableData Data;
+        
         public ParticleSystem Particle;
         
+        #endregion
+    
+        #region Serialized Variables
+
+        #endregion
+    
+        #region Private Variables
+
+        #endregion
+    
+        #endregion
+
         #region Event Subscription 
         
         private void OnEnable()

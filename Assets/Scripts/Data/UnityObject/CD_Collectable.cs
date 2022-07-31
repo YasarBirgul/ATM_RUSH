@@ -7,6 +7,5 @@ namespace Data.UnityObject
     public class CD_Collectable : ScriptableObject
     {
         public CollectableData CollectableData;
-        public MeshStateData meshState;
     }
 }

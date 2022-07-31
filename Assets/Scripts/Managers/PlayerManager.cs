@@ -1,12 +1,9 @@
-using System;
 using Controllers;
 using Data.UnityObject;
 using Data.ValueObject;
-using DG.Tweening;
 using Keys;
 using Signals;
 using UnityEngine;
-using UnityEngine.Jobs;
 
 namespace Managers
 {
@@ -25,12 +22,15 @@ namespace Managers
         [SerializeField] private GameObject miniGamePlayer;
         [Space][SerializeField] private PlayerMovementController movementController;
         [SerializeField] private PlayerAnimationController playerAnimationController;
-        [SerializeField] private ScoreManager _scoreManager;
+        [SerializeField] private ScoreManager scoreManager;
         
+        #region Private Variables
 
         #endregion
 
-        private MiniGameStartCommand _miniGameStartCommand = new MiniGameStartCommand();
+        #endregion
+
+        
         #endregion
 
 

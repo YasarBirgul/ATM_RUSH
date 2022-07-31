@@ -3,10 +3,38 @@
   <component name="ChangeListManager">
     <list default="true" id="01c7924d-320e-4a8c-a339-30539f82d49c" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AtmRushClone/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AtmRushClone/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Materials/RoadMaterial.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Materials/RoadMaterial.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Collectables/Collectable.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Collectables/Collectable.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Obstacles/ATMMesh.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Obstacles/ATMMesh.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Obstacles/CardObstacle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Obstacles/CardObstacle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Obstacles/ThornObstacle.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Obstacles/ThornObstacle.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Art/Prefabs/Obstacles/hand_obstacles.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Prefabs/Obstacles/hand_obstacles.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelPrefabs/level 0.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Resources/Prefabs/LevelPrefabs/level 0.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Command/MiniGameStartCommand.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Command/MiniGameStartCommand.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/MiniGamePlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/MiniGamePlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/ObstacleAnimationsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/ObstacleAnimationsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/PlayerAnimationController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/PlayerAnimationController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/PlayerMovementController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/PlayerMovementController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/PlayerPhysicsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/PlayerPhysicsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Controllers/UIPanelController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Controllers/UIPanelController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/UnityObject/CD_Collectable.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/UnityObject/CD_Collectable.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/ValueObject/CollectableData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/ValueObject/CollectableData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Data/ValueObject/MeshStateData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Data/ValueObject/MeshStateData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/AtmManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/AtmManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/CameraManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/CameraManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/CollectableManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/CollectableManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/CollectableParticleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/CollectableParticleManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/FinalAtmManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/FinalAtmManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/GameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/InputManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/InputManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/LevelManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/MiniGameManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/MiniGameManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/ObstacleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/ObstacleManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/PlayerManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/ScoreManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/ScoreManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/StackManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/StackManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/UIManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -15,8 +43,6 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Command/MiniGameStartCommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/CameraController.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Controllers/CinemachineAnimationController.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">

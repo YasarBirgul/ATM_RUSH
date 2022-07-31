@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1896c9cb50f23de47a64b80b3e04e788, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  atmScoreController: {fileID: 2059994001845272294}
+  AtmScoreController: {fileID: 2059994001845272294}
 --- !u!65 &2740420094035255707
 BoxCollider:
   m_ObjectHideFlags: 0

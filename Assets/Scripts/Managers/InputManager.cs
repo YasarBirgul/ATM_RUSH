@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Data.UnityObject;
 using Data.ValueObject;
@@ -29,9 +28,11 @@ namespace Managers
 
         private bool _isTouching;
 
-        private float _currentVelocity; //ref type
-        private Vector2? _mousePosition; //ref type
-        private Vector3 _moveVector; //ref type
+        private float _currentVelocity;
+        
+        private Vector2? _mousePosition; 
+        
+        private Vector3 _moveVector; 
 
         #endregion
 
@@ -107,8 +108,7 @@ namespace Managers
                     if (_mousePosition != null)
                     {
                         Vector2 mouseDeltaPos = (Vector2) Input.mousePosition - _mousePosition.Value;
-
-
+                        
                         if (mouseDeltaPos.x > Data.HorizontalInputSpeed)
                             _moveVector.x = Data.HorizontalInputSpeed / 10f * mouseDeltaPos.x;
                         else if (mouseDeltaPos.x < -Data.HorizontalInputSpeed)

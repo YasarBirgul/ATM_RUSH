@@ -4,7 +4,7 @@ public class ObstacleAnimationsController : MonoBehaviour
 {
     public void CardMover()
     {
-        transform.DOMoveX(transform.position.x - 11.7f, 2f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);  // CardMover
+        transform.DOMoveX(transform.position.x - 11.7f, 2f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);  
     }
     public void GuillotineMover()
     {
@@ -12,7 +12,7 @@ public class ObstacleAnimationsController : MonoBehaviour
     }
     public void HandMover()
     {
-        transform.DOMoveX(transform.position.x - 5.4f, 2f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);  // HandMover
+        transform.DOMoveX(transform.position.x - 5.4f, 2f).SetLoops(-1, LoopType.Yoyo).SetEase(Ease.InOutSine);  
     }
     public void WallMover()
     {

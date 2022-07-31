@@ -1,10 +1,8 @@
-using System;
 using Data.ValueObject;
 using DG.Tweening;
 using Keys;
 using Managers;
 using Sirenix.OdinInspector;
-using UnityEditor.UI;
 using UnityEngine;
 
 namespace Controllers
@@ -18,18 +16,23 @@ namespace Controllers
         #endregion
 
         #region Serialized Variables
-
-        [SerializeField] private PlayerManager manager;
+        
         [SerializeField] private new Rigidbody rigidbody;
+        
         #endregion
-
+        
+        #region Private Variables
+        
         [Header("Data")][ShowInInspector] private PlayerMovementData _movementData;
+        
         [ShowInInspector] private bool _isReadyToMove, _isReadyToPlay;
+        
         [ShowInInspector] private float _inputValue;
+        
         [ShowInInspector] private Vector2 _clampValues;
         
+        #endregion
         
-
         #endregion
 
         public void SetMovementData(PlayerMovementData dataMovementData)

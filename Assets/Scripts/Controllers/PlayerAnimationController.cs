@@ -6,14 +6,21 @@ namespace Controllers
    public class PlayerAnimationController : MonoBehaviour
    {
       #region Self Variables
-
-      #region Serialized Variables
-
-      [SerializeField] private PlayerManager playerManager;
-      [SerializeField] private Animator animator;
+    
+      #region Public Variables
 
       #endregion
+    
+      #region Serialized Variables
+      
+      [SerializeField] private Animator animator;
+      
+      #endregion
+    
+      #region Private Variables
 
+      #endregion
+    
       #endregion
       
       public void RunPlayerMovementAnimation()
@@ -26,10 +33,6 @@ namespace Controllers
       {
          animator.SetBool("Run",false);
       }
-
-      public void MiniGameMovement()
-      {
-         animator.SetBool("MiniGame",true);
-      }
+      
    }
 }

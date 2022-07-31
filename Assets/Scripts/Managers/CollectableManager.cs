@@ -9,16 +9,24 @@ namespace Managers
     public class CollectableManager : MonoBehaviour
     {
         #region Self Variables
+        
         #region Public Variables
+        
         public CollectableType StateData;
-        public GameObject money;
-        public GameObject gold;
-        public GameObject diamond;
+        
+        public GameObject Money;
+        
+        public GameObject Gold;
+        
+        public GameObject Diamond;
+        
         public ScoreManager ScoreManager;
         
         #endregion
+        
         #region Serialized Variables
-        [SerializeField] private CollectablePhysicsController collectablePhysicsController;
+        
+        
 
         #endregion
         #region Private Variables
@@ -82,19 +90,19 @@ namespace Managers
             if (_collectableTypes == CollectableType.Money)
             {
                 StateData = CollectableType.Gold;
-                money.SetActive(false);
-                gold.SetActive(true);
-                ScoreManager._score += 1;
-                ScoreManager.scoreText.text = ScoreManager._score.ToString();
+                Money.SetActive(false);
+                Gold.SetActive(true);
+                ScoreManager.Score += 1;
+                ScoreManager.ScoreText.text = ScoreManager.Score.ToString();
             }
         
             else if(_collectableTypes == CollectableType.Gold)
             {
                 StateData = CollectableType.Diamond;
-                gold.SetActive(false);
-                diamond.SetActive(true);
-                ScoreManager._score += 1;
-                ScoreManager.scoreText.text = ScoreManager._score.ToString();
+                Gold.SetActive(false);
+                Diamond.SetActive(true);
+                ScoreManager.Score += 1;
+                ScoreManager.ScoreText.text = ScoreManager.Score.ToString();
             }
         }
     }

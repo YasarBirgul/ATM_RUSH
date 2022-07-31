@@ -467,7 +467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80880546e2e674e4f92f3fde8f3a8359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 1524142320}
+  VirtualCamera: {fileID: 1524142320}
   MiniGameCamera: {fileID: 539083956}
 --- !u!1 &213742188
 GameObject:
@@ -1424,9 +1424,6 @@ MonoBehaviour:
   - {fileID: 767555287}
   - {fileID: 5412494676070982481}
   - {fileID: 5412494675624903206}
-  noAdsButton: {fileID: 843148807}
-  shopButton: {fileID: 683081362}
-  settingsButton: {fileID: 1431034048}
   layoutGroup: {fileID: 213742188}
 --- !u!114 &954736987
 MonoBehaviour:
@@ -1453,11 +1450,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b75f8facb24205a6e066952a13d877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CinemachineAnimationController: {fileID: 0}
+  CameraManager: {fileID: 205566081}
   uiPanelController: {fileID: 954736986}
   levelPanelController: {fileID: 954736987}
-  _levelManager: {fileID: 1623889791}
-  _cinemachineAnimationController: {fileID: 0}
-  CameraManager: {fileID: 0}
+  levelManager: {fileID: 1623889791}
 --- !u!1 &1004829001
 GameObject:
   m_ObjectHideFlags: 0
@@ -2421,7 +2418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80880546e2e674e4f92f3fde8f3a8359, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 0}
+  VirtualCamera: {fileID: 0}
   MiniGameCamera: {fileID: 0}
 --- !u!1 &1526395252
 GameObject:

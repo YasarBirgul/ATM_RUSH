@@ -130,12 +130,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StateData: 0
-  money: {fileID: 6282313141892572864}
-  gold: {fileID: 7814236899799420464}
-  diamond: {fileID: 8095479851799326905}
+  Money: {fileID: 6282313141892572864}
+  Gold: {fileID: 7814236899799420464}
+  Diamond: {fileID: 8095479851799326905}
   ScoreManager: {fileID: 0}
-  go: {fileID: 0}
-  collectablePhysicsController: {fileID: 3455668191144258398}
 --- !u!114 &3455668191144258398
 MonoBehaviour:
   m_ObjectHideFlags: 0

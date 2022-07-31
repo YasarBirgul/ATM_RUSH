@@ -1,4 +1,3 @@
-using System;
 using Controllers;
 using DG.Tweening;
 using Signals;
@@ -6,7 +5,24 @@ using UnityEngine;
 
 public class FinalAtmManager : MonoBehaviour
 {
+    #region Self Variables
+    
+    #region Public Variables
+
+    #endregion
+    
+    #region Serialized Variables
+    
     [SerializeField] private FinalAtmAnimationCommand finalAtmAnimationCommand;
+    
+    #endregion
+    
+    #region Private Variables
+
+    #endregion
+    
+    #endregion
+    
     
     private void OnEnable()
     {
