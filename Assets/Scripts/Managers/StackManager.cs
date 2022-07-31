@@ -57,7 +57,7 @@ namespace Managers
 
         #region Base Functions
         private void Update() 
-        {
+        { 
             StackLerpMove();
         } 
         private void StackLerpMove()
@@ -138,11 +138,10 @@ namespace Managers
                     {
                         return; 
                     }
-                    if (Collided.CompareTag("Obstacle"))
-                    {
-                        int DecreaseScoreValue = (int)Collected[i].GetComponent<CollectableManager>().StateData;
-                        ScoreSignals.Instance.onScoreDown?.Invoke(DecreaseScoreValue);
-                    }
+                  
+                    int DecreaseScoreValue = (int)Collected[i].GetComponent<CollectableManager>().StateData;
+                    ScoreSignals.Instance.onScoreDown?.Invoke(DecreaseScoreValue);
+                  
                     Collected[i].transform.DOJump(Collected[i].transform.position + new Vector3(Random.Range(-2, 2), 0, (Random.Range(7, 12))), 4.0f, 1, 0.6f);
                     Collected[i].transform.tag = "Collectable";
                     Collected[i].transform.SetParent(TempHolder.transform);
@@ -157,12 +156,12 @@ namespace Managers
 
               if (CollidedActiveObject.CompareTag("Collected"))
               { 
-                  var ChildCheck = Collected.Count-1;
+                  var NumberOfItemsCollected = Collected.Count-1;
                                     
-                  if (stackedCollectablesIndex == ChildCheck)
+                  if (stackedCollectablesIndex == NumberOfItemsCollected)
                   {
                       if (Collided.CompareTag("Obstacle"))
-                      {  int DecreaseScoreValue = (int)Collected[ChildCheck].GetComponent<CollectableManager>().StateData;
+                      {  int DecreaseScoreValue = (int)Collected[NumberOfItemsCollected].GetComponent<CollectableManager>().StateData;
                           ScoreSignals.Instance.onScoreDown?.Invoke(DecreaseScoreValue);
                       }
                       Collected.Remove(CollidedActiveObject);
@@ -171,29 +170,29 @@ namespace Managers
                   }
                   else
                   { 
-                      for (int i = ChildCheck; i > stackedCollectablesIndex; i--)
+                      for (int i = NumberOfItemsCollected; i >= stackedCollectablesIndex; i--)
                       { 
-                          if (Collided.CompareTag("Obstacle"))
-                          {
-                              int DecreaseScoreValue = (int)Collected[i].GetComponent<CollectableManager>().StateData;
-                              ScoreSignals.Instance.onScoreDown?.Invoke(DecreaseScoreValue);
-                          }
-                          if (i > ChildCheck)
+                          
+                          int DecreaseScoreValue = (int)Collected[i].GetComponent<CollectableManager>().StateData;
+                          ScoreSignals.Instance.onScoreDown?.Invoke(DecreaseScoreValue);
+                          
+                          if (i > NumberOfItemsCollected)
                           {
                               return;
                           }
+                          
                           Collected[i].transform.SetParent(TempHolder.transform);
                           Collected[i].transform.DOJump(Collected[i].transform.position + new Vector3(Random.Range(-2, 2), 0, (Random.Range(7, 12))), 4.0f, 1, 0.6f);
                           Collected[i].transform.tag = "Collectable";
                           Collected.Remove(Collected[i]);
+                          Collected.TrimExcess();
                       }
-                      Collected.TrimExcess();
-                      if (ChildCheck == 0)
+                     
+                      if (NumberOfItemsCollected == 0)
                       { 
                           return;
                       }
                   }
-                  Collected.TrimExcess();
               }
               #endregion
         } 
