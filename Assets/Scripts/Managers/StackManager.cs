@@ -19,7 +19,6 @@ namespace Managers
         
         #endregion
         
-        
         #region Serialized Variables
         
         #endregion

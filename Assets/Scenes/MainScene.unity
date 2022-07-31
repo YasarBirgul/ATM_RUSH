@@ -1450,8 +1450,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b75f8facb24205a6e066952a13d877, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CinemachineAnimationController: {fileID: 0}
-  CameraManager: {fileID: 205566081}
   uiPanelController: {fileID: 954736986}
   levelPanelController: {fileID: 954736987}
   levelManager: {fileID: 1623889791}
@@ -2334,7 +2332,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1524142319}
   - component: {fileID: 1524142320}
-  - component: {fileID: 1524142322}
   - component: {fileID: 1524142321}
   m_Layer: 0
   m_Name: CameraManager
@@ -2406,20 +2403,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_XPosition: 0
---- !u!114 &1524142322
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1524142318}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 80880546e2e674e4f92f3fde8f3a8359, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  VirtualCamera: {fileID: 0}
-  MiniGameCamera: {fileID: 0}
 --- !u!1 &1526395252
 GameObject:
   m_ObjectHideFlags: 0

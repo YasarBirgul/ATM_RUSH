@@ -12,13 +12,17 @@ namespace Managers
     public class CameraManager : MonoBehaviour
     {
         #region Self Variables
+        
+        #region Public Variables
+
+        #endregion
 
         #region Serialized Variables
 
-        public CinemachineVirtualCamera virtualCamera;
+        public CinemachineVirtualCamera VirtualCamera;
         public CinemachineVirtualCamera MiniGameCamera;
         
-        private  Animator _animator;
+        
        
         #endregion
 
@@ -26,11 +30,11 @@ namespace Managers
 
         [ShowInInspector] private Vector3 _initialPosition;
         
-       
-        
         private CinemachineTransposer _miniGameTransposer;
+        
+        private  Animator _animator;
 
-        private CameraStatesType cameraStatesType = CameraStatesType.InitCam;
+        private CameraStatesType _cameraStatesType = CameraStatesType.InitCam;
 
         #endregion
 
@@ -58,7 +62,7 @@ namespace Managers
             CoreGameSignals.Instance.onSetCameraState += OnCameraChange;
             CoreGameSignals.Instance.onSetCameraTarget += OnSetCameraTarget;
             CoreGameSignals.Instance.onReset += OnReset;
-            //CoreGameSignals.Instance.onNextLevel += OnNextLevel;
+            
             
             
         }
@@ -69,7 +73,7 @@ namespace Managers
             CoreGameSignals.Instance.onSetCameraState -= OnCameraChange;
             CoreGameSignals.Instance.onSetCameraTarget -= OnSetCameraTarget;
             CoreGameSignals.Instance.onReset -= OnReset;
-            //CoreGameSignals.Instance.onNextLevel -= OnNextLevel;
+            
             
         }
 
@@ -101,38 +105,35 @@ namespace Managers
         private void OnSetCameraTarget()
         {
             var playerManager = FindObjectOfType<PlayerManager>().transform;
-            virtualCamera.Follow = playerManager;
+            VirtualCamera.Follow = playerManager;
         }
 
         private void OnReset()
         {
-            virtualCamera.Follow = null;
-            virtualCamera.LookAt = null;
+            VirtualCamera.Follow = null;
+            VirtualCamera.LookAt = null;
             OnMoveToInitialPosition();
         }
 
-        // private void OnNextLevel()
-        // {
-        //     OnCameraChange(CameraStatesType.InitCam);
-        // }
+        
         
         public void OnCameraChange(CameraStatesType cameraState)
         {
             if (cameraState == CameraStatesType.InitCam)
             {
-                cameraStatesType = CameraStatesType.DefaultCam;
+                _cameraStatesType = CameraStatesType.DefaultCam;
                 _animator.Play("CameraManager"); 
             }
             if (cameraState == CameraStatesType.DefaultCam) 
             {
-                cameraStatesType = CameraStatesType.FinalCam;
+                _cameraStatesType = CameraStatesType.FinalCam;
                 var _fakePlayer = GameObject.FindGameObjectWithTag("MiniGamePlayer");
                 MiniGameCamera.m_Follow = _fakePlayer.transform;
                 _animator.Play("FinalCamera");
             }
             else if (cameraState == CameraStatesType.FinalCam)
             {
-                 cameraStatesType = CameraStatesType.InitCam;
+                 _cameraStatesType = CameraStatesType.InitCam;
                  _animator.Play("CM vcam1");
             }
         }

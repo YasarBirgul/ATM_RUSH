@@ -1,4 +1,3 @@
-using System;
 using Controllers;
 using Enums;
 using Signals;
@@ -13,8 +12,6 @@ namespace Managers
         #region Self Variables
 
         #region Public Variables
-        
-      
         
         #endregion
         
@@ -66,9 +63,7 @@ namespace Managers
             UnsubscribeEvents();
         }
         #endregion
-       
         
-
         private void OnOpenPanel(UIPanels panelParam)
         {
             uiPanelController.OpenPanel(panelParam);
@@ -78,9 +73,7 @@ namespace Managers
         {
             uiPanelController.ClosePanel(panelParam);
         }
-
         
-
         private void OnSetLevelText(int value)
         {
             levelPanelController.SetLevelText(value);
@@ -125,19 +118,14 @@ namespace Managers
         public void RestartLevel()
         {
             CoreGameSignals.Instance.onRestartLevel?.Invoke();
-            //UISignals.Instance.onClosePanel?.Invoke(UIPanels.FailPanel);
             UISignals.Instance.onOpenPanel?.Invoke(UIPanels.StartPanel); 
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-            
-
         }
         public void PauseLevel()
         {
-            //UISignals.Instance.onClosePanel?.Invoke(UIPanels.LevelPanel);
             UISignals.Instance.onOpenPanel?.Invoke(UIPanels.StartPanel);
             CoreGameSignals.Instance.onReset?.Invoke();
             Time.timeScale = 0f;
-
         }
         
     }
