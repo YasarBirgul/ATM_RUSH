@@ -27,8 +27,8 @@ MonoBehaviour:
   - m_From: CameraManager
     m_To: FinalCamera
     m_Blend:
-      m_Style: 0
-      m_Time: 2
+      m_Style: 1
+      m_Time: 1
       m_CustomCurve:
         serializedVersion: 2
         m_Curve: []
