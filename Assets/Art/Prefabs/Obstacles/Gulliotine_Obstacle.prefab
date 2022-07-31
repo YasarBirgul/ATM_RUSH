@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 6549364630947316222}
   - component: {fileID: 128922274646201335}
   - component: {fileID: 9028386278234563973}
+  - component: {fileID: 3473333985277841079}
+  - component: {fileID: 6451334013740556002}
   m_Layer: 0
   m_Name: Gulliotine_Obstacle
   m_TagString: Obstacle
@@ -96,6 +98,32 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.0000005, y: 1.0419319, z: 0.050000094}
   m_Center: {x: -0.00000023841855, y: -5.9790387, z: 0.000000007450581}
+--- !u!114 &3473333985277841079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999175747899814154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2d467020c6afd14cbd995eadcf44bf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObstacleType: 3
+  ObstacleAnimationsController: {fileID: 6451334013740556002}
+--- !u!114 &6451334013740556002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1999175747899814154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74d8868342b39944eace07b6e19a3057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7199037056541196893
 GameObject:
   m_ObjectHideFlags: 0
@@ -107,10 +135,9 @@ GameObject:
   - component: {fileID: 5258899577945296109}
   - component: {fileID: 942736721474340587}
   - component: {fileID: 3530073893239671141}
-  - component: {fileID: 4134347682851363278}
   m_Layer: 0
   m_Name: GuillotineObstacle
-  m_TagString: Obstacle
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -178,17 +205,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &4134347682851363278
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7199037056541196893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2d467020c6afd14cbd995eadcf44bf8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObstacleType: 3
-  obstacleAnimationsController: {fileID: 0}

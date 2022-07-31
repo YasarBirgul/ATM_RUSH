@@ -153,13 +153,13 @@ namespace Managers
                     {
                         int DecreaseScoreValue = (int)Collected[i].GetComponent<CollectableManager>().StateData;
                         ScoreSignals.Instance.onScoreDown?.Invoke(DecreaseScoreValue);
-                    } 
-                    Collected[i].transform.DOJump(Collected[i].transform.position + new Vector3(Random.Range(-3, 3), 0, (Random.Range(9, 15))), 4.0f, 2, 1f);
+                    }
+                    Collected[i].transform.DOJump(Collected[i].transform.position + new Vector3(Random.Range(-2, 2), 0, (Random.Range(7, 12))), 2.0f, 1, 1f);
                     Collected[i].transform.tag = "Collectable";
                     Collected[i].transform.SetParent(TempHolder.transform);
                     Collected.Remove(Collected[i]);
+                    Collected.TrimExcess();
                 }
-                Collected.TrimExcess();
             }
 
             #endregion
@@ -194,7 +194,7 @@ namespace Managers
                               return;
                           }
                           Collected[i].transform.SetParent(TempHolder.transform);
-                          Collected[i].transform.DOJump(Collected[i].transform.position + new Vector3(Random.Range(-3, 3), 0, (Random.Range(9, 15))), 4.0f, 2, 1f);
+                          Collected[i].transform.DOJump(Collected[i].transform.position + new Vector3(Random.Range(-2, 2), 0, (Random.Range(7, 12))), 2.0f, 1, 1f);
                           Collected[i].transform.tag = "Collectable";
                           Collected.Remove(Collected[i]);
                       }

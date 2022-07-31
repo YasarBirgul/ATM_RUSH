@@ -64,7 +64,7 @@ namespace Managers
         {
             if (CollidedActiveObject.CompareTag("Collected")) 
             {
-              transform.position = Collided.transform.position;
+              transform.position = Collided.GetComponent<Collider>().transform.position;
               
               var ColObjStateData = CollidedActiveObject.GetComponent<CollectableManager>().StateData;
               int ParticleOrder = (int)ColObjStateData-1;
