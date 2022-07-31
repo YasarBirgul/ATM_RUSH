@@ -37,25 +37,24 @@ namespace Managers
         #endregion
         #region Event Subscription
 
-                private void OnEnable()
-                {
-                    SubscribeEvents();
-                }
-                private void SubscribeEvents()
-                {
-                    CollectableSignals.Instance.onMoneyCollection += OnMoneyCollection;
+        private void OnEnable()
+        {
+            SubscribeEvents();
+        }
+        private void SubscribeEvents()
+        {
+            CollectableSignals.Instance.onMoneyCollection += OnMoneyCollection;
 
-                }
+        }
+        private void UnsubscribeEvents()
+        { 
+            CollectableSignals.Instance.onMoneyCollection -= OnMoneyCollection;
+        }
         
-                private void UnsubscribeEvents()
-                { 
-                    CollectableSignals.Instance.onMoneyCollection -= OnMoneyCollection;
-                }
-        
-                private void OnDisable()
-                {
-                    UnsubscribeEvents();
-                } 
+        private void OnDisable()
+        {
+            UnsubscribeEvents();
+        } 
 
         #endregion
 

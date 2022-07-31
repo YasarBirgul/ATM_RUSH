@@ -70,6 +70,7 @@ namespace Managers
                     var SectBall = Collected.ElementAt(i);
 
                     SectBall.transform.DOMoveX(FirstBall.transform.position.x, 20 * Time.deltaTime);
+                    SectBall.transform.position = new Vector3(SectBall.transform.position.x,SectBall.transform.position.y,Mathf.Lerp(SectBall.transform.position.z, FirstBall.transform.position.z + 1.5f, 15*Time.deltaTime));
                 }
             }
         }
@@ -99,8 +100,8 @@ namespace Managers
                         Collected.Remove(CollectedPassiveObject);
                         Collected.TrimExcess();
                     }
-                } 
-
+                }
+                
         #endregion
         
         #endregion
@@ -110,19 +111,7 @@ namespace Managers
         {
              Collected.Add(other.gameObject);
              other.transform.parent = transform;
-             
-             if (other.CompareTag("Collectable")) 
-             { 
-                for (int i=1; i <= Collected.Count-1; i++)
-                {
-                    var FirstBall = Collected[i-1];
-                    var SectBall = Collected[i];
-                    SectBall.transform.DOMoveZ(FirstBall.transform.position.z + 1.5f, 0*Time.fixedDeltaTime); 
-                    Collected.TrimExcess();
-                    StartCoroutine(CollectableScaleUp());
-                } 
-             } 
-             Collected.TrimExcess();
+             StartCoroutine(CollectableScaleUp());
         }
         public IEnumerator CollectableScaleUp()
         {
