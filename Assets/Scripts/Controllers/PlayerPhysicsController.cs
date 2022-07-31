@@ -36,7 +36,6 @@ namespace Controllers
             if (other.CompareTag("Conveyor"))
             {
                 CollectableSignals.Instance.onFinalAtmCollision?.Invoke(gameObject);
-                
             }
         }
     }

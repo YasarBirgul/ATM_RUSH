@@ -121,32 +121,20 @@ namespace Managers
             if (cameraState == CameraStatesType.InitCam)
             {
                 cameraStatesType = CameraStatesType.DefaultCam;
-                //cameraStatesType = CameraStatesType.DefaultCam;
-                _animator.Play("CameraManager"); //CM vcam1
+                _animator.Play("CameraManager"); 
             }
-           
-            else if (cameraState == CameraStatesType.DefaultCam) // currentstate = cameraStatesType
+            if (cameraState == CameraStatesType.DefaultCam) 
             {
                 cameraStatesType = CameraStatesType.FinalCam;
-                Debug.Log(cameraStatesType);
                 var _fakePlayer = GameObject.FindGameObjectWithTag("MiniGamePlayer");
                 MiniGameCamera.m_Follow = _fakePlayer.transform;
-                
-               
-                _animator.Play("FinalCamera"); //CameraManager
+                _animator.Play("FinalCamera");
             }
             else if (cameraState == CameraStatesType.FinalCam)
             {
-                cameraStatesType = CameraStatesType.InitCam;
-                _animator.Play("CM vcam1");
+                 cameraStatesType = CameraStatesType.InitCam;
+                 _animator.Play("CM vcam1");
             }
-            // else if (cameraStatesType == CameraStatesType.FinalCam)
-            // {
-            //     cameraStatesType = CameraStatesType.FinalCam;
-            //     var miniGamePlayer = GameObject.FindGameObjectsWithTag("MiniGamePlayer");
-            //     _animator.Play("FinalCamera");
-            // }
         }
-        
     }
 }

@@ -1,5 +1,6 @@
 using Controllers;
 using DG.Tweening;
+using Enums;
 using Signals;
 using UnityEngine;
 
@@ -53,6 +54,7 @@ namespace Managers
             {
                 MiniGameBlocks.SetActive(true);
                 MiniGamePLayer.SetActive(true);
+                CoreGameSignals.Instance.onSetCameraState?.Invoke(CameraStatesType.DefaultCam);
                 CoreGameSignals.Instance.OnMiniGame?.Invoke(0);
             }
         }
