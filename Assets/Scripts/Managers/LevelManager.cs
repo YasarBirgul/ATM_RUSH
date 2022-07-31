@@ -123,7 +123,7 @@ namespace Managers
         {
             var newLevelData = _levelID % Resources.Load<CD_Level>("Data/CD_Level").Levels.Count;
             levelLoader.InitializeLevel(newLevelData, levelHolder.transform);
-            UISignals.Instance.onSetLevelText?.Invoke(_levelID+1);
+            UISignals.Instance.onSetLevelText?.Invoke(_levelID);
         }
 
         private void OnClearActiveLevel()
