@@ -1,10 +1,5 @@
-using System.Collections.Generic;
-using DG.Tweening;
-using Signals;
-using StylizedWater2;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Controllers
 {
@@ -12,15 +7,21 @@ namespace Controllers
     {
         #region Self Variables
 
+        #region Public Variables
+
+        #endregion
+
         #region Serialized Variables
 
         [SerializeField] private TextMeshProUGUI levelText;
-        [SerializeField] private List<Image> stageImages;
+
+        #endregion
+
+        #region Private Variables
 
         #endregion
 
         #endregion
-        
         public void SetLevelText(int value)
         {
             levelText.text = "Level :" + (value + 1).ToString();

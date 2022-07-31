@@ -1441,8 +1441,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelText: {fileID: 1418725333}
-  stageImages:
-  - {fileID: 0}
 --- !u!114 &954736988
 MonoBehaviour:
   m_ObjectHideFlags: 0

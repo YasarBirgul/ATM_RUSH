@@ -4,36 +4,26 @@ namespace Controllers
 {
     public class CinemachineAnimationController : MonoBehaviour
     {
-        public Animator _animator;
+        #region Self Variables
+
+        #region Public Variables
         
+        public Animator Animator;
         
-        
+        #endregion
+
+        #region Serialized Variables
+
+        #endregion
+
+        #region Private Variables
+
+        #endregion
+
+        #endregion
         private void Awake()
         {
-            _animator = GetComponent<Animator>();
+            Animator = GetComponent<Animator>();
         }
-        // private void Update()
-        // {
-        //     // if (Input.GetKey(KeyCode.Space))
-        //     // {
-        //     //     CameraChange();
-        //     // }
-        //     
-        // }
-        
-        
-        // public void CameraChange()
-        // {
-        //     if (_animator.)
-        //     {
-        //         _animator.Play("FirstCamera");
-        //     }
-        //     else
-        //     {
-        //         _animator.Play("PlayerCamera");
-        //     }
-        //
-        //     
-        // }
     }
 }

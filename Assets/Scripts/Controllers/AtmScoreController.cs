@@ -3,20 +3,35 @@ using TMPro;
 using UnityEngine;
 
 namespace Controllers
-{
+{ 
     public class AtmScoreController : MonoBehaviour
     {
+        #region Self Variables
+
+        #region Public Variables
+
+        #endregion
+
+        #region Serialized Variables
+        
         [SerializeField] private TextMeshPro scoreText;
-        private float score;
-        #region SelfVariables
+        
+        #endregion
+        
+        #region Private Variables
+        
+        private float _score;
+        
+        #endregion
+
         #endregion
         public void OnDeposit(GameObject self)
         {
             if (self.CompareTag("Collected"))
             {
                 int state = (int) self.GetComponent<CollectableManager>().StateData; 
-                score += state;
-                scoreText.text = score.ToString();
+                _score += state;
+                scoreText.text = _score.ToString();
             }
         }
     }
