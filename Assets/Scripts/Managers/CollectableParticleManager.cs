@@ -52,7 +52,7 @@ namespace Managers
         }
         #endregion
 
-        private void Awake()
+        private void Start()
         {
             Particle = GetComponent<ParticleSystem>();
             Data = GetParticleData();
