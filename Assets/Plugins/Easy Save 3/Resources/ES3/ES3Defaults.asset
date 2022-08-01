@@ -35,8 +35,12 @@ MonoBehaviour:
     - sc.stylizedwater2.runtime
     - sc.stylizedwater2.editor
     - Sirenix.OdinInspector.CompatibilityLayer
+    - ToonyColorsPro2.Demo
+    - ToonyColorsPro.Runtime
     - Sirenix.OdinInspector.CompatibilityLayer.Editor
     - Sirenix.OdinInspector.Modules.UnityMathematics
+    - ToonyColorsPro.Editor
+    - ToonyColorsPro.Demo.Editor
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

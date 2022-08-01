@@ -14,6 +14,8 @@ namespace Managers
         public GameObject MiniGameBlocks;
         
         public GameObject MiniGamePLayer;
+
+        
         
         #endregion
 
@@ -52,6 +54,7 @@ namespace Managers
         {
             if (CollidedActiveObject.CompareTag("Player"))
             {
+               
                 MiniGameBlocks.SetActive(true);
                 MiniGamePLayer.SetActive(true);
                 CoreGameSignals.Instance.onSetCameraState?.Invoke(CameraStatesType.DefaultCam);

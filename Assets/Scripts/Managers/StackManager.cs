@@ -70,7 +70,7 @@ namespace Managers
                     var SectBall = Collected.ElementAt(i);
 
                     SectBall.transform.DOMoveX(FirstBall.transform.position.x, 20 * Time.deltaTime);
-                    SectBall.transform.position = new Vector3(SectBall.transform.position.x,SectBall.transform.position.y,Mathf.Lerp(SectBall.transform.position.z, FirstBall.transform.position.z + 1.5f, 15*Time.deltaTime));
+                    SectBall.transform.position = new Vector3(SectBall.transform.position.x,SectBall.transform.position.y,Mathf.Lerp(SectBall.transform.position.z, FirstBall.transform.position.z + 1.1f, 15*Time.deltaTime));
                 }
             }
         }
