@@ -9,6 +9,7 @@
 ![Ekran Görüntüsü (1325)](https://user-images.githubusercontent.com/97702355/182120678-25fb6efd-76cc-4762-8784-c4cf0bfc689d.png)
 
 ## GamePlay Video
+
 https://www.youtube.com/shorts/gJnp3xnOWns
 [![Watch the video](https://user-images.githubusercontent.com/97702355/182122935-c2b853cf-ed20-4965-8a0d-5a0b87851817.jpg)](https://www.youtube.com/shorts/gJnp3xnOWns)
 
@@ -28,11 +29,11 @@ https://www.youtube.com/shorts/gJnp3xnOWns
 
 ## Product Info
 
-- Atm Rush Clone work
+- Atm Rush Clone Work
 
 ## Product Features
 
-### Produced considering ;
+### Produced Considering ;
 
 - Observer Method
 - SOLID Principles 
