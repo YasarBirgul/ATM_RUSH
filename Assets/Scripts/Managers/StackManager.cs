@@ -182,7 +182,7 @@ namespace Managers
                           }
                           
                           Collected[i].transform.SetParent(TempHolder.transform);
-                          Collected[i].transform.DOJump(Collected[i].transform.position + new Vector3(Random.Range(-2, 2), 0, (Random.Range(7, 12))), 4.0f, 1, 0.6f);
+                          Collected[i].transform.DOJump(Collected[i].transform.position + new Vector3(Random.Range(-2, 2), 0, (Random.Range(7, 12))), 2.0f, 2, 0.8f);
                           Collected[i].transform.tag = "Collectable";
                           Collected.Remove(Collected[i]);
                           Collected.TrimExcess();
