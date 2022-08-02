@@ -15,7 +15,7 @@ https://www.youtube.com/shorts/gJnp3xnOWns
 
 ## Project : 
 
-### Level Up Academy 1st Game Project, Atm Rush Clone-work 
+### Level Up Academy 2st Game Project, Atm Rush Clone-work 
 
 ## Team :
 
