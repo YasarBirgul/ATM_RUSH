@@ -15,7 +15,7 @@ namespace Managers
         
         public GameObject MiniGamePLayer;
 
-        
+        public GameObject Player;
         
         #endregion
 
@@ -54,12 +54,17 @@ namespace Managers
         {
             if (CollidedActiveObject.CompareTag("Player"))
             {
-               
-                MiniGameBlocks.SetActive(true);
-                MiniGamePLayer.SetActive(true);
-                CoreGameSignals.Instance.onSetCameraState?.Invoke(CameraStatesType.DefaultCam);
-                CoreGameSignals.Instance.OnMiniGame?.Invoke(0);
+               Invoke("PlayMiniGame",1.5f);
             }
+        }
+
+        private void PlayMiniGame()
+        {
+            Player.SetActive(false);
+            MiniGameBlocks.SetActive(true);
+            MiniGamePLayer.SetActive(true);
+            CoreGameSignals.Instance.onSetCameraState?.Invoke(CameraStatesType.DefaultCam);
+            CoreGameSignals.Instance.OnMiniGame?.Invoke(0);
         }
     }
 }

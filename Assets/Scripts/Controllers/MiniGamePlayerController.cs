@@ -44,7 +44,7 @@ namespace Controllers
         void OnMiniGame(int integer)
         {
             var MiniGameScoreHeight = scoreManager.Score;
-            transform.DOMoveY(MiniGameScoreHeight / 2, MiniGameScoreHeight/10).SetEase(Ease.Linear).OnComplete(() =>
+            transform.DOMoveY(MiniGameScoreHeight / 2, MiniGameScoreHeight/10).SetDelay(1.5f).SetEase(Ease.Linear).OnComplete(() =>
             {
                 CoreGameSignals.Instance.onLevelSuccessful?.Invoke();
             });
