@@ -31,11 +31,19 @@ https://www.youtube.com/shorts/gJnp3xnOWns
 
 - Atm Rush Clone Work
 
+## Mechanics
+
+- Swerve Mechanic
+- Lerp Mechanic
+- Stack Mechanic
+
 ## Product Features
 
 ### Produced Considering ;
 
 - Observer Method
+- Cinemachine
 - SOLID Principles 
-- Dotween 
-- Odin Save System 
+- DOTween
+- Easy Save 3
+- Odin Inspector
