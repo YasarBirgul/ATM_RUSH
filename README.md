@@ -2,16 +2,15 @@
 
 ## Game Screen Shots
 
-![Ekran Görüntüsü (1342)](https://user-images.githubusercontent.com/97702355/182120634-3ff734ee-4515-4a94-be78-6e169eee0305.png)
-![Ekran Görüntüsü (1340)](https://user-images.githubusercontent.com/97702355/182120659-58a830c1-1b57-4715-8296-2df04ed3a182.png)
-![Ekran Görüntüsü (1337)](https://user-images.githubusercontent.com/97702355/182120670-89d05932-0356-495c-b155-d2448903c5c1.png)
-![Ekran Görüntüsü (1333)](https://user-images.githubusercontent.com/97702355/182120673-9d01f9d3-f559-496d-a22f-50846485cb9a.png)
-![Ekran Görüntüsü (1325)](https://user-images.githubusercontent.com/97702355/182120678-25fb6efd-76cc-4762-8784-c4cf0bfc689d.png)
+![ss-01](https://user-images.githubusercontent.com/97702355/182619088-7a3a491d-ddd8-43d9-b39b-40335b8581da.jpg)
+
+## Game UML 
+![Game ScreenShots](https://user-images.githubusercontent.com/97702355/182619522-92946697-d242-429c-be9e-7841a80f543c.jpg)
+
 
 ## GamePlay Video
 
-https://www.youtube.com/shorts/gJnp3xnOWns
-[![Watch the video](https://user-images.githubusercontent.com/97702355/182122935-c2b853cf-ed20-4965-8a0d-5a0b87851817.jpg)](https://www.youtube.com/shorts/gJnp3xnOWns)
+https://user-images.githubusercontent.com/97702355/182621593-bcb7121f-a89c-4e3e-9112-e05a233444a7.mp4
 
 ## Project : 
 
@@ -47,3 +46,4 @@ https://www.youtube.com/shorts/gJnp3xnOWns
 - DOTween
 - Easy Save 3
 - Odin Inspector
+- Toony Colors Pro 
