@@ -14,7 +14,7 @@ https://user-images.githubusercontent.com/97702355/182621593-bcb7121f-a89c-4e3e-
 
 ## Project : 
 
-### Level Up Academy 2st Game Project, Atm Rush Clone-work 
+### Level Up Academy 2nd Game Project, Atm Rush Clone-work 
 
 ## Team :
 
