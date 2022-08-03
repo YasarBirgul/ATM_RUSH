@@ -40,6 +40,8 @@ namespace Managers
             CollectableSignals.Instance.onObstacleCollision += OnObstacleCollision;
             CollectableSignals.Instance.onDeposit += OnDeposit;
             CollectableSignals.Instance.onFinalAtmCollision += OnFinalAtmCollision;
+            CollectableSignals.Instance.onPlayerAtmCollision += OnPlayerAtmCollision;
+            CollectableSignals.Instance.onPlayerObstacleCollision += OnPlayerObstacleCollision;
         }
 
         private void UnsubscribeEvents()
@@ -48,6 +50,8 @@ namespace Managers
             CollectableSignals.Instance.onObstacleCollision -= OnObstacleCollision;
             CollectableSignals.Instance.onDeposit -= OnDeposit;
             CollectableSignals.Instance.onFinalAtmCollision -= OnFinalAtmCollision;
+            CollectableSignals.Instance.onPlayerAtmCollision -= OnPlayerAtmCollision;
+            CollectableSignals.Instance.onPlayerObstacleCollision -= OnPlayerObstacleCollision;
         }
         private void OnDisable()
         {
@@ -79,15 +83,16 @@ namespace Managers
                     AddOnStack(CollectedGO);
                 }
         
-                private void OnObstacleCollision(GameObject CollidedActiveObject,GameObject Collided,int stackedCollectablesIndex)
+                private void OnObstacleCollision(GameObject CollidedActiveObject,int stackedCollectablesIndex)
                 {
-                    RemoveFromStack(CollidedActiveObject,Collided,stackedCollectablesIndex);
-             
+                    RemoveFromStack(CollidedActiveObject,stackedCollectablesIndex);
+                    ObstacleRemove(CollidedActiveObject,stackedCollectablesIndex);
                 }
                 
-                private void OnDeposit(GameObject CollidedActiveObject,GameObject Collided,int stackedCollectablesIndex)
+                private void OnDeposit(GameObject CollidedActiveObject,int stackedCollectablesIndex)
                 {
-                    RemoveFromStack(CollidedActiveObject,Collided,stackedCollectablesIndex);
+                    RemoveFromStack(CollidedActiveObject,stackedCollectablesIndex);
+                    AtmRemove(CollidedActiveObject,stackedCollectablesIndex);
                 }
                 
                 #region LerpMove
@@ -101,8 +106,15 @@ namespace Managers
                         Collected.TrimExcess();
                     }
                 }
-                
-        #endregion
+                void OnPlayerObstacleCollision(GameObject player)
+                {
+                    RemoveFromStack(player,1);
+                }
+                void OnPlayerAtmCollision(GameObject player, int atmID)
+                {
+                    RemoveFromStack(player,1);
+                }
+                #endregion
         
         #endregion
         
@@ -122,11 +134,12 @@ namespace Managers
                 Collected[index].transform.DOScale(scale, 0.2f).SetEase(Ease.Flash);
                 Collected[index].transform.DOScale(Vector3.one, 0.2f).SetDelay(0.2f).SetEase(Ease.Flash);
                 yield return new WaitForSeconds(0.05f);
+                Collected.TrimExcess();
             }
-            Collected.TrimExcess();
+            
         }
         
-        private void RemoveFromStack(GameObject CollidedActiveObject,GameObject Collided,int stackedCollectablesIndex) 
+        private void RemoveFromStack(GameObject CollidedActiveObject,int stackedCollectablesIndex) 
         {
             #region Player Collision 
 
@@ -152,50 +165,58 @@ namespace Managers
 
             #endregion
 
-            #region Collected Items Collision 
-
-              if (CollidedActiveObject.CompareTag("Collected"))
-              { 
-                  var NumberOfItemsCollected = Collected.Count-1;
-                                    
-                  if (stackedCollectablesIndex == NumberOfItemsCollected)
-                  {
-                      if (Collided.CompareTag("Obstacle"))
-                      {  int DecreaseScoreValue = (int)Collected[NumberOfItemsCollected].GetComponent<CollectableManager>().StateData;
-                          ScoreSignals.Instance.onScoreDown?.Invoke(DecreaseScoreValue);
-                      }
-                      Collected.Remove(CollidedActiveObject);
-                      Destroy(CollidedActiveObject); 
-                      Collected.TrimExcess();
-                  }
-                  else
-                  { 
-                      for (int i = NumberOfItemsCollected; i >= stackedCollectablesIndex; i--)
-                      { 
-                          
-                          int DecreaseScoreValue = (int)Collected[i].GetComponent<CollectableManager>().StateData;
-                          ScoreSignals.Instance.onScoreDown?.Invoke(DecreaseScoreValue);
-                          
-                          if (i > NumberOfItemsCollected)
-                          {
-                              return;
-                          }
-                          
-                          Collected[i].transform.SetParent(TempHolder.transform);
-                          Collected[i].transform.DOJump(Collected[i].transform.position + new Vector3(Random.Range(-2, 2), 0, (Random.Range(7, 12))), 2.0f, 2, 0.8f);
-                          Collected[i].transform.tag = "Collectable";
-                          Collected.Remove(Collected[i]);
-                          Collected.TrimExcess();
-                      }
-                     
-                      if (NumberOfItemsCollected == 0)
-                      { 
-                          return;
-                      }
-                  }
-              }
-              #endregion
+            #region Collected Items Collision
+            
+            var NumberOfItemsCollected = Collected.Count-1;
+            
+            if(stackedCollectablesIndex != NumberOfItemsCollected)
+            { 
+                for (int i = NumberOfItemsCollected; i >= stackedCollectablesIndex; i--)
+                {
+                    int DecreaseScoreValue = (int)Collected[i].GetComponent<CollectableManager>().StateData;
+                    ScoreSignals.Instance.onScoreDown?.Invoke(DecreaseScoreValue);
+                    if (i > NumberOfItemsCollected)
+                    {
+                        return;
+                    }
+                    Collected[i].transform.SetParent(TempHolder.transform);
+                    Collected[i].transform.DOJump(Collected[i].transform.position + new Vector3(Random.Range(-2, 2), 0, (Random.Range(7, 12))), 2.0f, 2, 0.8f);
+                    Collected[i].transform.tag = "Collectable";
+                    Collected.Remove(Collected[i]);
+                    Collected.TrimExcess();
+                }
+                if (NumberOfItemsCollected == 0)
+                { 
+                    return;
+                }
+            }
+            #endregion
         } 
         #endregion
+
+        void AtmRemove(GameObject CollidedActiveObject,int stackedCollectablesIndex)
+        {
+            var NumberOfItemsCollected = Collected.Count-1;
+                              
+            if (stackedCollectablesIndex == NumberOfItemsCollected)
+            {
+                Collected.Remove(CollidedActiveObject);
+                Destroy(CollidedActiveObject); 
+                Collected.TrimExcess();
+            }
+        }
+        void ObstacleRemove(GameObject CollidedActiveObject,int stackedCollectablesIndex)
+        {
+            var NumberOfItemsCollected = Collected.Count-1;
+                              
+            if (stackedCollectablesIndex == NumberOfItemsCollected)
+            {
+                int DecreaseScoreValue = (int)CollidedActiveObject.GetComponent<CollectableManager>().StateData;
+                ScoreSignals.Instance.onScoreDown?.Invoke(DecreaseScoreValue);
+                Collected.Remove(CollidedActiveObject);
+                Destroy(CollidedActiveObject); 
+                Collected.TrimExcess();
+            }
+        }
     }
 }

@@ -14,11 +14,11 @@ namespace Controllers
             }        
             if (other.CompareTag("Obstacle"))
             {             
-                CollectableSignals.Instance.onObstacleCollision?.Invoke(gameObject,other.gameObject,0);
+                CollectableSignals.Instance.onPlayerObstacleCollision?.Invoke(gameObject);
             }
             if (other.CompareTag("Atm"))
-            {             
-                CollectableSignals.Instance.onDeposit?.Invoke(gameObject,other.gameObject,other.GetComponent<AtmManager>().GetInstanceID());
+            {
+                CollectableSignals.Instance.onPlayerAtmCollision?.Invoke(gameObject,other.GetComponent<AtmManager>().GetInstanceID());
             } 
             if (other.CompareTag("Conveyor"))
             {

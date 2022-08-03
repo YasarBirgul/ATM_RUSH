@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Main Camera Blends
   m_EditorClassIdentifier: 
   m_CustomBlends:
-  - m_From: CM vcam2
-    m_To: CameraManager
+  - m_From: InitCamera
+    m_To: PlayerCamera
     m_Blend:
       m_Style: 1
       m_Time: 1
@@ -24,11 +24,11 @@ MonoBehaviour:
         m_PreInfinity: 0
         m_PostInfinity: 0
         m_RotationOrder: 0
-  - m_From: CameraManager
-    m_To: FinalCamera
+  - m_From: PlayerCamera
+    m_To: MiniGameCamera
     m_Blend:
       m_Style: 1
-      m_Time: 1
+      m_Time: 3
       m_CustomCurve:
         serializedVersion: 2
         m_Curve: []

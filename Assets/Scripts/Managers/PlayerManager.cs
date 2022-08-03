@@ -66,7 +66,7 @@ namespace Managers
             CoreGameSignals.Instance.onReset += OnReset;
             CoreGameSignals.Instance.onLevelSuccessful += OnLevelSuccessful;
             CoreGameSignals.Instance.onLevelFailed += OnLevelFailed;
-            CollectableSignals.Instance.onObstacleCollision += OnObstacleCollision;
+            CollectableSignals.Instance.onPlayerObstacleCollision += OnObstacleCollision;
             CollectableSignals.Instance.onFinalAtmCollision += OnFinalAtmCollision;
         }
 
@@ -79,7 +79,7 @@ namespace Managers
             CoreGameSignals.Instance.onReset -= OnReset;
             CoreGameSignals.Instance.onLevelSuccessful -= OnLevelSuccessful;
             CoreGameSignals.Instance.onLevelFailed -= OnLevelFailed;
-            CollectableSignals.Instance.onObstacleCollision -= OnObstacleCollision;
+            CollectableSignals.Instance.onPlayerObstacleCollision -= OnObstacleCollision;
             CollectableSignals.Instance.onFinalAtmCollision -= OnFinalAtmCollision;
         }
 
@@ -119,7 +119,7 @@ namespace Managers
 
         #endregion
 
-        private void OnObstacleCollision(GameObject self,GameObject Collided,int index)
+        private void OnObstacleCollision(GameObject self)
         {
             movementController.PlayerPushBack(self);
         }

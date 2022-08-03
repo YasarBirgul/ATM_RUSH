@@ -32,7 +32,6 @@ namespace Managers
         private void Awake()
         {
             _instanceid = GetComponent<AtmManager>().GetInstanceID();
-            Debug.Log(_instanceid);
         }
 
         private void OnEnable()
@@ -43,18 +42,20 @@ namespace Managers
         private void SubscribeEvents()
         {
             CollectableSignals.Instance.onDeposit += OnDeposit;
+            CollectableSignals.Instance.onPlayerAtmCollision += OnCollision;
 
         }
         private void UnsubscribeEvents()
         {
             CollectableSignals.Instance.onDeposit -= OnDeposit;
+            CollectableSignals.Instance.onPlayerAtmCollision -= OnCollision;
     
         }
         private void OnDisable()
         {
             UnsubscribeEvents();
         } 
-        private void OnDeposit(GameObject gameObject,GameObject Collided,int id)
+        private void OnDeposit(GameObject gameObject,int id)
         {
             AtmScoreController.OnDeposit(gameObject);
             _finalAtmAnimationCommand = new FinalAtmAnimationCommand();
@@ -63,7 +64,9 @@ namespace Managers
             {
                 _finalAtmAnimationCommand.ShakeAtm(transform);   
             }
-
+        }
+        private void OnCollision(GameObject gameObject,int id)
+        {
             if (id == _instanceid)
             {
                 if (gameObject.CompareTag("Player"))

@@ -25,7 +25,6 @@ namespace Controllers
       
       public void RunPlayerMovementAnimation()
       {
-         Debug.Log("yes");
          animator.SetBool("Run",true);
       }
    

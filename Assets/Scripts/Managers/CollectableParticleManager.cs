@@ -61,14 +61,12 @@ namespace Managers
         private CollectableData GetParticleData() =>
             Resources.Load<CD_Collectable>("Data/CD_Collectable").CollectableData;
 
-         private void OnObstacleCollision(GameObject CollidedActiveObject,GameObject Collided,int stackedCollectablesIndex)
+         private void OnObstacleCollision(GameObject CollidedActiveObject,int stackedCollectablesIndex)
         {
-            if (CollidedActiveObject.CompareTag("Collected")) 
-            {
-              transform.position = CollidedActiveObject.GetComponent<Collider>().transform.position;
-              
-              var ColObjStateData = CollidedActiveObject.GetComponent<CollectableManager>().StateData;
-              int ParticleOrder = (int)ColObjStateData;
+             
+            transform.position = CollidedActiveObject.GetComponent<Collider>().transform.position;
+            var ColObjStateData = CollidedActiveObject.GetComponent<CollectableManager>().StateData; 
+            int ParticleOrder = (int)ColObjStateData;
               var particleSprite = Data.CollectableParticleSpriteList[ParticleOrder].CollectanbleParticals;
               
               if (ColObjStateData == CollectableType.Money)
@@ -86,14 +84,14 @@ namespace Managers
                    Particle.textureSheetAnimation.SetSprite(0, particleSprite);
                    PlayTheParticle(Particle);
               }  
-            }
+            
         }
-         private void OnDeposit(GameObject CollidedActiveObject,GameObject Collided,int ID)
+         private void OnDeposit(GameObject CollidedActiveObject,int ID)
          {
-             transform.position = Collided.GetComponent<Collider>().transform.position + new Vector3(0,-2f,0);
+             transform.position = CollidedActiveObject.GetComponent<Collider>().transform.position;
              var particleSprite = Data.CollectableParticleSpriteList[0].CollectanbleParticals;
              
-             if (CollidedActiveObject.CompareTag("Collected")&& Collided.CompareTag("Atm"))
+             if (CollidedActiveObject.CompareTag("Collected"))
              {
                  Particle.textureSheetAnimation.SetSprite(0, particleSprite);
                  PlayTheParticle(Particle);
