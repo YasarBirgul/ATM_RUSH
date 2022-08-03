@@ -185,10 +185,6 @@ namespace Managers
                     Collected.Remove(Collected[i]);
                     Collected.TrimExcess();
                 }
-                if (NumberOfItemsCollected == 0)
-                { 
-                    return;
-                }
             }
             #endregion
         } 

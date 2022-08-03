@@ -72,17 +72,17 @@ namespace Managers
               if (ColObjStateData == CollectableType.Money)
               {
                    Particle.textureSheetAnimation.SetSprite(0, particleSprite);
-                   PlayTheParticle(Particle);
+                   Particle.Play();
               }
               if (ColObjStateData == CollectableType.Gold)
               {
                    Particle.textureSheetAnimation.SetSprite(0, particleSprite);
-                   PlayTheParticle(Particle);
+                   Particle.Play();
               }
               if (ColObjStateData == CollectableType.Diamond)
               {
                    Particle.textureSheetAnimation.SetSprite(0, particleSprite);
-                   PlayTheParticle(Particle);
+                   Particle.Play();
               }  
             
         }
@@ -94,12 +94,8 @@ namespace Managers
              if (CollidedActiveObject.CompareTag("Collected"))
              {
                  Particle.textureSheetAnimation.SetSprite(0, particleSprite);
-                 PlayTheParticle(Particle);
+                 Particle.Play();
              }
-         }
-         void PlayTheParticle(ParticleSystem particleSystem)
-         {
-             particleSystem.Play();
          }
     }
 }

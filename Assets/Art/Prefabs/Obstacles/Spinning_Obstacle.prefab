@@ -62,8 +62,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 1302412488659089347, guid: 7a8954663a89d464aae6668943b4ed3b, type: 3}
-  - {fileID: -3219031236227165868, guid: 7a8954663a89d464aae6668943b4ed3b, type: 3}
+  - {fileID: 2100000, guid: e3cf2826c2795db4db2bec515ea4f984, type: 2}
+  - {fileID: 2100000, guid: c0816bc1ad1d55f4ebd59cd245e66731, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,7 +111,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ObstacleType: 6
-  obstacleAnimationsController: {fileID: 8818503510323120866}
+  ObstacleAnimationsController: {fileID: 0}
 --- !u!114 &8818503510323120866
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -7,9 +7,9 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HandMaterial
+  m_Name: Shirt
   m_Shader: {fileID: 4800000, guid: 7ffc1bc2bbb1ef64f84b552b2d2f0619, type: 3}
-  m_ShaderKeywords: TCP2_MOBILE TCP2_REFLECTIONS_FRESNEL TCP2_RIM_LIGHTING TCP2_RIM_LIGHTING_LIGHTMASK
+  m_ShaderKeywords: TCP2_REFLECTIONS_FRESNEL TCP2_RIM_LIGHTING TCP2_RIM_LIGHTING_LIGHTMASK
     TCP2_UV_NORMALS_FULL
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 56d45f57680b7c54a95deab433dd9014, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -45,7 +45,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 56d45f57680b7c54a95deab433dd9014, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MatCapMask:
@@ -112,14 +112,15 @@ Material:
     - _EnvironmentReflections: 1
     - _FresnelMax: 1.5
     - _FresnelMin: 0
-    - _GlossMapScale: 0
+    - _GlossMapScale: 1
     - _Glossiness: 0
-    - _GlossyReflections: 0
+    - _GlossyReflections: 1
     - _IndirectIntensity: 1
     - _IndirectIntensityOutline: 0
     - _MatCapMaskChannel: 0
     - _MatCapType: 0
     - _Metallic: 0
+    - _Mode: 0
     - _NormalsSource: 0
     - _NormalsUVType: 0
     - _OcclusionChannel: 0
@@ -131,14 +132,14 @@ Material:
     - _OutlineTextureLOD: 5
     - _OutlineTextureType: 0
     - _OutlineWidth: 1
-    - _Parallax: 0.005
+    - _Parallax: 0.02
     - _QueueOffset: 0
     - _RampBands: 4
     - _RampBandsSmoothing: 0.1
     - _RampOffset: 0
     - _RampScale: 1
-    - _RampSmoothing: 0.065
-    - _RampThreshold: 0.382
+    - _RampSmoothing: 0.1
+    - _RampThreshold: 0.274
     - _RampType: 0
     - _ReceiveShadows: 1
     - _ReceiveShadowsOff: 1
@@ -146,7 +147,7 @@ Material:
     - _ReflectionSmoothness: 0.5
     - _RenderingMode: 0
     - _RimMax: 2
-    - _RimMin: 0.341
+    - _RimMin: 0.212
     - _SingleIndirectColor: 0
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
@@ -158,12 +159,13 @@ Material:
     - _SpecularType: 0
     - _SrcBlend: 1
     - _Surface: 0
+    - _UVSec: 0
     - _UseAlphaTest: 0
     - _UseEmission: 0
     - _UseFresnelReflections: 1
     - _UseMatCap: 0
     - _UseMatCapMask: 0
-    - _UseMobileMode: 1
+    - _UseMobileMode: 0
     - _UseNormalMap: 0
     - _UseOcclusion: 0
     - _UseOutline: 0
@@ -175,19 +177,19 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0.9063317, g: 0.9063317, b: 0.9063317, a: 1}
+    - _Color: {r: 0.8, g: 0.8, b: 0.8, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HColor: {r: 1, g: 1, b: 1, a: 1}
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
     - _ReflectionColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 0.8, g: 0.8, b: 0.8, a: 0.5}
-    - _SColor: {r: 0.49056602, g: 0.49056602, b: 0.49056602, a: 1}
+    - _SColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecularColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &3670113158053264170
+--- !u!114 &2616171794158658341
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}

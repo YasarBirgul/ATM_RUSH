@@ -12,7 +12,67 @@ ModelImporter:
   - first:
       74: 8061465127764819259
     second: "Armature|\u0131dle"
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shirt
+    second: {fileID: 2100000, guid: 85385cb80ca141f4c825f69fdea8c143, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: beard_hair_eyebrow
+    second: {fileID: 2100000, guid: 4a19250665f26ed45a1a641a4a1b0cdb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bow_tie
+    second: {fileID: 2100000, guid: 1f32583f629b66848804acbf6cade072, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: character
+    second: {fileID: 2100000, guid: 38e8f52be95c6744495b038cd5603de5, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: eye
+    second: {fileID: 2100000, guid: 2cae4df762114904ea9a6284c445fe9d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hat
+    second: {fileID: 2100000, guid: fbaaac48e8a946c4f99d3d6a04730a14, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: hat_red
+    second: {fileID: 2100000, guid: 1f186cdb9b2bd28438b857ce5047142c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: iris
+    second: {fileID: 2100000, guid: 88b6aa74d4f705d43a6603486bdcd0c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: jacket
+    second: {fileID: 2100000, guid: 78ae92ea48282384c9725f9d54d18e3c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: pants
+    second: {fileID: 2100000, guid: 223a0534cd3062242adfc04e6940ec69, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: shoes
+    second: {fileID: 2100000, guid: a25ab49ad405f674380b1754cedd2c49, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: switch
+    second: {fileID: 2100000, guid: e934a0143bd0cfe4c89034b0a399fb77, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
