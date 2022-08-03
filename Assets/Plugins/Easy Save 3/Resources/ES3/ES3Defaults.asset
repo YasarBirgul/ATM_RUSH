@@ -30,20 +30,15 @@ MonoBehaviour:
     serializationDepthLimit: 64
     assemblyNames:
     - Assembly-CSharp-firstpass
-    - Boxophobic.PolyverseSkies.Runtime
     - Assembly-CSharp
     - Cinemachine
     - ToonyColorsPro2.Demo
     - sc.stylizedwater2.runtime
-    - Boxophobic.Utils.Scripts
     - sc.stylizedwater2.editor
     - Sirenix.OdinInspector.CompatibilityLayer
     - ToonyColorsPro.Runtime
-    - Boxophobic.PolyverseSkies.Scripts
     - Sirenix.OdinInspector.CompatibilityLayer.Editor
-    - Boxophobic.Utils.Editor
     - ToonyColorsPro.Editor
-    - Boxophobic.PolyverseSkies.Editor
     - ToonyColorsPro.Demo.Editor
     - Sirenix.OdinInspector.Modules.UnityMathematics
     showAdvancedSettings: 0
