@@ -3,8 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="00b854ac-d46c-4614-a6fc-8d94181b4cb9" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.AtmRush/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.AtmRush/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/ObstacleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/ObstacleManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/ScoreManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/ScoreManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Plugins/StylizedWater2/_Demo/DemoAssets/Models/SGS_Cliff_LP.OBJ.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/MainScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Managers/CollectableParticleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Managers/CollectableParticleManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,8 +16,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/../../../../../../Repositories/Github/Picker3DOkanHoca/Assets/Scripts/Managers/LevelManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de1f8ef4975b4eacbeb0accc1b22c9b02a000/6d/bd980a9f/DOTween.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/af218701fe324032b521ddd91f13662b13b600/0a/4b96a0fd/Material.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="2BuC8I6DDAQ3bXc1za8EodI52NJ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -74,6 +75,7 @@
       <workItem from="1658419831973" duration="1291000" />
       <workItem from="1658486870187" duration="4906000" />
       <workItem from="1658555883583" duration="154000" />
+      <workItem from="1659858184649" duration="3725000" />
     </task>
     <servers />
   </component>

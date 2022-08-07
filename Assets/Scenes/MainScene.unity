@@ -3079,7 +3079,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       minColor: {r: 1, g: 1, b: 1, a: 1}
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
@@ -4397,7 +4397,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: -2305087399525422191, guid: aa93f0f40ddc5af46a1f6685d4c18101, type: 3}
+    - sprite: {fileID: 21300000, guid: df27390d2f68d864a8d0d907559038cf, type: 3}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -7670,7 +7670,7 @@ MonoBehaviour:
   Data:
     CollectableType: 1
     CollectableParticleSpriteList: []
-  Particle: {fileID: 0}
+  system: {fileID: 0}
 --- !u!1 &3137854944497332936
 GameObject:
   m_ObjectHideFlags: 0
@@ -9361,7 +9361,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e823cd5b5d27c0f4b8256e7c12ee3e6d, type: 2}
+  - {fileID: 2100000, guid: f3f948727d43661409d202f3f40a4ce5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

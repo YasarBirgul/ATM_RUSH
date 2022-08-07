@@ -5,31 +5,31 @@ using Signals;
 using UnityEngine;
 
 namespace Managers
-{ 
+{
     public class CollectableParticleManager : MonoBehaviour
     {
         #region Self Variables
-    
+
         #region Public Variables
-        
+
         public CollectableData Data;
-        
-        public ParticleSystem Particle;
-        
+
+        public ParticleSystem system;
+
         #endregion
-    
+
         #region Serialized Variables
 
         #endregion
-    
+
         #region Private Variables
 
         #endregion
-    
-        #endregion
 
-        #region Event Subscription 
+        #endregion
         
+        #region Event Subscription
+
         private void OnEnable()
         {
             SubscribeEvents();
@@ -46,56 +46,84 @@ namespace Managers
             CollectableSignals.Instance.onObstacleCollision -= OnObstacleCollision;
             CollectableSignals.Instance.onDeposit += OnDeposit;
         }
+
         private void OnDisable()
         {
             UnsubscribeEvents();
         }
+
         #endregion
 
         private void Start()
         {
-            Particle = GetComponent<ParticleSystem>();
+
             Data = GetParticleData();
+            
+           Material particleMaterial = new Material(Shader.Find("Universal Render Pipeline/Unlit"));
+            var go = gameObject;
+            go.transform.Rotate(-90, 45, 0); // Rotate so the system emits upwards.
+            system = go.GetComponent<ParticleSystem>();
+            // go.GetComponent<ParticleSystemRenderer>().material = particleMaterial;
+            var mainModule = system.main;
+            mainModule.gravityModifier = 0;
+            mainModule.loop = false;
+            mainModule.startSize = 0.5f;
+            mainModule.maxParticles = 10;
+
+            // Every 2 secs we will emit.
         }
 
-        private CollectableData GetParticleData() =>
-            Resources.Load<CD_Collectable>("Data/CD_Collectable").CollectableData;
-
+        public CollectableData GetParticleData() => Resources.Load<CD_Collectable>("Data/CD_Collectable").CollectableData;
+        
+    
          private void OnObstacleCollision(GameObject CollidedActiveObject,int stackedCollectablesIndex)
         {
              
             transform.position = CollidedActiveObject.GetComponent<Collider>().transform.position;
-            var ColObjStateData = CollidedActiveObject.GetComponent<CollectableManager>().StateData; 
+            var ColObjStateData = CollidedActiveObject.GetComponent<CollectableManager>().StateData;
             int ParticleOrder = (int)ColObjStateData;
-              var particleSprite = Data.CollectableParticleSpriteList[ParticleOrder].CollectanbleParticals;
-              
+            var particleSprite = Data.CollectableParticleSpriteList[ParticleOrder].CollectanbleParticals;
+
               if (ColObjStateData == CollectableType.Money)
               {
-                   Particle.textureSheetAnimation.SetSprite(0, particleSprite);
-                   Particle.Play();
+                  system.textureSheetAnimation.SetSprite(0,particleSprite);
+                  
+                  DoEmit();
               }
               if (ColObjStateData == CollectableType.Gold)
               {
-                   Particle.textureSheetAnimation.SetSprite(0, particleSprite);
-                   Particle.Play();
+                  system.textureSheetAnimation.SetSprite(0,particleSprite);
+                  
+                 DoEmit();
+                  
               }
               if (ColObjStateData == CollectableType.Diamond)
               {
-                   Particle.textureSheetAnimation.SetSprite(0, particleSprite);
-                   Particle.Play();
-              }  
-            
+                  system.textureSheetAnimation.SetSprite(0,particleSprite);
+                  
+                  DoEmit();
+              }
         }
          private void OnDeposit(GameObject CollidedActiveObject,int ID)
          {
-             transform.position = CollidedActiveObject.GetComponent<Collider>().transform.position;
              var particleSprite = Data.CollectableParticleSpriteList[0].CollectanbleParticals;
              
              if (CollidedActiveObject.CompareTag("Collected"))
              {
-                 Particle.textureSheetAnimation.SetSprite(0, particleSprite);
-                 Particle.Play();
+                 system.textureSheetAnimation.SetSprite(0,particleSprite);
+                 
+                 transform.position = CollidedActiveObject.GetComponent<Collider>().transform.position;
+               
+                 DoEmit();
              }
+         }
+
+         void DoEmit()
+         {
+             var emitParams = new ParticleSystem.EmitParams();
+             emitParams.startSize = 1f;
+             system.Emit(emitParams, 10);
+             system.Play();
          }
     }
 }
