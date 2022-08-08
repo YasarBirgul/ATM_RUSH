@@ -68,13 +68,20 @@ namespace Managers
         {
             Material particleMaterial = new Material(Shader.Find("Universal Render Pipeline/Particles/Unlit"));
             
+            
+            Gradient gradient = new Gradient();
+            gradient.SetKeys(
+                new GradientColorKey[] { new GradientColorKey(Color.white, 0.0f), new GradientColorKey(Color.white, 1.0f) },
+                new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(0.0f, 1.0f) }
+            );
+            
             transform.Rotate(0, 0, 0);
             gameObject.GetComponent<ParticleSystemRenderer>().material = particleMaterial;
             
             var mainModule = ParticleSystem.main;
             var textureModule = ParticleSystem.textureSheetAnimation;
             var emissionModule = ParticleSystem.emission;
-            var shapeModule = ParticleSystem.shape;
+            var colorOLTModule = ParticleSystem.colorOverLifetime;
             
             ParticleSystem.Stop();
             mainModule.duration = 0.4f;
@@ -89,9 +96,10 @@ namespace Managers
             textureModule.mode = ParticleSystemAnimationMode.Sprites;
             
             emissionModule.rateOverTime = 0;
-            emissionModule.burstCount = 10;
-            
-            
+            emissionModule.SetBurst(1,new ParticleSystem.Burst(0,10,15,1,0.01f));
+
+            colorOLTModule.enabled = true;
+            colorOLTModule.color = new ParticleSystem.MinMaxGradient(gradient);
         }
 
         public CollectableData GetParticleData() => Resources.Load<CD_Collectable>("Data/CD_Collectable").CollectableData;
