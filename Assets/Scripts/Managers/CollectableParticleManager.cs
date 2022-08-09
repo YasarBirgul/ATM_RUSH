@@ -55,8 +55,6 @@ namespace Managers
         }
 
         #endregion
-
-
         private void Awake()
         {
             Data = GetParticleData();
@@ -67,9 +65,8 @@ namespace Managers
         private void Start()
         {
             Material particleMaterial = new Material(Shader.Find("Universal Render Pipeline/Particles/Unlit"));
-            
-            
             Gradient gradient = new Gradient();
+            
             gradient.SetKeys(
                 new GradientColorKey[] { new GradientColorKey(Color.white, 0.0f), new GradientColorKey(Color.white, 1.0f) },
                 new GradientAlphaKey[] { new GradientAlphaKey(1.0f, 0.0f), new GradientAlphaKey(0.0f, 1.0f) }
@@ -89,7 +86,7 @@ namespace Managers
             mainModule.gravityModifier = 0.7f;
             mainModule.loop = false;
             mainModule.playOnAwake = false;
-            mainModule.startSize = 2f;
+            mainModule.startSize = 1f;
             mainModule.maxParticles = 10;
             
             textureModule.enabled = true;
