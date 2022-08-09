@@ -86,20 +86,21 @@ namespace Managers
             ParticleSystem.Stop();
             mainModule.duration = 0.4f;
             mainModule.startLifetime = 1f;
-            mainModule.gravityModifier = 0.4f;
+            mainModule.gravityModifier = 0.7f;
             mainModule.loop = false;
             mainModule.playOnAwake = false;
-            mainModule.startSize = 0.5f;
+            mainModule.startSize = 2f;
             mainModule.maxParticles = 10;
             
             textureModule.enabled = true;
             textureModule.mode = ParticleSystemAnimationMode.Sprites;
-            
+           
             emissionModule.rateOverTime = 0;
             emissionModule.SetBurst(1,new ParticleSystem.Burst(0,10,15,1,0.01f));
 
             colorOLTModule.enabled = true;
             colorOLTModule.color = new ParticleSystem.MinMaxGradient(gradient);
+            
         }
 
         public CollectableData GetParticleData() => Resources.Load<CD_Collectable>("Data/CD_Collectable").CollectableData;
@@ -108,7 +109,7 @@ namespace Managers
          private void OnObstacleCollision(GameObject CollidedActiveObject,int stackedCollectablesIndex)
         {
              
-            transform.position = CollidedActiveObject.GetComponent<Collider>().transform.position;
+            Vector3 position = CollidedActiveObject.GetComponent<Collider>().transform.position;
             var ColObjStateData = CollidedActiveObject.GetComponent<CollectableManager>().StateData;
             int ParticleOrder = (int)ColObjStateData;
             var particleSprite = Data.CollectableParticleSpriteList[ParticleOrder].CollectanbleParticals;
@@ -117,20 +118,20 @@ namespace Managers
               {
                   ParticleSystem.textureSheetAnimation.SetSprite(0,particleSprite);
                   
-                  DoEmit(particleSprite);
+                  DoEmit(particleSprite,position);
               }
               if (ColObjStateData == CollectableType.Gold)
               {
                   ParticleSystem.textureSheetAnimation.SetSprite(0,particleSprite);
                   
-                 DoEmit(particleSprite);
+                 DoEmit(particleSprite,position);
                   
               }
               if (ColObjStateData == CollectableType.Diamond)
               {
                   ParticleSystem.textureSheetAnimation.SetSprite(0,particleSprite);
                   
-                  DoEmit(particleSprite);
+                  DoEmit(particleSprite,position);
               }
         }
          private void OnDeposit(GameObject CollidedActiveObject,int ID)
@@ -141,18 +142,19 @@ namespace Managers
              {
                  ParticleSystem.textureSheetAnimation.SetSprite(0,particleSprite);
                  
-                 transform.position = CollidedActiveObject.GetComponent<Collider>().transform.position;
-               
-                 DoEmit(particleSprite);
+               Vector3 newPosAtm = CollidedActiveObject.GetComponent<Collider>().transform.position;
+               Vector3 newPos = newPosAtm + new Vector3(0, 0, -4);
+               DoEmit(particleSprite , newPos);
              }
          }
-
-         void DoEmit(Sprite particleSprite)
+         void DoEmit(Sprite particleSprite , Vector3 newPos)
          {
              var TextureParams =  ParticleSystem.textureSheetAnimation;
              var emitParams = new ParticleSystem.EmitParams();
              TextureParams.SetSprite(0,particleSprite);
-             ParticleSystem.Emit(emitParams, 10);
+             emitParams.position = newPos + Vector3.up*2;
+             emitParams.applyShapeToPosition = true;
+             ParticleSystem.Emit(emitParams, 1);
              ParticleSystem.Play();
          }
     }
